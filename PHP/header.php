@@ -1,10 +1,18 @@
+<?php
+include 'functions.php'; //adds functions to namespace
+
+?>
+
 <!DOCTYPE html>
+<style src="/../css/main.css"></style>
 <html lang="en">
-	<head>
-		<meta charset="UTF-8">
-		<title>Document</title>
-	</head>
-	<body>
-	
-	</body>
-</html>
+<!-- close html in footer -->
+
+<header>
+
+
+
+
+</header>
+<body>
+<!-- end header  -->
