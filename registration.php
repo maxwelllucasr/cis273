@@ -4,7 +4,7 @@ include '/PHP/header.php';
 
 <section>
 
-Page 1
+Registration
 
 </section>
 
