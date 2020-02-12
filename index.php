@@ -2,7 +2,7 @@
 include '/PHP/header.php';
 ?>
 
-<section>
+<section class="forum-container">
 
 Index
 
