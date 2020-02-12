@@ -2,7 +2,8 @@
 	</body>
 
 	<footer>
-	
+	<script src="js/animation.js"></script>
+
 	
 	
 	

@@ -1,0 +1,10 @@
+.game-container {
+  background-color: gray;
+  padding: 1rem 0; }
+  .game-container #gameWrapper {
+    height: 600px;
+    width: 800px;
+    border: 1px solid black;
+    background-color: white;
+    display: block;
+    margin: auto; }
