@@ -3,9 +3,9 @@ include 'PHP/header.php';
 ?>
 
 <section>
-
-Registration
-
+    <div class="container">
+    Registration
+    </div>
 </section>
 
 <?php

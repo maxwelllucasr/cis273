@@ -2,10 +2,12 @@
 include 'PHP/header.php';
 ?>
 
-<section>
+<section class="login-container">
+    <div class="container">
 
-Login
+    Login
 
+    </div>
 </section>
 
 <?php

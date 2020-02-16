@@ -3,11 +3,12 @@ include 'PHP/header.php';
 ?>
 
 <section class="forum-container">
+    <div class="container">
 
-Forum
+    Forum
 
 
-
+    </div>
 </section>
 
 <?php

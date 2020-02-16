@@ -1,0 +1,8 @@
+//This file is for general styling, like containers and sections
+
+.container{
+    max-width:1200px; //so it doesnt look terrible at wide viewports
+    margin-left: auto; //leave top and bottom alone
+    margin-right: auto;
+    display:block;
+}

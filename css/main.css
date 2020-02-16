@@ -20,6 +20,12 @@ header {
         color: whitesmoke;
         font-family: 'Arial'; }
 
+.container {
+  max-width: 1200px;
+  margin-left: auto;
+  margin-right: auto;
+  display: block; }
+
 .game-container {
   background-color: gray;
   padding: 5rem 0; }
