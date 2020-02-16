@@ -1,0 +1,36 @@
+header{
+    min-height: 5rem;
+    background-color: $color-2;
+    padding:1rem;
+
+
+    .banner{
+        max-height:5rem;
+        float:left;
+    }
+    nav{
+
+
+        .nav-ul{
+            list-style: none;
+            float:right;
+
+            li{
+                display: inline-block;
+                margin: 0.25rem;
+
+                a{
+
+                    text-decoration:none;
+                    text-transform:uppercase;
+                    background-color:$color-1;
+                    padding: 1rem 2rem;
+                    border-radius: 999px;
+                    color:whitesmoke;
+                    font-family: 'Arial';
+
+                }
+            }
+        }
+    }
+}
