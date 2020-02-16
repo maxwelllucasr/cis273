@@ -1,5 +1,5 @@
 <?php
-include '/PHP/header.php';
+include 'PHP/header.php';
 ?>
 
 <section class="game-container">
@@ -16,5 +16,5 @@ include '/PHP/header.php';
 </section>
 
 <?php
-include '/PHP/footer.php';
+include 'PHP/footer.php';
 ?>
