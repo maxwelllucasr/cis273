@@ -28,3 +28,24 @@ yourObject.draw(ctx);
 
 // ctx.fillStyle = '#1f1';
 // ctx.fillRect(10,10,20,20)
+
+
+canvas=$('#pad')[0]
+        context= canvas.getContext("2d")
+        pendown= false
+        
+        $('#pad').mousemove(function(event)
+            {
+                xpos = event.pageX - canvas.offsetLeft
+                ypos = event.pageY - canvas.offsetTop
+                
+                if(pendown) context.lineTo(xpos, ypos)
+                else        context.moveTo(xpos,  ypos)
+                
+                context.stroke()
+            
+            
+            })
+            
+            $('#pad').mousedown(function() {pendown = true})
+            $('#pad').mouseup(function() {pendown = false})

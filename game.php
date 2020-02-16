@@ -9,6 +9,10 @@ include '/PHP/header.php';
         <h1>HTML5 NOT SUPPORTED</h1>
     </canvas>
 
+    <canvas id="#pad">
+
+    </canvas>
+
 </section>
 
 <?php
