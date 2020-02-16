@@ -4,7 +4,7 @@ include 'PHP/header.php';
 
 <section class="forum-container">
 
-Index
+Forum
 
 
 

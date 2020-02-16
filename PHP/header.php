@@ -14,6 +14,10 @@ include 'functions.php'; //adds functions to namespace
 </head>
 <header>
 
+<a href="game.php">game.php</a>
+<a href="login.php">login.php</a>
+<a href="registration.php">registration.php</a>
+
 
 
 
