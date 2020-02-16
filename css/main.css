@@ -22,7 +22,7 @@ header {
 
 .game-container {
   background-color: gray;
-  padding: 1rem 0; }
+  padding: 5rem 0; }
   .game-container #gameWrapper {
     height: 600px;
     width: 800px;
@@ -33,7 +33,9 @@ header {
   .game-container #pad {
     height: 600px;
     width: 800px;
-    background-color: white; }
+    background-color: white;
+    margin: 1rem auto;
+    display: block; }
 
 footer {
   min-height: 3rem;

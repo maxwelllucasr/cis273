@@ -1,6 +1,6 @@
 .game-container{
 background-color:gray;
-padding:1rem 0;
+padding:5rem 0;
     #gameWrapper{
         height:600px;
         width:800px;
@@ -15,5 +15,7 @@ padding:1rem 0;
         height:600px;
         width:800px;
         background-color:white;
+        margin:1rem auto;
+        display:block;
     }
 }
