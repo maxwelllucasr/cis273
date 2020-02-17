@@ -95,6 +95,7 @@ for(let i = 0; i < numberOfBadGuys; i++){
 
 let lastTime = 0;
 function gameLoop(timestamp){
+  //A delta time is a "time since last event" variable.  We use it in a calculation for updatePosition to maintain consistency.
   let deltaTime = timestamp - lastTime;
   lastTime = timestamp;
 
