@@ -35,6 +35,11 @@ export default class Floater{
         // console.log(fraction(0.5));
 
 
+        //Takes decimal as input, outputs numerator as numAndDem[1] and denominator as numAndDem[2]
+        let decimalSlope = fraction(0.5);
+        let numAndDem = decimalSlope.split('/');
+        
+
 
         // console.log(line.numerator + "/" + line.denominator);
 
