@@ -1,3 +1,5 @@
+import {fraction} from "/cis273/js/frac.js";
+// import {HCF} from '/cis273/js/frac.js';
 
 export default class Floater{
 
@@ -27,6 +29,15 @@ export default class Floater{
     updatePosition(deltaTime){
 
         if (!deltaTime) return;
+
+
+        //fraction function works
+        // console.log(fraction(0.5));
+
+
+
+        // console.log(line.numerator + "/" + line.denominator);
+
         this.position.x += 5 / deltaTime; //bad, fix later
   
     }

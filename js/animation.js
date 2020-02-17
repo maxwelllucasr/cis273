@@ -1,5 +1,6 @@
 import Floater from '/cis273/js/floater.js';
 import '/cis273/js/functions.js';
+// import { fraction } from '/cis273/js/frac.js'; //decimal to fraction
 
 // //constants
 const GAME_WIDTH = 800;
