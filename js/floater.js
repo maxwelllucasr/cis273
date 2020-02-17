@@ -21,10 +21,13 @@ export default class Floater{
         ctx.fillRect(this.position.x, this.position.y, this.width, this.height);
     }
 
-    updatePosition(deltaTime, newXpos, newYpos){
+
+
+
+    updatePosition(deltaTime){
         // while (true){
         if (!deltaTime) return;
-        this.position.x += 5 / deltaTime;
+        this.position.x += 5 / deltaTime; //bad, fix later
         // this.position.y = newYpos;
         // }
     }

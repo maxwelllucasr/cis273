@@ -1,4 +1,5 @@
 import Floater from '/cis273/js/floater.js';
+import '/cis273/js/functions.js';
 
 // //constants
 const GAME_WIDTH = 800;
@@ -99,10 +100,20 @@ function gameLoop(timestamp){
 
   ctx2.clearRect(0,0,800,600);
 
-  thisObject.updatePosition(deltaTime, 50, 50);
+  thisObject.updatePosition(deltaTime);
   thisObject.draw(ctx2);
   
   requestAnimationFrame(gameLoop);
 }
 
 gameLoop();
+
+
+let badGuy = new Array();
+badGuy.push(new Floater(GAME_WIDTH, GAME_HEIGHT));
+
+function addGuy(ctx, xpos, ypos){
+
+
+
+}
