@@ -52,7 +52,7 @@ ctx.fillRect(10,10,20,20)
 //     var canvas = document.getElementById('gameWrapper');
 //   var context = canvas.getContext('2d');
 
-
+//Dont need this
 function writeMessage(canvas, message) {
     var context = canvas.getContext('2d');
     context.clearRect(0, 0, canvas.width, canvas.height);
@@ -61,6 +61,7 @@ function writeMessage(canvas, message) {
     context.fillText(message, 1, 25);
 }
 
+//Need this
   function getMousePos(canvas, evt) {
     var rect = canvas.getBoundingClientRect();
     return {
@@ -69,7 +70,7 @@ function writeMessage(canvas, message) {
     };
   }
 
-  
+  //need this
   canvas.addEventListener('mousemove', function(evt) {
     var mousePos = getMousePos(canvas, evt);
     var message = 'Mouse position: ' + mousePos.x + ',' + mousePos.y;
