@@ -17,6 +17,15 @@ export default class Floater{
 
     //Method takes context object as input and uses object x, y, width and height variables to redraw rectangle
     draw(ctx){
+        // ctx.fillStyle = "#49b526";
         ctx.fillRect(this.position.x, this.position.y, this.width, this.height);
+    }
+
+    updatePosition(deltaTime, newXpos, newYpos){
+        // while (true){
+        if (!deltaTime) return;
+        this.position.x += 5 / deltaTime;
+        // this.position.y = newYpos;
+        // }
     }
 }

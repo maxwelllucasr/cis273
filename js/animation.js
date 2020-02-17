@@ -52,7 +52,7 @@ ctx.fillRect(10,10,20,20)
 //     var canvas = document.getElementById('gameWrapper');
 //   var context = canvas.getContext('2d');
 
-//Dont need this
+//Dont need this, good for demonstration.  Console.log does it just fine
 function writeMessage(canvas, message) {
     var context = canvas.getContext('2d');
     context.clearRect(0, 0, canvas.width, canvas.height);
@@ -79,3 +79,30 @@ function writeMessage(canvas, message) {
     
   }, false);
 
+
+
+
+
+
+
+  let canvas2 = document.getElementById("pad");
+  let ctx2 = canvas2.getContext('2d');
+
+let thisObject = new Floater(GAME_WIDTH,GAME_HEIGHT);
+
+thisObject.draw(ctx2);
+
+let lastTime = 0;
+function gameLoop(timestamp){
+  let deltaTime = timestamp - lastTime;
+  lastTime = timestamp;
+
+  ctx2.clearRect(0,0,800,600);
+
+  thisObject.updatePosition(deltaTime, 50, 50);
+  thisObject.draw(ctx2);
+  
+  requestAnimationFrame(gameLoop);
+}
+
+gameLoop();
