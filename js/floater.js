@@ -25,10 +25,9 @@ export default class Floater{
 
 
     updatePosition(deltaTime){
-        // while (true){
+
         if (!deltaTime) return;
         this.position.x += 5 / deltaTime; //bad, fix later
-        // this.position.y = newYpos;
-        // }
+  
     }
 }

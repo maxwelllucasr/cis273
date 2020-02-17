@@ -7,6 +7,8 @@ const GAME_HEIGHT = 600;
 
 //get the canvas
 let canvas = document.getElementById("gameWrapper");
+//Context works in a fashion similar to elements in Javas Swing.
+//Context is shared by all objects in the canvas.  It must be updated for most actions to the screen
 let ctx = canvas.getContext('2d');
 
 //make objects using floater class
@@ -30,28 +32,6 @@ yourObject.draw(ctx);
 ctx.fillStyle = '#1f1';
 ctx.fillRect(10,10,20,20)
 
-
-// canvas=$('#pad')[0]
-//         context= canvas.getContext("2d")
-//         pendown= false
-        
-//         $('#pad').mousemove(function(event)
-//             {
-//                 xpos = event.pageX - canvas.offsetLeft
-//                 ypos = event.pageY - canvas.offsetTop
-                
-//                 if(pendown) context.lineTo(xpos, ypos)
-//                 else        context.moveTo(xpos,  ypos)
-                
-//                 context.stroke()
-            
-            
-//             })
-            
-//             $('#pad').mousedown(function() {pendown = true})
-//             $('#pad').mouseup(function() {pendown = false})
-//     var canvas = document.getElementById('gameWrapper');
-//   var context = canvas.getContext('2d');
 
 //Dont need this, good for demonstration.  Console.log does it just fine
 function writeMessage(canvas, message) {
