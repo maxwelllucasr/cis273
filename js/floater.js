@@ -50,7 +50,7 @@ export default class Floater{
     //    var slope = null;
   
 
-
+        //This should go somewhere else where it only runs when it needs to
         this.slope = createSlope(10, 550, 10, 150);
         
 
@@ -63,6 +63,7 @@ export default class Floater{
         //rise over run, or y over x.  This would be 1.5 in decimal
 
 
+        //for when denominator is 0
         if(this.slope == "+"){
             rise = -5;
             run = 0;
