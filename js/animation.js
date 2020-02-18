@@ -58,7 +58,7 @@ function writeMessage(canvas, message) {
     var mousePos = getMousePos(canvas, evt);
     var message = 'Mouse position: ' + mousePos.x + ',' + mousePos.y;
     writeMessage(canvas, message);
-    console.log(message);
+    // console.log(message);
     
   }, false);
 

@@ -26,7 +26,7 @@ export function createSlope(x1,x2,y1,y2){
         y = reduced[0];
         x = reduced[1];
 
-        console.log(y, x);
+        // console.log(y, x);
 
         if(x < 0) {
             y = -y;
