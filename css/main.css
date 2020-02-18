@@ -26,6 +26,10 @@ header {
   margin-right: auto;
   display: block; }
 
+.musicplayer {
+  margin: auto;
+  display: block; }
+
 .game-container {
   background-color: gray;
   padding: 5rem 0; }

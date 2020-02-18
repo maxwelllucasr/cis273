@@ -76,9 +76,12 @@ let ctx2 = canvas2.getContext('2d');
 
 let numberOfBadGuys = 5;
 let numberOfTowers = 5;
+let numberOfPathPoints = 5;
 
 let badguy = new Array();
 let tower = new Array();
+let pathPoint = new Array();
+
 
 //this is how to make multiple bad guys...
 
@@ -87,8 +90,30 @@ for (let i = 0; i < numberOfBadGuys; i++){
 }
 
 for (let i = 0; i < numberOfTowers; i++){
-  tower.push(new Static());
+  tower.push(new Static("tower"));
 }
+
+for (let i = 0; i < numberOfPathPoints; i++){
+  pathPoint.push(new Static("path"));
+  pathPoint[i].width = 10;
+  pathPoint[i].height = 10;
+  pathPoint[i].position.x = i * 20 + 30;
+}
+
+pathPoint[0].position.x = 600;
+pathPoint[0].position.y = 100;
+
+pathPoint[1].position.x = 600;
+pathPoint[1].position.y = 500;
+
+pathPoint[2].position.x = 200;
+pathPoint[2].position.y = 500;
+
+pathPoint[3].position.x = 100;
+pathPoint[3].position.y = 400;
+
+pathPoint[4].position.x = 400;
+pathPoint[4].position.y = 300;
 
 
 badguy[1].position.x = 130;
@@ -158,16 +183,24 @@ function gameLoop(timestamp){
   
   //Update changes xy coordinates
   for(let i = 0; i < numberOfBadGuys; i++){
-    badguy[i].updatePosition(deltaTime);
+    badguy[i].updatePosition(deltaTime, pathPoint);
   }
   //Draw redraws the object... 
   for(let i = 0; i < numberOfBadGuys; i++){
     badguy[i].draw(ctx2);
   }
 
+  ctx2.fillStyle = "#ff0000";
+
   for(let i = 0; i < numberOfTowers; i++){
     tower[i].draw(ctx2);
   }
+
+  ctx2.fillStyle = "#0000ff";
+  for(let i = 0; i < numberOfPathPoints; i++){
+    pathPoint[i].draw(ctx2);
+  }
+  ctx2.fillStyle = "#000000";
   //This is calling gameloop and passing the timestamp to it, basically.  Integral to the gameloop.
   requestAnimationFrame(gameLoop); 
 }

@@ -1,13 +1,14 @@
 export default class Static{
 
 
-    constructor(){
+    constructor(type){
         this.position = {
             x : 500,
             y : 500
         }
         this.height = 50;
         this.width  = 50;
+        this.type = type;
 
 
 

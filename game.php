@@ -14,7 +14,21 @@ include 'PHP/header.php';
         </canvas>
 
     </div>
+
+    <audio controls class="musicplayer">
+      <source src="media/lifeanddeath.mp3">
+    </audio>
+
+
+
+
+
+
+
+
 </section>
+
+
 
 <?php
 include 'PHP/footer.php';

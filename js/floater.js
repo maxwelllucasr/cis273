@@ -10,6 +10,7 @@ export default class Floater{
         this.height = 100;
         this.type = type;
         this.slope = null;
+        this.currentHeading = 4;  //points to xy coordinates in pathPoint
 
         //default position for new class
         this.position = {
@@ -28,7 +29,7 @@ export default class Floater{
 
 
 
-    updatePosition(deltaTime){
+    updatePosition(deltaTime, pathPoint){
 
         if (!deltaTime) return;
 
@@ -49,9 +50,12 @@ export default class Floater{
        //x1, x2, y1, y2
     //    var slope = null;
   
+        let xHeading = pathPoint[this.currentHeading].position.x;
+        let yHeading = pathPoint[this.currentHeading].position.y;
+
 
         //This should go somewhere else where it only runs when it needs to
-        this.slope = createSlope(10, 550, 10, 150);
+        this.slope = createSlope(10, xHeading, 10, yHeading);
         
 
         var rise, run;
