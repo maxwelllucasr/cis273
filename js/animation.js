@@ -1,4 +1,5 @@
 import Floater from '/cis273/js/floater.js';
+import Static from '/cis273/js/static.js';
 import '/cis273/js/functions.js';
 // import { fraction } from '/cis273/js/frac.js'; //decimal to fraction
 
@@ -74,19 +75,65 @@ let canvas2 = document.getElementById("pad");
 let ctx2 = canvas2.getContext('2d');
 
 let numberOfBadGuys = 5;
+let numberOfTowers = 5;
 
 let badguy = new Array();
+let tower = new Array();
 
 //this is how to make multiple bad guys...
 
 for (let i = 0; i < numberOfBadGuys; i++){
-  badguy.push(new Floater(GAME_WIDTH,GAME_HEIGHT));
+  badguy.push(new Floater(GAME_WIDTH,GAME_HEIGHT,"bad"));
 }
 
-badguy[1].position.x = 200;
+for (let i = 0; i < numberOfTowers; i++){
+  tower.push(new Static());
+}
+
+
+badguy[1].position.x = 130;
 badguy[1].position.y = 30;
 badguy[1].width = 10;
 badguy[1].height = 10;
+badguy[2].position.x = 150;
+badguy[2].position.y = 30;
+badguy[2].width = 10;
+badguy[2].height = 10;
+badguy[3].position.x = 170;
+badguy[3].position.y = 30;
+badguy[3].width = 10;
+badguy[3].height = 10;
+badguy[4].position.x = 110;
+badguy[4].position.y = 30;
+badguy[4].width = 10;
+badguy[4].height = 10;
+badguy[0].position.x = 90;
+badguy[0].position.y = 30;
+badguy[0].width = 10;
+badguy[0].height = 10;
+
+tower[0].position.x = 20;
+tower[0].position.y = 300;
+tower[0].width = 50;
+tower[0].height = 50;
+tower[1].position.x = 80;
+tower[1].position.y = 300;
+tower[1].width = 50;
+tower[1].height = 50;
+tower[2].position.x = 140;
+tower[2].position.y = 300;
+tower[2].width = 50;
+tower[2].height = 50;
+tower[3].position.x = 200;
+tower[3].position.y = 300;
+tower[3].width = 50;
+tower[3].height = 50;
+tower[4].position.x = 260;
+tower[4].position.y = 300;
+tower[4].width = 50;
+tower[4].height = 50;
+
+
 console.log(badguy[1]);
 console.log(badguy[2]);
 
@@ -118,6 +165,9 @@ function gameLoop(timestamp){
     badguy[i].draw(ctx2);
   }
 
+  for(let i = 0; i < numberOfTowers; i++){
+    tower[i].draw(ctx2);
+  }
   //This is calling gameloop and passing the timestamp to it, basically.  Integral to the gameloop.
   requestAnimationFrame(gameLoop); 
 }
@@ -125,11 +175,11 @@ function gameLoop(timestamp){
 gameLoop();
 
 
-let badGuy = new Array();
-badGuy.push(new Floater(GAME_WIDTH, GAME_HEIGHT));
+// let badGuy = new Array();
+// badGuy.push(new Floater(GAME_WIDTH, GAME_HEIGHT));
 
-function addGuy(ctx, xpos, ypos){
+// function addGuy(ctx, xpos, ypos){
 
 
 
-}
+// }

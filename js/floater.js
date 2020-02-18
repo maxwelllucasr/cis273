@@ -4,11 +4,12 @@ import {createSlope} from '/cis273/js/functions.js';
 
 export default class Floater{
 
-    constructor(gameWidth, gameHeight){
+    constructor(gameWidth, gameHeight, type){
         //default height/width for new block
         this.width = 100;
         this.height = 100;
-
+        this.type = type;
+        this.slope = null;
 
         //default position for new class
         this.position = {
@@ -48,18 +49,20 @@ export default class Floater{
        //x1, x2, y1, y2
     //    var slope = null;
   
-        let slope = createSlope(10, 40, 20, 10);
+
+
+        this.slope = createSlope(10, 40, 20, 10);
         
 
-       
+        
 
     //    console.log(slope);
 
         // rise and run not only determine the angle, but the speed.
         //For testing purposes
         //rise over run, or y over x.  This would be 1.5 in decimal
-        let rise = slope[0]; //y
-        let run = slope[1]; //x
+        let rise = this.slope[0]; //y
+        let run = this.slope[1]; //x
 
        
         this.position.x += run / deltaTime;
