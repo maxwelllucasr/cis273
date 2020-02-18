@@ -83,7 +83,7 @@ let tower = new Array();
 //this is how to make multiple bad guys...
 
 for (let i = 0; i < numberOfBadGuys; i++){
-  badguy.push(new Floater(GAME_WIDTH,GAME_HEIGHT,"bad"));
+  badguy.push(new Floater(GAME_WIDTH,GAME_HEIGHT,"badguy"));
 }
 
 for (let i = 0; i < numberOfTowers; i++){

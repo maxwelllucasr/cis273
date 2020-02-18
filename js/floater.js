@@ -51,21 +51,38 @@ export default class Floater{
   
 
 
-        this.slope = createSlope(10, 40, 20, 10);
+        this.slope = createSlope(10, 550, 10, 150);
         
 
-        
+        var rise, run;
 
     //    console.log(slope);
 
         // rise and run not only determine the angle, but the speed.
         //For testing purposes
         //rise over run, or y over x.  This would be 1.5 in decimal
-        let rise = this.slope[0]; //y
-        let run = this.slope[1]; //x
 
+
+        if(this.slope == "+"){
+            rise = -5;
+            run = 0;
+            console.log("up");
+        }
+        else if (this.slope == "-"){
+            rise = 5;
+            run = 0;
+            console.log("down");
+
+        }
+        else{
+            rise = this.slope[0]; //y
+            run = this.slope[1]; //x
+        }
        
-        this.position.x += run / deltaTime;
-        this.position.y += rise / deltaTime;
+        let newXpos = run / deltaTime;
+        let newYpos = rise / deltaTime;
+
+        this.position.x += newXpos;
+        this.position.y += newYpos;
     }
 }

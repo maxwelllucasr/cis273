@@ -1,8 +1,11 @@
 
 export function createSlope(x1,x2,y1,y2){
 
-    if ((x2-x1) == 0)
-        return null;
+    if ((x2-x1) == 0 && (y2-y1) > 0)
+        return "+";
+
+    else if ((x2-x1) == 0 && (y2-y1) < 0)
+        return "-";
     else{
         let y = y2-y1;
         let x = x2-x1;
