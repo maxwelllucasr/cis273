@@ -11,6 +11,7 @@ export default class Floater{
         this.type = type;
         this.slope = null;
         this.currentHeading = 4;  //points to xy coordinates in pathPoint
+        this.speed = 1; 
 
         //default position for new class
         this.position = {
@@ -84,8 +85,25 @@ export default class Floater{
             run = this.slope[1]; //x
         }
        
+
         let newXpos = run / deltaTime;
         let newYpos = rise / deltaTime;
+
+        // console.log(newXpos, newYpos);
+
+
+
+        //this governs the speed by adding total movement between x and y
+        //and dividing by this.speed.
+        //Then, taking that quotient and dividing both new x and new y by it.
+        //The results are newX and newY that have a sum of this.speed.
+
+        let totalSpeed = newXpos + newYpos;
+         totalSpeed = totalSpeed / this.speed;
+
+         newXpos = newXpos / totalSpeed;
+         newYpos = newYpos / totalSpeed;
+
 
         this.position.x += newXpos;
         this.position.y += newYpos;
