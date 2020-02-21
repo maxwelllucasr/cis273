@@ -1,4 +1,3 @@
-import {fraction} from "/cis273/js/frac.js";
 // import {HCF} from '/cis273/js/frac.js';
 import {createSlope} from '/cis273/js/functions.js';
 
