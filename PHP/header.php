@@ -14,7 +14,7 @@ include 'functions.php'; //adds functions to namespace
 </head>
 <header>
     <div class="container">
-    <img class="banner" src="images/wider.png">
+    <img class="banner" src="images/Wider.png">
 
 
     <nav>
