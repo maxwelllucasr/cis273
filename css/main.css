@@ -20,7 +20,9 @@ header {
         padding: 1rem 2rem;
         border-radius: 999px;
         color: whitesmoke;
-        font-family: 'Arial'; }
+        font-family: 'Arial';
+        font-weight: bold;
+        box-shadow: 2px 2px 4px black; }
 
 .container {
   max-width: 1200px;
