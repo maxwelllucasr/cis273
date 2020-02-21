@@ -26,7 +26,7 @@ include 'functions.php'; //adds functions to namespace
 
     </ul>
     </nav>
-
+ 
 
     </div>
 </header>
