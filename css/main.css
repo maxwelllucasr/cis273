@@ -4,7 +4,9 @@ header {
   padding: 1rem; }
   header .banner {
     max-height: 5rem;
-    float: left; }
+    float: left;
+    border-radius: 5px;
+    box-shadow: 1px 1px 4px black; }
   header nav .nav-ul {
     list-style: none;
     float: right; }
