@@ -1,6 +1,6 @@
-import Floater from '/cis273/js/floater.js';
-import Static from '/cis273/js/static.js';
-import '/cis273/js/functions.js';
+import Floater from './floater.js';
+import Static from './static.js';
+import './functions.js';
 // import { fraction } from '/cis273/js/frac.js'; //decimal to fraction
 
 // //constants

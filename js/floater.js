@@ -1,5 +1,5 @@
 // import {HCF} from '/cis273/js/frac.js';
-import {createSlope} from '/cis273/js/functions.js';
+import {createSlope} from './functions.js';
 
 export default class Floater{
 
