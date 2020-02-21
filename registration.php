@@ -7,7 +7,7 @@ include 'PHP/header.php';
 
     	<h1 class="page-header">Register</h1>
 
-			<form action="verify.php" method = "post" autocomplete = "off">
+			<form class="registration-form" action="verify.php" method = "post" autocomplete = "off">
 
 				<input class="registration-field" type = "text" placeholder = "Username" name = "user" id="user" required>
 
@@ -17,7 +17,7 @@ include 'PHP/header.php';
 
 				<input class="registration-field" type = "email" name = "email" placeholder = "Email">
 
-				<input type = "submit" value = "Register">
+				<input class="registration-submit" type = "submit" value = "Register">
 
     </div>
 </section>
