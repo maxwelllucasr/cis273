@@ -6,8 +6,10 @@ include 'PHP/header.php';
 ?>
 <section class="forum-container">
     <div class="container">
+		<h1 class="page-header">Forum</h1>
+
 		<form action="forum.php" method="post">
-			Forum
+			
 			<input type="text" name="forumpost"/>
 			<input type="submit" value="Submit"/>
 		</form>

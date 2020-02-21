@@ -5,7 +5,7 @@ include 'PHP/header.php';
 <section class="login-container">
     <div class="container">
 
-    	<h1>Login</h1>
+    	<h1 class="page-header">Login</h1>
 
 		<form action="verify.php" method = "post">
 

@@ -3,19 +3,19 @@ include 'PHP/header.php';
 ?>
 
 <section>
-    <div class="container">
+    <div class="container registration-container">
 
-    	<h1>Register</h1>
+    	<h1 class="page-header">Register</h1>
 
 			<form action="verify.php" method = "post" autocomplete = "off">
 
-				<input type = "text" placeholder = "Username" name = "user" id="user" required>
+				<input class="registration-field" type = "text" placeholder = "Username" name = "user" id="user" required>
 
-				<input type = "text" placeholder = "Password" name = "pass" id="pass" required>
+				<input class="registration-field" type = "text" placeholder = "Password" name = "pass" id="pass" required>
 
-				<input type = "text" placeholder = "Retype Password" name = "pass2" id="pass2" required>
+				<input class="registration-field" type = "text" placeholder = "Retype Password" name = "pass2" id="pass2" required>
 
-				<input type = "email" name = "email" placeholder = "johnnyappleseed123@gmail.com">
+				<input class="registration-field" type = "email" name = "email" placeholder = "Email">
 
 				<input type = "submit" value = "Register">
 

@@ -32,6 +32,14 @@ header {
   margin: auto;
   display: block; }
 
+.page-header {
+  font-family: arial;
+  text-transform: uppercase;
+  width: 100%;
+  background-color: gray;
+  padding: 1rem;
+  border-radius: 10px; }
+
 .game-container {
   background-color: gray;
   padding: 5rem 0; }
@@ -49,6 +57,14 @@ header {
     margin: 1rem auto;
     display: block; }
 
+.registration-container .registration-field {
+  display: block;
+  margin: 0.5rem 0;
+  border-radius: 5px;
+  width: 20%;
+  height: 2rem;
+  padding: 0 0 0 1rem; }
+
 footer {
   min-height: 3rem;
   background-color: #823a51;
@@ -59,3 +75,5 @@ footer {
     text-align: center;
     margin-bottom: 1rem;
     color: #d6c6b1; }
+
+/*# sourceMappingURL=main.css.map */
