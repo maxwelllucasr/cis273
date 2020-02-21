@@ -9,9 +9,9 @@ include 'PHP/header.php';
 
 		<form class="login-form" action="verify.php" method = "post">
 
-			<input type = "text" placeholder = "Username" name = "user" id="user" required>
+			<input class="login-field" type = "text" placeholder = "Username" name = "user" id="user" required>
 
-			<input type = "text" placeholder = "Password" name = "pass" id="pass" required>
+			<input class="login-field" type = "text" placeholder = "Password" name = "pass" id="pass" required>
 			
 			<input class="login-submit" type = "submit" value = "Login">
 
