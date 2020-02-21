@@ -7,12 +7,14 @@ include 'PHP/header.php';
 
     	<h1 class="page-header">Login</h1>
 
-		<form action="verify.php" method = "post">
+		<form class="login-form" action="verify.php" method = "post">
 
 			<input type = "text" placeholder = "Username" name = "user" id="user" required>
 
 			<input type = "text" placeholder = "Password" name = "pass" id="pass" required>
 			
+			<input class="login-submit" type = "submit" value = "Login">
+
 		</form>
 	
     </div>

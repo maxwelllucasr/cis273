@@ -1,0 +1,25 @@
+.login-container{
+
+.login-form{
+    background-color: $color-1;
+    width: 20%;
+    border-radius: 5px;
+    margin: 1rem;
+    padding: 1rem;
+}
+
+    #user, #pass{
+        display:block;
+        margin: 0.5rem auto;
+        border-radius:3px;
+        text-align:center;
+        width:80%;
+    }
+
+    .login-submit{
+        margin:auto;
+        display:block;
+        border-radius:2px;
+        margin-top:1rem;
+    }
+}
