@@ -9,6 +9,7 @@ export default class Static{
         this.height = 50;
         this.width  = 50;
         this.type = type;
+        this.activeProjectile = false;
 
 
 

@@ -1,7 +1,7 @@
 import Floater from './floater.js';
 import Static from './static.js';
 import './functions.js';
-import {distance} from './functions.js';
+import {distance, createSlope} from './functions.js';
 
 // import { fraction } from '/cis273/js/frac.js'; //decimal to fraction
 
@@ -195,9 +195,20 @@ function gameLoop(timestamp){
   for (let i = 0; i < numberOfTowers; i++){
     for (let j = 0; j < numberOfBadGuys; j++){
 
-    //  if (distance(tower[i].position.x, badguy[j].position.x, tower[i].position.y, badguy[j].position.y) < towerProximity) 
+     if (distance(tower[i].position.x, badguy[j].position.x, tower[i].position.y, badguy[j].position.y) < towerProximity) 
+     {
         // console.log("Bad guy "+j+" is within Tower " + i + "'s proximity!");
       // throw new Error("my error message");
+
+      if (!tower[i].activeProjectile){
+        let projectileSlope = createSlope(tower[i].position.x, badguy[j].position.x, tower[i].position.y, badguy[j].position.y)
+        projectile.push(new Floater(GAME_WIDTH,GAME_HEIGHT, "projectile", projectileSlope ))
+      }
+      // console.log("shot!")
+
+      tower[i].activeProjectile = true;
+
+     }
     }
   }
 
@@ -211,7 +222,7 @@ function gameLoop(timestamp){
         // console.log("Bad guy "+j+" is within Path Point " + i + "'s proximity!");
              
         badguy[j].currentHeading = badguy[j].currentHeading + 1;
-        console.log("badguy[j].currentHeading");
+        // console.log("badguy[j].currentHeading");
         
         // throw new Error("my error message");
 
@@ -228,6 +239,17 @@ function gameLoop(timestamp){
   //Draw redraws the object... 
   for(let i = 0; i < numberOfBadGuys; i++){
     badguy[i].draw(ctx2);
+  }
+
+   //Update changes xy coordinates
+   for(let i = 0; i < projectile.length; i++){
+    projectile[i].updatePosition(deltaTime, pathPoint);
+  }
+
+  ctx2.fillStyle = "#999999";
+  //Draw redraws the object... 
+  for(let i = 0; i < projectile.length; i++){
+    projectile[i].draw(ctx2);
   }
 
   ctx2.fillStyle = "#ff0000";

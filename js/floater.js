@@ -3,14 +3,25 @@ import {createSlope} from './functions.js';
 
 export default class Floater{
 
-    constructor(gameWidth, gameHeight, type){
+    constructor(gameWidth, gameHeight, type, projectileSlope){
         //default height/width for new block
+        
+        if (type == "projectile") {
+        this.slope = projectileSlope;
+        this.width = 20;
+        this.height = 20;
+        
+        }
+        else{
         this.width = 100;
         this.height = 100;
-        this.type = type;
         this.slope = null;
+
+        }
+        this.type = type;
         this.currentHeading = 1;  //points to xy coordinates in pathPoint
         this.speed = 1; 
+        
 
         //default position for new class
         this.position = {
@@ -57,7 +68,7 @@ export default class Floater{
         let yHeadingStart = pathPoint[this.currentHeading-1].position.y;
 
         //This should go somewhere else where it only runs when it needs to
-        this.slope = createSlope(xHeadingStart, xHeading, yHeadingStart, yHeading);
+        if (this.type != "projectile") this.slope = createSlope(xHeadingStart, xHeading, yHeadingStart, yHeading);
             // console.log(xHeadingStart, xHeading, yHeadingStart, yHeading)
 
         var rise, run, upflag = false, downflag = false;
@@ -114,7 +125,7 @@ export default class Floater{
         }
         // newXpos = -1;
 
-        console.log(newXpos + ' space ' + newYpos);
+        // if (this.type == "projectile") console.log(newXpos + ' space ' + newYpos);
 
 
 
