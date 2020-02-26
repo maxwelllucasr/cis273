@@ -203,6 +203,11 @@ function gameLoop(timestamp){
       if (!tower[i].activeProjectile){
         let projectileSlope = createSlope(tower[i].position.x, badguy[j].position.x, tower[i].position.y, badguy[j].position.y)
         projectile.push(new Floater(GAME_WIDTH,GAME_HEIGHT, "projectile", projectileSlope ))
+        //find most recent
+        projectile[projectile.length - 1].position.x = tower[i].position.x;
+        projectile[projectile.length - 1].position.y = tower[i].position.y;
+
+  
       }
       // console.log("shot!")
 

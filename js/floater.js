@@ -6,19 +6,18 @@ export default class Floater{
     constructor(gameWidth, gameHeight, type, projectileSlope){
         //default height/width for new block
         
-        if (type == "projectile") {
-        this.slope = projectileSlope;
-        this.width = 20;
-        this.height = 20;
-        
-        }
+        this.type = type;
+            if (type == "projectile") {
+                this.slope = projectileSlope;
+                this.width = 20;
+                this.height = 20;
+            }
         else{
-        this.width = 100;
-        this.height = 100;
-        this.slope = null;
+            this.width = 100;
+            this.height = 100;
+            this.slope = null;
 
         }
-        this.type = type;
         this.currentHeading = 1;  //points to xy coordinates in pathPoint
         this.speed = 1; 
         
