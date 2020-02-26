@@ -80,7 +80,7 @@ let numberOfBadGuys = 5;
 let numberOfTowers = 5;
 let numberOfPathPoints = 5;
 let towerProximity = 150;
-let pathPointProximity = 10;
+let pathPointProximity = 100;
 
 let badguy = new Array();
 let projectile = new Array();
@@ -105,8 +105,8 @@ for (let i = 0; i < numberOfPathPoints; i++){
   pathPoint[i].position.x = i * 20 + 30;
 }
 
-pathPoint[0].position.x = 600;
-pathPoint[0].position.y = 100;
+pathPoint[0].position.x = 300;
+pathPoint[0].position.y = 300;
 
 pathPoint[1].position.x = 600;
 pathPoint[1].position.y = 500;
@@ -206,7 +206,7 @@ function gameLoop(timestamp){
         // console.log("Bad guy "+j+" is within Path Point " + i + "'s proximity!");
              
         badguy[j].currentHeading = badguy[j].currentHeading + 1;
-        console.log(badguy[j].currentHeading);
+        console.log("badguy[j].currentHeading");
         
         // throw new Error("my error message");
 

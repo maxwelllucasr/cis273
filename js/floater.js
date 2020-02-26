@@ -103,11 +103,12 @@ export default class Floater{
 
         if (upflag){
             newXpos = 0;
-            newYpos = Math.abs(this.speed);
+            //negative is technically up
+            newYpos = -Math.abs(this.speed);
         }
         else if(downflag){
             newXpos = 0;
-            newYpos = -Math.abs(this.speed);
+            newYpos = Math.abs(this.speed);
         }
 
         this.position.x += newXpos;
