@@ -10,6 +10,7 @@ export function createSlope(x1,x2,y1,y2){
         let y = y2-y1;
         let x = x2-x1;
 
+
         //Using this (somenumber/10^length-1) to reformat extreme numerators and denomiators to something in the 1-10 range.
         
         // console.log(y.toString().length);
@@ -29,12 +30,15 @@ export function createSlope(x1,x2,y1,y2){
         y = reduced[0];
         x = reduced[1];
 
+        // if (x2 < x1) x = -Math.abs(x);
+
+
         // console.log(y, x);
 
-        if(x < 0) {
-            y = -y;
-            x = -x;
-        }
+        // if(y <= 0) {
+        //     y = y;
+        //     x = -Math.abs(x);
+        // }
 
         return Array(y, x);
 

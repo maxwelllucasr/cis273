@@ -80,7 +80,7 @@ let numberOfBadGuys = 5;
 let numberOfTowers = 5;
 let numberOfPathPoints = 5;
 let towerProximity = 150;
-let pathPointProximity = 100;
+let pathPointProximity = 50;
 
 let badguy = new Array();
 let projectile = new Array();

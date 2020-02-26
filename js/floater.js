@@ -62,7 +62,7 @@ export default class Floater{
 
         var rise, run, upflag = false, downflag = false;
 
-    //    console.log(slope);
+    //    console.log(this.slope);
 
         // rise and run not only determine the angle, but the speed.
         //For testing purposes
@@ -81,6 +81,8 @@ export default class Floater{
             rise = this.slope[0]; //y
             run = this.slope[1]; //x
         }
+
+        // console.log(rise, run)
        
 
         let newXpos = run / deltaTime;
@@ -110,6 +112,13 @@ export default class Floater{
             newXpos = 0;
             newYpos = Math.abs(this.speed);
         }
+        // newXpos = -1;
+
+        console.log(newXpos + ' space ' + newYpos);
+
+
+
+        if(pathPoint[this.currentHeading].position.x < pathPoint[this.currentHeading-1].position.x) newXpos = -Math.abs(newXpos)
 
         this.position.x += newXpos;
         this.position.y += newYpos;
