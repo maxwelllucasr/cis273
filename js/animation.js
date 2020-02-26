@@ -1,6 +1,8 @@
 import Floater from './floater.js';
 import Static from './static.js';
 import './functions.js';
+import {distance} from './functions.js';
+
 // import { fraction } from '/cis273/js/frac.js'; //decimal to fraction
 
 // //constants
@@ -77,8 +79,10 @@ let ctx2 = canvas2.getContext('2d');
 let numberOfBadGuys = 5;
 let numberOfTowers = 5;
 let numberOfPathPoints = 5;
+let triggerProximity = 75;
 
 let badguy = new Array();
+let projectile = new Array();
 let tower = new Array();
 let pathPoint = new Array();
 
@@ -159,8 +163,8 @@ tower[4].width = 50;
 tower[4].height = 50;
 
 
-console.log(badguy[1]);
-console.log(badguy[2]);
+// console.log(badguy[1]);
+// console.log(badguy[2]);
 
 for(let i = 0; i < numberOfBadGuys; i++){
   badguy[i].draw(ctx2);
@@ -180,7 +184,27 @@ function gameLoop(timestamp){
 
   //Before we can update the xy coordinates, we need to find the line of each of the floaters.
 
-  
+  for (let i = 0; i < numberOfTowers; i++){
+    for (let j = 0; j < numberOfBadGuys; j++){
+
+    
+      distance(tower[i].position.x, badguy[j].position.x, tower[i].position.y, badguy[j].position.y);
+
+
+
+
+      throw new Error("my error message");
+
+
+
+    }
+  }
+
+
+
+
+
+
   //Update changes xy coordinates
   for(let i = 0; i < numberOfBadGuys; i++){
     badguy[i].updatePosition(deltaTime, pathPoint);
