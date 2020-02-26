@@ -50,7 +50,6 @@ function reduce(numerator,denominator){
   }
 
   export function distance(x1, x2, y1, y2){
-    let var1 = Math.sqrt(Math.pow((x2-x1),2)+Math.pow((y2-y1),2));
-    let var2 = "sup";
-    console.log(var2.concat(var1));
+    return Math.sqrt(Math.pow((x2-x1),2)+Math.pow((y2-y1),2));
+   
   }

@@ -9,7 +9,7 @@ export default class Floater{
         this.height = 100;
         this.type = type;
         this.slope = null;
-        this.currentHeading = 4;  //points to xy coordinates in pathPoint
+        this.currentHeading = 1;  //points to xy coordinates in pathPoint
         this.speed = 1; 
 
         //default position for new class
@@ -53,12 +53,14 @@ export default class Floater{
         let xHeading = pathPoint[this.currentHeading].position.x;
         let yHeading = pathPoint[this.currentHeading].position.y;
 
+        let xHeadingStart = pathPoint[this.currentHeading-1].position.x;
+        let yHeadingStart = pathPoint[this.currentHeading-1].position.y;
 
         //This should go somewhere else where it only runs when it needs to
-        this.slope = createSlope(10, xHeading, 10, yHeading);
-        
+        this.slope = createSlope(xHeadingStart, xHeading, yHeadingStart, yHeading);
+            // console.log(xHeadingStart, xHeading, yHeadingStart, yHeading)
 
-        var rise, run;
+        var rise, run, upflag = false, downflag = false;
 
     //    console.log(slope);
 
@@ -69,15 +71,11 @@ export default class Floater{
 
         //for when denominator is 0
         if(this.slope == "+"){
-            rise = -5;
-            run = 0;
-            console.log("up");
+            upflag = true;
+            console.log("up")
         }
         else if (this.slope == "-"){
-            rise = 5;
-            run = 0;
-            console.log("down");
-
+            downflag = true;
         }
         else{
             rise = this.slope[0]; //y
@@ -103,6 +101,14 @@ export default class Floater{
          newXpos = newXpos / totalSpeed;
          newYpos = newYpos / totalSpeed;
 
+        if (upflag){
+            newXpos = 0;
+            newYpos = Math.abs(this.speed);
+        }
+        else if(downflag){
+            newXpos = 0;
+            newYpos = -Math.abs(this.speed);
+        }
 
         this.position.x += newXpos;
         this.position.y += newYpos;

@@ -79,7 +79,8 @@ let ctx2 = canvas2.getContext('2d');
 let numberOfBadGuys = 5;
 let numberOfTowers = 5;
 let numberOfPathPoints = 5;
-let triggerProximity = 75;
+let towerProximity = 150;
+let pathPointProximity = 10;
 
 let badguy = new Array();
 let projectile = new Array();
@@ -113,31 +114,31 @@ pathPoint[1].position.y = 500;
 pathPoint[2].position.x = 200;
 pathPoint[2].position.y = 500;
 
-pathPoint[3].position.x = 100;
+pathPoint[3].position.x = 200;
 pathPoint[3].position.y = 400;
 
 pathPoint[4].position.x = 400;
 pathPoint[4].position.y = 300;
 
 
-badguy[1].position.x = 130;
-badguy[1].position.y = 30;
+badguy[1].position.x = 200;
+badguy[1].position.y = 300;
 badguy[1].width = 10;
 badguy[1].height = 10;
-badguy[2].position.x = 150;
-badguy[2].position.y = 30;
+badguy[2].position.x = 300;
+badguy[2].position.y = 300;
 badguy[2].width = 10;
 badguy[2].height = 10;
 badguy[3].position.x = 170;
-badguy[3].position.y = 30;
+badguy[3].position.y = 300;
 badguy[3].width = 10;
 badguy[3].height = 10;
-badguy[4].position.x = 110;
-badguy[4].position.y = 30;
+badguy[4].position.x = 250;
+badguy[4].position.y = 300;
 badguy[4].width = 10;
 badguy[4].height = 10;
-badguy[0].position.x = 90;
-badguy[0].position.y = 30;
+badguy[0].position.x = 270;
+badguy[0].position.y = 300;
 badguy[0].width = 10;
 badguy[0].height = 10;
 
@@ -184,24 +185,34 @@ function gameLoop(timestamp){
 
   //Before we can update the xy coordinates, we need to find the line of each of the floaters.
 
+
+  //tower proximity check
   for (let i = 0; i < numberOfTowers; i++){
     for (let j = 0; j < numberOfBadGuys; j++){
 
-    
-      distance(tower[i].position.x, badguy[j].position.x, tower[i].position.y, badguy[j].position.y);
-
-
-
-
-      throw new Error("my error message");
-
-
-
+    //  if (distance(tower[i].position.x, badguy[j].position.x, tower[i].position.y, badguy[j].position.y) < towerProximity) 
+        // console.log("Bad guy "+j+" is within Tower " + i + "'s proximity!");
+      // throw new Error("my error message");
     }
   }
 
 
+  //bad guy waypoint proximity check
 
+  // for (let i = 0; i < numberOfPathPoints; i++){
+      for (let j = 0; j < numberOfBadGuys; j++){
+
+      if (distance(pathPoint[badguy[j].currentHeading].position.x, badguy[j].position.x, pathPoint[badguy[j].currentHeading].position.y, badguy[j].position.y) < pathPointProximity){
+        // console.log("Bad guy "+j+" is within Path Point " + i + "'s proximity!");
+             
+        badguy[j].currentHeading = badguy[j].currentHeading + 1;
+        console.log(badguy[j].currentHeading);
+        
+        // throw new Error("my error message");
+
+        }
+      }
+    // }
 
 
 
