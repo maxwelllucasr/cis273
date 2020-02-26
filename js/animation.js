@@ -76,7 +76,7 @@ function writeMessage(canvas, message) {
 let canvas2 = document.getElementById("pad");
 let ctx2 = canvas2.getContext('2d');
 
-let numberOfBadGuys = 5;
+let numberOfBadGuys = 1;
 let numberOfTowers = 5;
 let numberOfPathPoints = 7;
 let towerProximity = 150;
@@ -114,34 +114,34 @@ pathPoint[1].position.y = 500;
 pathPoint[2].position.x = 200;
 pathPoint[2].position.y = 500;
 
-pathPoint[3].position.x = 200;
-pathPoint[3].position.y = 400;
+pathPoint[5].position.x = 200;
+pathPoint[5].position.y = 400;
 
 pathPoint[4].position.x = 400;
 pathPoint[4].position.y = 300;
 
-pathPoint[5].position.x = 700;
-pathPoint[5].position.y = 100;
+pathPoint[3].position.x = 700;
+pathPoint[3].position.y = 100;
 
 pathPoint[6].position.x = 100;
 pathPoint[6].position.y = 500;
 
-badguy[1].position.x = 200;
-badguy[1].position.y = 300;
-badguy[1].width = 10;
-badguy[1].height = 10;
-badguy[2].position.x = 300;
-badguy[2].position.y = 300;
-badguy[2].width = 10;
-badguy[2].height = 10;
-badguy[3].position.x = 170;
-badguy[3].position.y = 300;
-badguy[3].width = 10;
-badguy[3].height = 10;
-badguy[4].position.x = 250;
-badguy[4].position.y = 300;
-badguy[4].width = 10;
-badguy[4].height = 10;
+// badguy[1].position.x = 200;
+// badguy[1].position.y = 300;
+// badguy[1].width = 10;
+// badguy[1].height = 10;
+// badguy[2].position.x = 300;
+// badguy[2].position.y = 300;
+// badguy[2].width = 10;
+// badguy[2].height = 10;
+// badguy[3].position.x = 170;
+// badguy[3].position.y = 300;
+// badguy[3].width = 10;
+// badguy[3].height = 10;
+// badguy[4].position.x = 250;
+// badguy[4].position.y = 300;
+// badguy[4].width = 10;
+// badguy[4].height = 10;
 badguy[0].position.x = 270;
 badguy[0].position.y = 300;
 badguy[0].width = 10;

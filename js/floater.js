@@ -130,6 +130,10 @@ export default class Floater{
 
 
         if(pathPoint[this.currentHeading].position.x < pathPoint[this.currentHeading-1].position.x) newXpos = -Math.abs(newXpos)
+        if((pathPoint[this.currentHeading].position.y > pathPoint[this.currentHeading-1].position.y)&&(pathPoint[this.currentHeading].position.x < pathPoint[this.currentHeading-1].position.x)) newYpos = -Math.abs(newYpos)
+
+
+        if (this.type == "badguy") console.log(newXpos + ' space ' + newYpos);
 
         this.position.x += newXpos;
         this.position.y += newYpos;
