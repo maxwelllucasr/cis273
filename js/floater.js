@@ -20,6 +20,7 @@ export default class Floater{
         }
         this.currentHeading = 1;  //points to xy coordinates in pathPoint
         this.speed = 1; 
+        this.towerDaddy = null;
         
 
         //default position for new class

@@ -200,17 +200,24 @@ function gameLoop(timestamp){
         // console.log("Bad guy "+j+" is within Tower " + i + "'s proximity!");
       // throw new Error("my error message");
 
+      //Projectiles are meant to be "fire and forget".  A slope is determined for the projectile ONCE
+      //and the projectile isn't heard of again.  Projectiles either need to be despawned 
+
       if (!tower[i].activeProjectile){
         let projectileSlope = createSlope(tower[i].position.x, badguy[j].position.x, tower[i].position.y, badguy[j].position.y)
         projectile.push(new Floater(GAME_WIDTH,GAME_HEIGHT, "projectile", projectileSlope ))
-        //find most recent
-        projectile[projectile.length - 1].position.x = tower[i].position.x;
-        projectile[projectile.length - 1].position.y = tower[i].position.y;
+        
+        //find most recent added projectile, give it the position of the tower it originated from
+        projectile[projectile.length - 1].position.x = tower[i].position.x + 15;
+        projectile[projectile.length - 1].position.y = tower[i].position.y + 15;
 
+        //who shot it?  Might be useful if we need to despawn projectiles to give turrets the ability to fire second shots.
+        projectile[projectile.length - 1].towerDaddy = i;
   
       }
-      // console.log("shot!")
 
+
+      //tells the tower to not shoot anymore, hardcoded for now, fix later
       tower[i].activeProjectile = true;
 
      }
@@ -237,6 +244,10 @@ function gameLoop(timestamp){
 
 
 
+  //Depth is determined by how high or low your draw method is. 
+  //The lower in this gameloop, the higher it is
+
+
   //Update changes xy coordinates
   for(let i = 0; i < numberOfBadGuys; i++){
     badguy[i].updatePosition(deltaTime, pathPoint);
@@ -244,17 +255,6 @@ function gameLoop(timestamp){
   //Draw redraws the object... 
   for(let i = 0; i < numberOfBadGuys; i++){
     badguy[i].draw(ctx2);
-  }
-
-   //Update changes xy coordinates
-   for(let i = 0; i < projectile.length; i++){
-    projectile[i].updatePosition(deltaTime, pathPoint);
-  }
-
-  ctx2.fillStyle = "#999999";
-  //Draw redraws the object... 
-  for(let i = 0; i < projectile.length; i++){
-    projectile[i].draw(ctx2);
   }
 
   ctx2.fillStyle = "#ff0000";
@@ -267,6 +267,18 @@ function gameLoop(timestamp){
   for(let i = 0; i < numberOfPathPoints; i++){
     pathPoint[i].draw(ctx2);
   }
+
+//Projectile update position
+for(let i = 0; i < projectile.length; i++){
+  projectile[i].updatePosition(deltaTime, pathPoint);
+}
+
+ctx2.fillStyle = "#999999";
+//Draw redraws the object... 
+for(let i = 0; i < projectile.length; i++){
+  projectile[i].draw(ctx2);
+}
+
   ctx2.fillStyle = "#000000";
   //This is calling gameloop and passing the timestamp to it, basically.  Integral to the gameloop.
   requestAnimationFrame(gameLoop); 
