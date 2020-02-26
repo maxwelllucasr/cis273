@@ -78,7 +78,7 @@ let ctx2 = canvas2.getContext('2d');
 
 let numberOfBadGuys = 5;
 let numberOfTowers = 5;
-let numberOfPathPoints = 5;
+let numberOfPathPoints = 7;
 let towerProximity = 150;
 let pathPointProximity = 50;
 
@@ -120,6 +120,11 @@ pathPoint[3].position.y = 400;
 pathPoint[4].position.x = 400;
 pathPoint[4].position.y = 300;
 
+pathPoint[5].position.x = 700;
+pathPoint[5].position.y = 100;
+
+pathPoint[6].position.x = 100;
+pathPoint[6].position.y = 500;
 
 badguy[1].position.x = 200;
 badguy[1].position.y = 300;
