@@ -1,9 +1,48 @@
 import Floater from './floater.js';
 import Static from './static.js';
+import Meta from './meta.js';
 import './functions.js';
 import {distance, createSlope} from './functions.js';
 
 // import { fraction } from '/cis273/js/frac.js'; //decimal to fraction
+var metadata = new Meta();
+// $
+
+function gameMessage(string, context, GAME_WIDTH, GAME_HEIGHT){
+  context.clearRect(0, 0, GAME_WIDTH, GAME_HEIGHT);
+
+  context.fillStyle = 'black';
+  context.fillRect(0,0,GAME_WIDTH,GAME_HEIGHT);
+
+  context.font = "30px Arial";
+  context.fillStyle = 'white';
+  context.fillText(string, GAME_WIDTH/2 -30, GAME_HEIGHT/2);
+
+  // if (keypress()) return true;
+  // else return false;
+
+  // $('#pad').on('keydown', function(e){
+  //   if (e.key === "Enter"){
+  //     e.preventDefault();
+  //     return true;
+  //   }
+  //   else return false;
+  // })
+ 
+}
+
+// function keypress(e){
+//     if (e.which == 13 || e.keyCode == 13) {
+//         //code to execute here
+//         return false;
+//     }
+//     return true;
+// }
+
+
+
+
+
 
 // //constants
 const GAME_WIDTH = 800;
@@ -181,124 +220,143 @@ for(let i = 0; i < numberOfBadGuys; i++){
 
 let lastTime = 0;
 function gameLoop(timestamp){
-  //A delta time is a "time since last event" variable.  We use it in a calculation for updatePosition to maintain consistency.
-  let deltaTime = timestamp - lastTime;
-  lastTime = timestamp;
-
-  //Testing
-  // if(timestamp) console.log(timestamp);
-
-  //ClearRect is a context method that clears screen
-  ctx2.clearRect(0,0,800,600);
-
-
-  //tower proximity check & projectile generation
-  for (let i = 0; i < numberOfTowers; i++){
-    for (let j = 0; j < numberOfBadGuys; j++){
-
-     if (distance(tower[i].position.x, badguy[j].position.x, tower[i].position.y, badguy[j].position.y) < towerProximity) 
-     {
-        // console.log("Bad guy "+j+" is within Tower " + i + "'s proximity!");
-      // throw new Error("my error message");
-
-      //Projectiles are meant to be "fire and forget".  A slope is determined for the projectile ONCE
-      //and the projectile isn't heard of again.  Projectiles either need to be despawned 
-
-      if (!tower[i].activeProjectile){
-        var direction;
-        if((tower[i].position.x > badguy[j].position.x)&&(tower[i].position.y > badguy[j].position.y)){
-          direction = "topleft";
-        }
-        else if((tower[i].position.x < badguy[j].position.x)&&(tower[i].position.y > badguy[j].position.y)){
-          direction = "topright";
-        }
-        else if((tower[i].position.x > badguy[j].position.x)&&(tower[i].position.y < badguy[j].position.y)){
-          direction = "bottomleft";
-        }
-        else if((tower[i].position.x < badguy[j].position.x)&&(tower[i].position.y < badguy[j].position.y)){
-          direction = "bottomright";
-        }
-
-        let projectileSlope = createSlope(tower[i].position.x, badguy[j].position.x, tower[i].position.y, badguy[j].position.y)
-        projectile.push(new Floater(GAME_WIDTH,GAME_HEIGHT, "projectile", projectileSlope ))
-        
-        //find most recent added projectile, give it the position of the tower it originated from
-        projectile[projectile.length - 1].position.x = tower[i].position.x + 15;
-        projectile[projectile.length - 1].position.y = tower[i].position.y + 15;
-
-        //who shot it?  Might be useful if we need to despawn projectiles to give turrets the ability to fire second shots.
-        projectile[projectile.length - 1].towerDaddy = i;
-
-        projectile[projectile.length - 1].direction = direction;
-
-        console.log(direction);
   
-      }
+  
+  
+  
+  if (metadata.isStarted){
+    //A delta time is a "time since last event" variable.  We use it in a calculation for updatePosition to maintain consistency.
+    let deltaTime = timestamp - lastTime;
+    lastTime = timestamp;
+
+    //Testing
+    // if(timestamp) console.log(timestamp);
+
+    //ClearRect is a context method that clears screen
+    ctx2.clearRect(0,0,800,600);
 
 
-      //tells the tower to not shoot anymore, hardcoded for now, fix later
-      tower[i].activeProjectile = true;
-
-     }
-    }
-  }
-
-
-  //bad guy waypoint proximity check
-
-  // for (let i = 0; i < numberOfPathPoints; i++){
+    //tower proximity check & projectile generation
+    for (let i = 0; i < numberOfTowers; i++){
       for (let j = 0; j < numberOfBadGuys; j++){
 
-      if (distance(pathPoint[badguy[j].currentHeading].position.x, badguy[j].position.x, pathPoint[badguy[j].currentHeading].position.y, badguy[j].position.y) < pathPointProximity){
-        // console.log("Bad guy "+j+" is within Path Point " + i + "'s proximity!");
-             
-        if(badguy.length - 1 != badguy[j].currentHeading) badguy[j].currentHeading = badguy[j].currentHeading + 1;
-        // console.log("badguy[j].currentHeading");
-        
+      if (distance(tower[i].position.x, badguy[j].position.x, tower[i].position.y, badguy[j].position.y) < towerProximity) 
+      {
+          // console.log("Bad guy "+j+" is within Tower " + i + "'s proximity!");
         // throw new Error("my error message");
 
+        //Projectiles are meant to be "fire and forget".  A slope is determined for the projectile ONCE
+        //and the projectile isn't heard of again.  Projectiles either need to be despawned 
+
+        if (!tower[i].activeProjectile){
+          var direction;
+          if((tower[i].position.x > badguy[j].position.x)&&(tower[i].position.y > badguy[j].position.y)){
+            direction = "topleft";
+          }
+          else if((tower[i].position.x < badguy[j].position.x)&&(tower[i].position.y > badguy[j].position.y)){
+            direction = "topright";
+          }
+          else if((tower[i].position.x > badguy[j].position.x)&&(tower[i].position.y < badguy[j].position.y)){
+            direction = "bottomleft";
+          }
+          else if((tower[i].position.x < badguy[j].position.x)&&(tower[i].position.y < badguy[j].position.y)){
+            direction = "bottomright";
+          }
+
+          let projectileSlope = createSlope(tower[i].position.x, badguy[j].position.x, tower[i].position.y, badguy[j].position.y)
+          projectile.push(new Floater(GAME_WIDTH,GAME_HEIGHT, "projectile", projectileSlope ))
+          
+          //find most recent added projectile, give it the position of the tower it originated from
+          projectile[projectile.length - 1].position.x = tower[i].position.x + 15;
+          projectile[projectile.length - 1].position.y = tower[i].position.y + 15;
+
+          //who shot it?  Might be useful if we need to despawn projectiles to give turrets the ability to fire second shots.
+          projectile[projectile.length - 1].towerDaddy = i;
+
+          projectile[projectile.length - 1].direction = direction;
+
+          console.log(direction);
+    
         }
+
+
+        //tells the tower to not shoot anymore, hardcoded for now, fix later
+        tower[i].activeProjectile = true;
+
       }
-    // }
+      }
+    }
+
+
+    //bad guy waypoint proximity check
+
+    // for (let i = 0; i < numberOfPathPoints; i++){
+        for (let j = 0; j < numberOfBadGuys; j++){
+
+        if (distance(pathPoint[badguy[j].currentHeading].position.x, badguy[j].position.x, pathPoint[badguy[j].currentHeading].position.y, badguy[j].position.y) < pathPointProximity){
+          // console.log("Bad guy "+j+" is within Path Point " + i + "'s proximity!");
+              
+          if(badguy.length - 1 != badguy[j].currentHeading) badguy[j].currentHeading = badguy[j].currentHeading + 1;
+          // console.log("badguy[j].currentHeading");
+          
+          // throw new Error("my error message");
+
+          }
+        }
+      // }
 
 
 
-  //Depth is determined by how high or low your draw method is. 
-  //The lower in this gameloop, the higher it is
+    //Depth is determined by how high or low your draw method is. 
+    //The lower in this gameloop, the higher it is
 
 
-  //Update changes xy coordinates
-  for(let i = 0; i < numberOfBadGuys; i++){
-    badguy[i].updatePosition(deltaTime, pathPoint);
+    //Update changes xy coordinates
+    for(let i = 0; i < numberOfBadGuys; i++){
+      badguy[i].updatePosition(deltaTime, pathPoint);
+    }
+    //Draw redraws the object... 
+    for(let i = 0; i < numberOfBadGuys; i++){
+      badguy[i].draw(ctx2);
+    }
+
+    ctx2.fillStyle = "#ff0000";
+
+    for(let i = 0; i < numberOfTowers; i++){
+      tower[i].draw(ctx2);
+    }
+
+    ctx2.fillStyle = "#0000ff";
+    for(let i = 0; i < numberOfPathPoints; i++){
+      pathPoint[i].draw(ctx2);
+    }
+
+  //Projectile update position
+  for(let i = 0; i < projectile.length; i++){
+    projectile[i].updatePosition(deltaTime, pathPoint);
   }
+
+  ctx2.fillStyle = "#999999";
   //Draw redraws the object... 
-  for(let i = 0; i < numberOfBadGuys; i++){
-    badguy[i].draw(ctx2);
+  for(let i = 0; i < projectile.length; i++){
+    projectile[i].draw(ctx2);
   }
-
-  ctx2.fillStyle = "#ff0000";
-
-  for(let i = 0; i < numberOfTowers; i++){
-    tower[i].draw(ctx2);
-  }
-
-  ctx2.fillStyle = "#0000ff";
-  for(let i = 0; i < numberOfPathPoints; i++){
-    pathPoint[i].draw(ctx2);
-  }
-
-//Projectile update position
-for(let i = 0; i < projectile.length; i++){
-  projectile[i].updatePosition(deltaTime, pathPoint);
 }
-
-ctx2.fillStyle = "#999999";
-//Draw redraws the object... 
-for(let i = 0; i < projectile.length; i++){
-  projectile[i].draw(ctx2);
-}
+  if (!metadata.isStarted) {
+    gameMessage("Start",ctx2,GAME_WIDTH,GAME_HEIGHT);
+    // metadata.isStarted = 
+  }
 
   ctx2.fillStyle = "#000000";
+
+  if(metadata.isFirstRound) {
+    canvas2.onclick = function(){
+      metadata.isStarted = true;      
+    }
+    
+    
+    metadata.isFirstRound = false;
+  }
   //This is calling gameloop and passing the timestamp to it, basically.  Integral to the gameloop.
   requestAnimationFrame(gameLoop); 
 }
