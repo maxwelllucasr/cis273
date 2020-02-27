@@ -8,7 +8,7 @@ export default class Floater{
         
         this.type = type;
             if (type == "projectile") {
-                this.slope = projectileSlope;
+                this.slope = projectileSlope; //If a projectile, set slope once and dont update
                 this.width = 20;
                 this.height = 20;
                 this.speed = 2; 
@@ -21,8 +21,8 @@ export default class Floater{
 
         }
         this.currentHeading = 1;  //points to xy coordinates in pathPoint
-        this.towerDaddy = null;
-        this.direction = null;
+        this.towerDaddy = null; //Tower # of origin for projectiles
+        this.direction = null; //only used for projectiles, badguys are hardcoded for now
         
 
         //default position for new class
@@ -138,6 +138,7 @@ export default class Floater{
             if((pathPoint[this.currentHeading].position.y < pathPoint[this.currentHeading-1].position.y)&&(pathPoint[this.currentHeading].position.x < pathPoint[this.currentHeading-1].position.x)) {newYpos = -Math.abs(newYpos);}
         }
 
+        //sign correctors... cleaner and for projectiles
         else if(this.type == "projectile"){
             if (this.direction == "topleft"){
                 newXpos = -Math.abs(newXpos);
