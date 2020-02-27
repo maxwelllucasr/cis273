@@ -22,6 +22,7 @@ export default class Floater{
         }
         this.currentHeading = 1;  //points to xy coordinates in pathPoint
         this.towerDaddy = null;
+        this.direction = null;
         
 
         //default position for new class
@@ -138,7 +139,22 @@ export default class Floater{
         }
 
         else if(this.type == "projectile"){
-            
+            if (this.direction == "topleft"){
+                newXpos = -Math.abs(newXpos);
+                newYpos = -Math.abs(newYpos);
+            }
+            else if (this.direction == "topright"){
+                newXpos = Math.abs(newXpos);
+                newYpos = -Math.abs(newYpos);
+            }
+            else if (this.direction == "bottomleft"){
+                newXpos = -Math.abs(newXpos);
+                newYpos = Math.abs(newYpos);
+            }
+            else if (this.direction == "bottomright"){
+                newXpos = Math.abs(newXpos);
+                newYpos = Math.abs(newYpos);
+            }
 
         }
 
