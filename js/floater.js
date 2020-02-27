@@ -11,13 +11,13 @@ export default class Floater{
                 this.slope = projectileSlope; //If a projectile, set slope once and dont update
                 this.width = 20;
                 this.height = 20;
-                this.speed = 2; 
+                this.speed = 5; 
             }
         else{
             this.width = 100;
             this.height = 100;
             this.slope = null;
-            this.speed = 1; 
+            this.speed = 2; 
 
         }
         this.currentHeading = 1;  //points to xy coordinates in pathPoint
