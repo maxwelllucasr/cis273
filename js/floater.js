@@ -11,15 +11,16 @@ export default class Floater{
                 this.slope = projectileSlope;
                 this.width = 20;
                 this.height = 20;
+                this.speed = 2; 
             }
         else{
             this.width = 100;
             this.height = 100;
             this.slope = null;
+            this.speed = 1; 
 
         }
         this.currentHeading = 1;  //points to xy coordinates in pathPoint
-        this.speed = 1; 
         this.towerDaddy = null;
         
 
@@ -128,12 +129,20 @@ export default class Floater{
         // if (this.type == "projectile") console.log(newXpos + ' space ' + newYpos);
 
 
+        //sign correctors
+        if(this.type == "badguy"){
+        //Remember that negative y is up and negative x is left
+            if(pathPoint[this.currentHeading].position.x < pathPoint[this.currentHeading-1].position.x) newXpos = -Math.abs(newXpos)
+            if((pathPoint[this.currentHeading].position.y > pathPoint[this.currentHeading-1].position.y)&&(pathPoint[this.currentHeading].position.x < pathPoint[this.currentHeading-1].position.x)) newYpos = Math.abs(newYpos)
+            if((pathPoint[this.currentHeading].position.y < pathPoint[this.currentHeading-1].position.y)&&(pathPoint[this.currentHeading].position.x < pathPoint[this.currentHeading-1].position.x)) {newYpos = -Math.abs(newYpos);}
+        }
 
-        if(pathPoint[this.currentHeading].position.x < pathPoint[this.currentHeading-1].position.x) newXpos = -Math.abs(newXpos)
-        if((pathPoint[this.currentHeading].position.y > pathPoint[this.currentHeading-1].position.y)&&(pathPoint[this.currentHeading].position.x < pathPoint[this.currentHeading-1].position.x)) newYpos = Math.abs(newYpos)
+        else if(this.type == "projectile"){
+            
 
+        }
 
-        if (this.type == "badguy") console.log(newXpos + ' space ' + newYpos);
+        // if (this.type == "badguy") console.log(newXpos + ' space ' + newYpos);
 
         this.position.x += newXpos;
         this.position.y += newYpos;

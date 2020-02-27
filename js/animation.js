@@ -80,7 +80,7 @@ let numberOfBadGuys = 1;
 let numberOfTowers = 5;
 let numberOfPathPoints = 8;
 let towerProximity = 150;
-let pathPointProximity = 50;
+let pathPointProximity = 1;
 
 let badguy = new Array();
 let projectile = new Array();
@@ -106,13 +106,13 @@ for (let i = 0; i < numberOfPathPoints; i++){
 }
 
 pathPoint[0].position.x = 100;
-pathPoint[0].position.y = 400;
+pathPoint[0].position.y = 100;
 
 pathPoint[1].position.x = 600;
 pathPoint[1].position.y = 500;
 
-pathPoint[2].position.x = 200;
-pathPoint[2].position.y = 500;
+pathPoint[2].position.x = 250;
+pathPoint[2].position.y = 300;
 
 pathPoint[5].position.x = 200;
 pathPoint[5].position.y = 400;
@@ -121,13 +121,13 @@ pathPoint[4].position.x = 400;
 pathPoint[4].position.y = 300;
 
 pathPoint[3].position.x = 700;
-pathPoint[3].position.y = 100;
+pathPoint[3].position.y = 150;
 
-pathPoint[6].position.x = 100;
-pathPoint[6].position.y = 500;
+pathPoint[6].position.x = 200;
+pathPoint[6].position.y = 200;
 
 pathPoint[7].position.x = 400;
-pathPoint[7].position.y = 500;
+pathPoint[7].position.y = 400;
 
 // badguy[1].position.x = 200;
 // badguy[1].position.y = 300;
@@ -146,7 +146,7 @@ pathPoint[7].position.y = 500;
 // badguy[4].width = 10;
 // badguy[4].height = 10;
 badguy[0].position.x = 100;
-badguy[0].position.y = 400;
+badguy[0].position.y = 100;
 badguy[0].width = 10;
 badguy[0].height = 10;
 
@@ -191,10 +191,8 @@ function gameLoop(timestamp){
   //ClearRect is a context method that clears screen
   ctx2.clearRect(0,0,800,600);
 
-  //Before we can update the xy coordinates, we need to find the line of each of the floaters.
 
-
-  //tower proximity check
+  //tower proximity check & projectile generation
   for (let i = 0; i < numberOfTowers; i++){
     for (let j = 0; j < numberOfBadGuys; j++){
 
@@ -207,6 +205,20 @@ function gameLoop(timestamp){
       //and the projectile isn't heard of again.  Projectiles either need to be despawned 
 
       if (!tower[i].activeProjectile){
+        var direction;
+        if((tower[i].position.x > badguy[j].position.x)&&(tower[i].position.y > badguy[j].position.y)){
+          direction = "topleft";
+        }
+        else if((tower[i].position.x < badguy[j].position.x)&&(tower[i].position.y > badguy[j].position.y)){
+          direction = "topright";
+        }
+        else if((tower[i].position.x > badguy[j].position.x)&&(tower[i].position.y < badguy[j].position.y)){
+          direction = "bottomleft";
+        }
+        else if((tower[i].position.x < badguy[j].position.x)&&(tower[i].position.y < badguy[j].position.y)){
+          direction = "bottomright";
+        }
+
         let projectileSlope = createSlope(tower[i].position.x, badguy[j].position.x, tower[i].position.y, badguy[j].position.y)
         projectile.push(new Floater(GAME_WIDTH,GAME_HEIGHT, "projectile", projectileSlope ))
         
@@ -216,6 +228,10 @@ function gameLoop(timestamp){
 
         //who shot it?  Might be useful if we need to despawn projectiles to give turrets the ability to fire second shots.
         projectile[projectile.length - 1].towerDaddy = i;
+
+        projectile[projectile.length - 1].direction = direction;
+
+        console.log(direction);
   
       }
 
@@ -236,7 +252,7 @@ function gameLoop(timestamp){
       if (distance(pathPoint[badguy[j].currentHeading].position.x, badguy[j].position.x, pathPoint[badguy[j].currentHeading].position.y, badguy[j].position.y) < pathPointProximity){
         // console.log("Bad guy "+j+" is within Path Point " + i + "'s proximity!");
              
-        badguy[j].currentHeading = badguy[j].currentHeading + 1;
+        if(badguy.length - 1 != badguy[j].currentHeading) badguy[j].currentHeading = badguy[j].currentHeading + 1;
         // console.log("badguy[j].currentHeading");
         
         // throw new Error("my error message");
