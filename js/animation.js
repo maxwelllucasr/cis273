@@ -159,25 +159,25 @@ for (let i = 0; i < numberOfPathPoints; i++){
 pathPoint[0].position.x = 100;
 pathPoint[0].position.y = 100;
 
-pathPoint[1].position.x = 600;
-pathPoint[1].position.y = 500;
+pathPoint[1].position.x = 300;
+pathPoint[1].position.y = 150;
 
-pathPoint[2].position.x = 250;
-pathPoint[2].position.y = 300;
+pathPoint[2].position.x = 550;
+pathPoint[2].position.y = 250;
 
-pathPoint[5].position.x = 200;
-pathPoint[5].position.y = 400;
+pathPoint[3].position.x = 650;
+pathPoint[3].position.y = 200;
 
-pathPoint[4].position.x = 400;
-pathPoint[4].position.y = 300;
+pathPoint[4].position.x = 750;
+pathPoint[4].position.y = 350;
 
-pathPoint[3].position.x = 700;
-pathPoint[3].position.y = 150;
+pathPoint[5].position.x = 600;
+pathPoint[5].position.y = 550;
 
-pathPoint[6].position.x = 200;
-pathPoint[6].position.y = 200;
+pathPoint[6].position.x = 300;
+pathPoint[6].position.y = 500;
 
-pathPoint[7].position.x = 400;
+pathPoint[7].position.x = 100;
 pathPoint[7].position.y = 400;
 
 // badguy[1].position.x = 200;
