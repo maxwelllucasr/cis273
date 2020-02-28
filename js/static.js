@@ -3,8 +3,8 @@ export default class Static{
 
     constructor(type){
         this.position = {
-            x : 500,
-            y : 500
+            x : 5000,
+            y : 5000
         }
         this.height = 50;
         this.width  = 50;

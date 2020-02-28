@@ -115,6 +115,17 @@ function writeMessage(canvas, message) {
 let canvas2 = document.getElementById("pad");
 let ctx2 = canvas2.getContext('2d');
 
+
+canvas2.addEventListener('mousemove', function(evt){
+
+  var mousePos = getMousePos(canvas2, evt);
+    var message = 'Mouse position: ' + mousePos.x + ',' + mousePos.y;
+    // console.log(message);
+
+
+}, false);
+
+
 let numberOfBadGuys = 1;
 let numberOfTowers = 5;
 let numberOfPathPoints = 8;
@@ -190,26 +201,26 @@ badguy[0].position.y = 100;
 badguy[0].width = 10;
 badguy[0].height = 10;
 
-tower[0].position.x = 120;
-tower[0].position.y = 300;
-tower[0].width = 50;
-tower[0].height = 50;
-tower[1].position.x = 450;
-tower[1].position.y = 450;
-tower[1].width = 50;
-tower[1].height = 50;
-tower[2].position.x = 540;
-tower[2].position.y = 200;
-tower[2].width = 50;
-tower[2].height = 50;
-tower[3].position.x = 200;
-tower[3].position.y = 500;
-tower[3].width = 50;
-tower[3].height = 50;
-tower[4].position.x = 260;
-tower[4].position.y = 100;
-tower[4].width = 50;
-tower[4].height = 50;
+// tower[0].position.x = 120;
+// tower[0].position.y = 300;
+// tower[0].width = 50;
+// tower[0].height = 50;
+// tower[1].position.x = 450;
+// tower[1].position.y = 450;
+// tower[1].width = 50;
+// tower[1].height = 50;
+// tower[2].position.x = 540;
+// tower[2].position.y = 200;
+// tower[2].width = 50;
+// tower[2].height = 50;
+// tower[3].position.x = 200;
+// tower[3].position.y = 500;
+// tower[3].width = 50;
+// tower[3].height = 50;
+// tower[4].position.x = 260;
+// tower[4].position.y = 100;
+// tower[4].width = 50;
+// tower[4].height = 50;
 
 
 // console.log(badguy[1]);
@@ -396,7 +407,31 @@ function gameLoop(timestamp){
 
   if(metadata.isFirstRound) {
     canvas2.onclick = function(){
-      if(!metadata.isGameOver) metadata.isStarted = true;      
+      if(!metadata.isGameOver && !metadata.isStarted) {
+        metadata.isStarted = true;   
+      }
+
+      //Tower placement
+      else if(metadata.isPlacingPhase){
+        console.log(getMousePos(canvas2,event));
+
+        let towerPosition = getMousePos(canvas2,event);
+        let towerPositionX = towerPosition.x;
+        let towerPositionY = towerPosition.y;
+
+        tower[metadata.currentTower].position.x = towerPositionX;
+        tower[metadata.currentTower].position.y = towerPositionY;
+
+        console.log(towerPositionX + " " + towerPositionY)
+
+
+        //Jump to next tower
+        metadata.currentTower++;
+
+        //stop placing if reached max number of towers
+        if (metadata.currentTower == numberOfTowers) metadata.isPlacingPhase = false;
+      }  
+
     }
     
     

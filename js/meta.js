@@ -21,5 +21,9 @@ export default class Meta {
         this.firstFrame = null;
 
         this.isGameOver = false;
+
+        this.isPlacingPhase = true;
+
+        this.currentTower = 0;
     }
 }
