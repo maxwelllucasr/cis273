@@ -1,10 +1,12 @@
 <?php
 
 	session_start();
-	$DATABASE_HOST = 'localhost';
-	$DATABASE_USER = 'root';
-	$DATABASE_PASS = '';
-	$DATABASE_NAME = 'cis273';
+	// $DATABASE_HOST = 'localhost';
+	// $DATABASE_USER = 'root';
+	// $DATABASE_PASS = '';
+	// $DATABASE_NAME = 'cis273';
+
+	include 'PHP/mysqlCredentials.php';
 
 	$con = mysqli_connect($DATABASE_HOST, $DATABASE_USER, $DATABASE_PASS, $DATABASE_NAME);
 	if (mysqli_connect_errno() ) {
@@ -14,7 +16,7 @@
 	if( !isset($_POST['user'], $_POST['pass']) ) {
 		die ('Please fill all fields');
 	}
-
+//Single equal sign?
 	if ($stmt = $con->prepare('SELECT id, password FROM accounts WHERE username = ?')) {
 		$stmt->bind_param('s', $_POST['username']);
 		$stmt->execute();

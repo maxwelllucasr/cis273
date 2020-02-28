@@ -29,13 +29,6 @@ include 'PHP/header.php';
       <source src="media/lifeanddeath.mp3">
     </audio>
 
-
-
-
-
-
-
-
 </section>
 
 
