@@ -23,6 +23,8 @@ export default class Floater{
         this.currentHeading = 1;  //points to xy coordinates in pathPoint
         this.towerDaddy = null; //Tower # of origin for projectiles
         this.direction = null; //only used for projectiles, badguys are hardcoded for now
+        this.updateSlope = true;
+    
         
 
         //default position for new class
@@ -85,7 +87,7 @@ export default class Floater{
         //for when denominator is 0
         if(this.slope == "+"){
             upflag = true;
-            console.log("up")
+            // console.log("up")
         }
         else if (this.slope == "-"){
             downflag = true;

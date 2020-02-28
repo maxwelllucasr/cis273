@@ -127,6 +127,7 @@ let tower = new Array();
 let pathPoint = new Array();
 
 
+
 //this is how to make multiple bad guys...
 
 for (let i = 0; i < numberOfBadGuys; i++){
@@ -218,17 +219,35 @@ for(let i = 0; i < numberOfBadGuys; i++){
   badguy[i].draw(ctx2);
 }
 
-let lastTime = 0;
 function gameLoop(timestamp){
   
-  
+
+  //resets all update slope booleans to false so createslope in updateposition()
+  //isnt run every frame
+  if (!metadata.isFirstRound) {
+    //all floaters
+    for(var i = 0; i < numberOfBadGuys; i++) badguy[i].updateSlope = false;
+    for(var i = 0; i < projectile.length; i++) projectile[i].updateSlope = false;
+  }
   
   
   if (metadata.isStarted){
-    //A delta time is a "time since last event" variable.  We use it in a calculation for updatePosition to maintain consistency.
-    let deltaTime = timestamp - lastTime;
-    lastTime = timestamp;
+    //A delta time is a "time since last event" variable. 
+    //We use it in a calculation for updatePosition to maintain consistency.
+    let deltaTime = timestamp - metadata.lastTime;
+    metadata.lastTime = timestamp;
 
+    if (!metadata.firstFrame) {
+      metadata.firstTimestamp = metadata.lastTime;
+      console.log("Start time: " + metadata.firstTimestamp);
+
+
+      metadata.firstFrame = true;
+    }
+    // if(metadata.){
+    //    metadata.timeInbetweenLoadAndStart = metadata.lastTime;
+    //    console.log(metadata.timeInbetweenLoadAndStart)
+    // }
     //Testing
     // if(timestamp) console.log(timestamp);
 
@@ -275,7 +294,7 @@ function gameLoop(timestamp){
 
           projectile[projectile.length - 1].direction = direction;
 
-          console.log(direction);
+          // console.log(direction);
     
         }
 
@@ -296,7 +315,12 @@ function gameLoop(timestamp){
         if (distance(pathPoint[badguy[j].currentHeading].position.x, badguy[j].position.x, pathPoint[badguy[j].currentHeading].position.y, badguy[j].position.y) < pathPointProximity){
           // console.log("Bad guy "+j+" is within Path Point " + i + "'s proximity!");
               
-          if(badguy.length - 1 != badguy[j].currentHeading) badguy[j].currentHeading = badguy[j].currentHeading + 1;
+          if(badguy.length - 1 != badguy[j].currentHeading){
+            
+            badguy[j].currentHeading = badguy[j].currentHeading + 1;
+            badguy[j].updateSlope = true;
+          }
+
           // console.log("badguy[j].currentHeading");
           
           // throw new Error("my error message");
@@ -315,6 +339,9 @@ function gameLoop(timestamp){
     for(let i = 0; i < numberOfBadGuys; i++){
       badguy[i].updatePosition(deltaTime, pathPoint);
     }
+
+    ctx2.fillStyle = "#000000";
+
     //Draw redraws the object... 
     for(let i = 0; i < numberOfBadGuys; i++){
       badguy[i].draw(ctx2);
@@ -327,6 +354,7 @@ function gameLoop(timestamp){
     }
 
     ctx2.fillStyle = "#0000ff";
+
     for(let i = 0; i < numberOfPathPoints; i++){
       pathPoint[i].draw(ctx2);
     }
@@ -342,12 +370,13 @@ function gameLoop(timestamp){
     projectile[i].draw(ctx2);
   }
 }
+//END ISSTARTED
+
+
   if (!metadata.isStarted) {
     gameMessage("Start",ctx2,GAME_WIDTH,GAME_HEIGHT);
-    // metadata.isStarted = 
   }
 
-  ctx2.fillStyle = "#000000";
 
   if(metadata.isFirstRound) {
     canvas2.onclick = function(){
@@ -357,6 +386,7 @@ function gameLoop(timestamp){
     
     metadata.isFirstRound = false;
   }
+
   //This is calling gameloop and passing the timestamp to it, basically.  Integral to the gameloop.
   requestAnimationFrame(gameLoop); 
 }
