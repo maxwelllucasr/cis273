@@ -19,6 +19,7 @@ include 'functions.php'; //adds functions to namespace
 
     <nav>
     <ul class="nav-ul">
+		<li><a href="index.php">Home</a></li>
         <li><a href="game.php">Game</a></li>
         <li><a href="login.php">Login</a></li>
         <li><a href="registration.php">Registration</a></li>
