@@ -6,6 +6,8 @@ include 'PHP/header.php';
     <div class="container">
 
     Index test
+	
+	<p>This site was created for the <i>Systems Concepts and Design</i> Course Project.</p>
 
 
     </div>
