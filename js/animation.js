@@ -317,8 +317,22 @@ function gameLoop(timestamp){
               
           if(badguy.length - 1 != badguy[j].currentHeading){
             
-            badguy[j].currentHeading = badguy[j].currentHeading + 1;
-            badguy[j].updateSlope = true;
+
+            //update only if current heading is NOT one under number of path points
+            if(badguy[j].currentHeading != numberOfPathPoints ) {
+                badguy[j].currentHeading = badguy[j].currentHeading + 1; 
+            }
+
+            
+            if(badguy[j].currentHeading == numberOfPathPoints )
+            {
+                metadata.isStarted = false;
+                metadata.isGameOver = true;
+                badguy[j].currentHeading--;
+            }
+
+            console.log(badguy[j].currentHeading);
+
           }
 
           // console.log("badguy[j].currentHeading");
@@ -372,15 +386,17 @@ function gameLoop(timestamp){
 }
 //END ISSTARTED
 
-
-  if (!metadata.isStarted) {
+  if ((!metadata.isStarted)&&(metadata.isGameOver)){
+    gameMessage("Game Over",ctx2,GAME_WIDTH,GAME_HEIGHT);
+  }
+  else if (!metadata.isStarted) {
     gameMessage("Start",ctx2,GAME_WIDTH,GAME_HEIGHT);
   }
 
 
   if(metadata.isFirstRound) {
     canvas2.onclick = function(){
-      metadata.isStarted = true;      
+      if(!metadata.isGameOver) metadata.isStarted = true;      
     }
     
     

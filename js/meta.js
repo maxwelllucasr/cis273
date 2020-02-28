@@ -19,5 +19,7 @@ export default class Meta {
         this.firstTimestamp;
 
         this.firstFrame = null;
+
+        this.isGameOver = false;
     }
 }
