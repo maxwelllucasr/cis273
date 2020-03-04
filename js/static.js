@@ -11,8 +11,6 @@ export default class Static{
         this.type = type;
         this.activeProjectile = false;
 
-
-
     }
 
     draw(ctx){

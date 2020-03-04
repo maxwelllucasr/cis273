@@ -4,7 +4,6 @@ import Meta from './meta.js';
 import './functions.js';
 import {distance, createSlope} from './functions.js';
 
-// import { fraction } from '/cis273/js/frac.js'; //decimal to fraction
 var metadata = new Meta();
 // $
 
@@ -18,31 +17,8 @@ function gameMessage(string, context, GAME_WIDTH, GAME_HEIGHT){
   context.fillStyle = 'white';
   context.fillText(string, GAME_WIDTH/2 -30, GAME_HEIGHT/2);
 
-  // if (keypress()) return true;
-  // else return false;
-
-  // $('#pad').on('keydown', function(e){
-  //   if (e.key === "Enter"){
-  //     e.preventDefault();
-  //     return true;
-  //   }
-  //   else return false;
-  // })
  
 }
-
-// function keypress(e){
-//     if (e.which == 13 || e.keyCode == 13) {
-//         //code to execute here
-//         return false;
-//     }
-//     return true;
-// }
-
-
-
-
-
 
 // //constants
 const GAME_WIDTH = 800;
@@ -54,26 +30,7 @@ let canvas = document.getElementById("gameWrapper");
 //Context is shared by all objects in the canvas.  It must be updated for most actions to the screen
 let ctx = canvas.getContext('2d');
 
-//make objects using floater class
-let myObject = new Floater(GAME_WIDTH, GAME_HEIGHT);
-let yourObject = new Floater(GAME_WIDTH, GAME_HEIGHT);
 
-//green
-ctx.fillStyle = '#1f1';
-
-//using the default dimensions in the class constructor over in floater
-myObject.draw(ctx);  
-
-//gray
-ctx.fillStyle = '#555';
-//overriding constructor defaults on second block
-yourObject.height = 50;
-yourObject.position.x = 150;
-yourObject.draw(ctx);
-
-
-ctx.fillStyle = '#1f1';
-ctx.fillRect(10,10,20,20)
 
 
 //Dont need this, good for demonstration.  Console.log does it just fine
@@ -99,7 +56,6 @@ function writeMessage(canvas, message) {
     var mousePos = getMousePos(canvas, evt);
     var message = 'Mouse position: ' + mousePos.x + ',' + mousePos.y;
     writeMessage(canvas, message);
-    // console.log(message);
     
   }, false);
 
@@ -120,8 +76,6 @@ canvas2.addEventListener('mousemove', function(evt){
 
   var mousePos = getMousePos(canvas2, evt);
     var message = 'Mouse position: ' + mousePos.x + ',' + mousePos.y;
-    // console.log(message);
-
 
 }, false);
 
@@ -180,51 +134,10 @@ pathPoint[6].position.y = 500;
 pathPoint[7].position.x = 100;
 pathPoint[7].position.y = 400;
 
-// badguy[1].position.x = 200;
-// badguy[1].position.y = 300;
-// badguy[1].width = 10;
-// badguy[1].height = 10;
-// badguy[2].position.x = 300;
-// badguy[2].position.y = 300;
-// badguy[2].width = 10;
-// badguy[2].height = 10;
-// badguy[3].position.x = 170;
-// badguy[3].position.y = 300;
-// badguy[3].width = 10;
-// badguy[3].height = 10;
-// badguy[4].position.x = 250;
-// badguy[4].position.y = 300;
-// badguy[4].width = 10;
-// badguy[4].height = 10;
 badguy[0].position.x = 100;
 badguy[0].position.y = 100;
 badguy[0].width = 10;
 badguy[0].height = 10;
-
-// tower[0].position.x = 120;
-// tower[0].position.y = 300;
-// tower[0].width = 50;
-// tower[0].height = 50;
-// tower[1].position.x = 450;
-// tower[1].position.y = 450;
-// tower[1].width = 50;
-// tower[1].height = 50;
-// tower[2].position.x = 540;
-// tower[2].position.y = 200;
-// tower[2].width = 50;
-// tower[2].height = 50;
-// tower[3].position.x = 200;
-// tower[3].position.y = 500;
-// tower[3].width = 50;
-// tower[3].height = 50;
-// tower[4].position.x = 260;
-// tower[4].position.y = 100;
-// tower[4].width = 50;
-// tower[4].height = 50;
-
-
-// console.log(badguy[1]);
-// console.log(badguy[2]);
 
 for(let i = 0; i < numberOfBadGuys; i++){
   badguy[i].draw(ctx2);
@@ -255,12 +168,6 @@ function gameLoop(timestamp){
 
       metadata.firstFrame = true;
     }
-    // if(metadata.){
-    //    metadata.timeInbetweenLoadAndStart = metadata.lastTime;
-    //    console.log(metadata.timeInbetweenLoadAndStart)
-    // }
-    //Testing
-    // if(timestamp) console.log(timestamp);
 
     //ClearRect is a context method that clears screen
     ctx2.clearRect(0,0,800,600);
@@ -272,8 +179,7 @@ function gameLoop(timestamp){
 
       if (distance(tower[i].position.x, badguy[j].position.x, tower[i].position.y, badguy[j].position.y) < towerProximity) 
       {
-          // console.log("Bad guy "+j+" is within Tower " + i + "'s proximity!");
-        // throw new Error("my error message");
+      
 
         //Projectiles are meant to be "fire and forget".  A slope is determined for the projectile ONCE
         //and the projectile isn't heard of again.  Projectiles either need to be despawned 
@@ -304,12 +210,8 @@ function gameLoop(timestamp){
           projectile[projectile.length - 1].towerDaddy = i;
 
           projectile[projectile.length - 1].direction = direction;
-
-          // console.log(direction);
     
         }
-
-
         //tells the tower to not shoot anymore, hardcoded for now, fix later
         tower[i].activeProjectile = true;
 
@@ -324,7 +226,6 @@ function gameLoop(timestamp){
         for (let j = 0; j < numberOfBadGuys; j++){
 
         if (distance(pathPoint[badguy[j].currentHeading].position.x, badguy[j].position.x, pathPoint[badguy[j].currentHeading].position.y, badguy[j].position.y) < pathPointProximity){
-          // console.log("Bad guy "+j+" is within Path Point " + i + "'s proximity!");
               
           if(badguy.length - 1 != badguy[j].currentHeading){
             
@@ -342,14 +243,7 @@ function gameLoop(timestamp){
                 badguy[j].currentHeading--;
             }
 
-            console.log(badguy[j].currentHeading);
-
           }
-
-          // console.log("badguy[j].currentHeading");
-          
-          // throw new Error("my error message");
-
           }
         }
       // }
@@ -422,9 +316,6 @@ function gameLoop(timestamp){
         tower[metadata.currentTower].position.x = towerPositionX;
         tower[metadata.currentTower].position.y = towerPositionY;
 
-        console.log(towerPositionX + " " + towerPositionY)
-
-
         //Jump to next tower
         metadata.currentTower++;
 
@@ -442,14 +333,30 @@ function gameLoop(timestamp){
   requestAnimationFrame(gameLoop); 
 }
 
+
+
+//First canvas stuff
+
+//make objects using floater class
+let myObject = new Floater(GAME_WIDTH, GAME_HEIGHT);
+let yourObject = new Floater(GAME_WIDTH, GAME_HEIGHT);
+
+//green
+ctx.fillStyle = '#1f1';
+
+//using the default dimensions in the class constructor over in floater
+myObject.draw(ctx);  
+
+//gray
+ctx.fillStyle = '#555';
+//overriding constructor defaults on second block
+yourObject.height = 50;
+yourObject.position.x = 150;
+yourObject.draw(ctx);
+
+
+ctx.fillStyle = '#1f1';
+ctx.fillRect(10,10,20,20)
+
 gameLoop();
 
-
-// let badGuy = new Array();
-// badGuy.push(new Floater(GAME_WIDTH, GAME_HEIGHT));
-
-// function addGuy(ctx, xpos, ypos){
-
-
-
-// }

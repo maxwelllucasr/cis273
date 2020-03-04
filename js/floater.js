@@ -37,7 +37,6 @@ export default class Floater{
 
     //Method takes context object as input and uses object x, y, width and height variables to redraw rectangle
     draw(ctx){
-        // ctx.fillStyle = "#49b526";
         ctx.fillRect(this.position.x, this.position.y, this.width, this.height);
     }
 
@@ -47,23 +46,6 @@ export default class Floater{
     updatePosition(deltaTime, pathPoint){
 
         if (!deltaTime) return;
-
-
-        //fraction function works
-        // console.log(fraction(0.5));
-
-
-        //Takes decimal as input, outputs numerator as numAndDem[1] and denominator as numAndDem[2]
-        // let decimalSlope = fraction(-5.5);
-        // // console.log(decimalSlope);
-        // let numAndDem = decimalSlope.split('/');
-        // console.log(numAndDem);
-
-
-        // console.log(line.numerator + "/" + line.denominator);
-       
-       //x1, x2, y1, y2
-    //    var slope = null;
   
         let xHeading = pathPoint[this.currentHeading].position.x;
         let yHeading = pathPoint[this.currentHeading].position.y;
@@ -73,11 +55,9 @@ export default class Floater{
 
         //This should go somewhere else where it only runs when it needs to
         if (this.type != "projectile") this.slope = createSlope(xHeadingStart, xHeading, yHeadingStart, yHeading);
-            // console.log(xHeadingStart, xHeading, yHeadingStart, yHeading)
 
         var rise, run, upflag = false, downflag = false;
 
-    //    console.log(this.slope);
 
         // rise and run not only determine the angle, but the speed.
         //For testing purposes
@@ -87,7 +67,6 @@ export default class Floater{
         //for when denominator is 0
         if(this.slope == "+"){
             upflag = true;
-            // console.log("up")
         }
         else if (this.slope == "-"){
             downflag = true;
@@ -95,17 +74,10 @@ export default class Floater{
         else{
             rise = this.slope[0]; //y
             run = this.slope[1]; //x
-        }
-
-        // console.log(rise, run)
-       
+        }       
 
         let newXpos = run / deltaTime;
         let newYpos = rise / deltaTime;
-
-        // console.log(newXpos, newYpos);
-
-
 
         //this governs the speed by adding total movement between x and y
         //and dividing by this.speed.
@@ -127,10 +99,6 @@ export default class Floater{
             newXpos = 0;
             newYpos = Math.abs(this.speed);
         }
-        // newXpos = -1;
-
-        // if (this.type == "projectile") console.log(newXpos + ' space ' + newYpos);
-
 
         //sign correctors
         if(this.type == "badguy"){
@@ -160,8 +128,6 @@ export default class Floater{
             }
 
         }
-
-        // if (this.type == "badguy") console.log(newXpos + ' space ' + newYpos);
 
         this.position.x += newXpos;
         this.position.y += newYpos;
