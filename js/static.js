@@ -10,7 +10,8 @@ export default class Static{
         this.width  = 50;
         this.type = type;
         this.activeProjectile = false;
-
+        this.towerTime = 0;
+        this.lastShotTime = 2000;
     }
 
     draw(ctx){

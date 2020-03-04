@@ -180,12 +180,17 @@ function gameLoop(timestamp){
       if (distance(tower[i].position.x, badguy[j].position.x, tower[i].position.y, badguy[j].position.y) < towerProximity) 
       {
       
-
+        if(tower[i].towerTime < (timestamp - tower[i].lastShotTime) && tower[i].activeProjectile) {
+            tower[i].activeProjectile = false;
+            console.log("working");
+        }
         //Projectiles are meant to be "fire and forget".  A slope is determined for the projectile ONCE
         //and the projectile isn't heard of again.  Projectiles either need to be despawned 
-
+        
         if (!tower[i].activeProjectile){
           var direction;
+          tower[i].towerTime = timestamp;
+
           if((tower[i].position.x > badguy[j].position.x)&&(tower[i].position.y > badguy[j].position.y)){
             direction = "topleft";
           }
@@ -218,8 +223,25 @@ function gameLoop(timestamp){
       }
       }
     }
+    for (let i = 0; i < projectile.length; i++){
+      for (let j = 0; j < numberOfBadGuys; j++){
 
 
+          if(distance(projectile[i].position.x, badguy[j].position.x, projectile[i].position.y, badguy[j].position.y) < badguy[j].hitbox) {
+          
+          
+            if(!badguy[j].currentlyHit){
+            badguy[j].hp = badguy[j].hp - 1;
+            badguy[j].currentlyHit = true;
+            console.log(badguy[j].hp);
+          }
+        }
+        else if(badguy[j].currentlyHit){
+          badguy[j].currentlyHit = false;
+        }
+
+      }
+    } 
     //bad guy waypoint proximity check
 
     // for (let i = 0; i < numberOfPathPoints; i++){

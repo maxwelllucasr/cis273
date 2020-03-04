@@ -17,8 +17,10 @@ export default class Floater{
             this.width = 100;
             this.height = 100;
             this.slope = null;
-            this.speed = 2; 
-
+            this.speed = 1; 
+            this.hitbox = 50;
+            this.hp = 20;
+            this.currentlyHit = false;
         }
         this.currentHeading = 1;  //points to xy coordinates in pathPoint
         this.towerDaddy = null; //Tower # of origin for projectiles
