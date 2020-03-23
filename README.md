@@ -1,5 +1,5 @@
 # CIS 273 GROUP A 
- README
+# README
 
 This repository contains the code for the JC CIS 273 group A final project, a website
 featuring the following functionality:  A browser game, a login system, a forum, a 
