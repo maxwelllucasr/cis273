@@ -3,8 +3,9 @@ include 'PHP/header.php';
 ?>
 
 <section class="game-container">
-    <div class="container">
+    <div class="container" style="position:relative">
        
+       <a class="game-easter-egg" href="easteregg.php"></a>
         <!-- remove this later, just for context -->
         <div class="cast" style="font-family:arial; background-color:whitesmoke; width:20%; margin:1rem auto; display:block; border-radius:20px; text-align:center; padding:1rem; font-weight:bold">
             <h1>Starring:</h1>
