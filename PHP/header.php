@@ -1,4 +1,5 @@
 <?php
+session_start();
 include 'functions.php'; //adds functions to namespace
 
 ?>
@@ -24,6 +25,8 @@ include 'functions.php'; //adds functions to namespace
         <li><a href="login.php">Login</a></li>
         <li><a href="registration.php">Registration</a></li>
         <li><a href="forum.php">Forum</a></li>
+
+<?php if($_SESSION['loggedin']) { ?> <li style="font-size:1rem; color:white; background-color:black;padding:0.5rem 1rem; border-radius:10px;">Hello <?php echo $_SESSION['user']?></li><?php } ?>
 
     </ul>
     </nav>
