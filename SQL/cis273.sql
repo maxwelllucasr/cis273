@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net
 --
 -- Host: localhost
--- Generation Time: Mar 25, 2020 at 09:38 PM
+-- Generation Time: Mar 26, 2020 at 02:42 AM
 -- Server version: 5.6.37
 -- PHP Version: 7.1.8
 
@@ -23,6 +23,19 @@ SET time_zone = "+00:00";
 -- --------------------------------------------------------
 
 --
+-- Table structure for table `forum`
+--
+
+CREATE TABLE IF NOT EXISTS `forum` (
+  `id` int(11) NOT NULL,
+  `author` varchar(255) NOT NULL,
+  `date` date NOT NULL,
+  `post` text NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+-- --------------------------------------------------------
+
+--
 -- Table structure for table `user`
 --
 
@@ -32,7 +45,7 @@ CREATE TABLE IF NOT EXISTS `user` (
   `pass` varchar(30) NOT NULL,
   `email` varchar(30) NOT NULL,
   `score` mediumint(8) unsigned NOT NULL
-) ENGINE=InnoDB AUTO_INCREMENT=6 DEFAULT CHARSET=latin1;
+) ENGINE=InnoDB AUTO_INCREMENT=10 DEFAULT CHARSET=latin1;
 
 --
 -- Dumping data for table `user`
@@ -43,11 +56,19 @@ INSERT INTO `user` (`id`, `user`, `pass`, `email`, `score`) VALUES
 (2, 'evan', 'password', 'evan@evansfakewebsite.com', 9999),
 (3, 'chase', 'password', 'chase@chasesfakewebsite.com', 9999),
 (4, 'tyler', 'password', 'tyler@tylersfakewebsite.com', 9999),
-(5, 'darklord666', 'password', 'darklord@dark.com', 5);
+(5, 'darklord666', 'password', 'darklord@dark.com', 5),
+(6, 'Darklord667', 'password2', 'password2', 5),
+(7, 'username1', 'password1', 'r@r.com', 0);
 
 --
 -- Indexes for dumped tables
 --
+
+--
+-- Indexes for table `forum`
+--
+ALTER TABLE `forum`
+  ADD PRIMARY KEY (`id`);
 
 --
 -- Indexes for table `user`
@@ -63,10 +84,15 @@ ALTER TABLE `user`
 --
 
 --
+-- AUTO_INCREMENT for table `forum`
+--
+ALTER TABLE `forum`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
+--
 -- AUTO_INCREMENT for table `user`
 --
 ALTER TABLE `user`
-  MODIFY `id` smallint(5) unsigned NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=6;
+  MODIFY `id` smallint(5) unsigned NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=10;
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
 /*!40101 SET CHARACTER_SET_RESULTS=@OLD_CHARACTER_SET_RESULTS */;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;

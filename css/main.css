@@ -139,6 +139,35 @@ html, body {
   border-radius: 2px;
   margin-top: 1rem; }
 
+.forum-post-block {
+  width: 40%;
+  min-height: 5rem; }
+
+.forum-post-single .author {
+  margin-bottom: 0;
+  font-weight: bold; }
+.forum-post-single .date {
+  font-size: 0.7rem;
+  font-style: italic;
+  margin-top: 0; }
+
+.forum-form {
+  margin: 3rem 0; }
+  .forum-form .forum-form-textarea {
+    width: 40%;
+    min-height: 5rem; }
+  .forum-form .forum-form-submit {
+    border: none;
+    background-color: #823a51;
+    border-radius: 999px;
+    padding: 0.5rem 1rem;
+    color: white;
+    font-size: 1.5rem;
+    transition-duration: 1s; }
+    .forum-form .forum-form-submit:hover {
+      transition-duration: .5s;
+      background-color: black; }
+
 footer {
   min-height: 3rem;
   background-color: #823a51;

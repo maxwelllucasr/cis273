@@ -50,7 +50,7 @@ if (isset($_POST['login-button'])){
                         // echo "id: " . $row["id"]. " - Name: " . $row["user"]. " " . $row["pass"]. "<br>";
                         if($passInput == $row['pass']){
                             
-                            $message = "Logged in!";
+                            // $message = "Logged in!";
 
                             $_SESSION['loggedin'] = true;
                             $_SESSION['user'] = $userInput;

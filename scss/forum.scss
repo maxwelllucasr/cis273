@@ -1,0 +1,40 @@
+.forum-post-block{
+    width:40%;
+    min-height:5rem;
+}
+.forum-post-single{
+    .author{
+        margin-bottom:0;
+        font-weight:bold;
+    }
+    .date{
+        font-size:0.7rem;
+        font-style:italic;
+        margin-top:0;
+    }
+    .post{
+
+    }
+}
+.forum-form{
+    margin:3rem 0;
+    .forum-form-textarea{
+        width:40%;
+        min-height:5rem;
+    }
+    .forum-form-submit{
+        border:none;
+        background-color:$color-1;
+        border-radius:999px;
+        padding:0.5rem 1rem;
+        color:white;
+        font-size:1.5rem;
+        transition-duration:1s;
+
+
+        &:hover{
+            transition-duration:.5s;
+            background-color: black;
+        }
+    }
+}

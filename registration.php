@@ -25,7 +25,7 @@ if (!$_SESSION['loggedin']) include 'PHP/registrationSQL.php';
 
 				<input class="registration-submit" type = "submit" value = "Register" name="registration-button">
 			</form>
-		<?php } ?>
+		<?php } else echo "<p style=\"text-align:center;\">You're logged in!</p>"; ?>
 
     </div>
 </section>
