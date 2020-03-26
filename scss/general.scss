@@ -15,8 +15,10 @@
 .page-header{
     font-family:arial;
     text-transform: uppercase;
-    width:100%;
-    background-color: gray;
+    width:95%;
+    max-width:1200px;
+    background-color: $color-1;
+    color:white;
     // margin: 1rem -1rem;
     padding:1rem;
     border-radius:10px;

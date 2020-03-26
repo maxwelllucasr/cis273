@@ -33,6 +33,11 @@ include 'PHP/header.php';
       <source src="media/lifeanddeath.mp3">
     </audio>
 
+    <div class="mobile-notice">
+        <p><?php if($_SESSION['loggedin']) echo "Hello ".$_SESSION['user'] . ","; else echo "Hello guest,";?></p>
+        <p>Since you're viewing this in a mobile viewport, you will be unable to play Food n' Boom'd.</p>
+    </div>
+
 </section>
 
 

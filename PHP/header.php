@@ -19,7 +19,7 @@ if (isset($_POST['logout'])) session_unset();
 </head>
 <header>
     <div class="container">
-    <img class="banner" src="images/Wider.png">
+    <img class="banner" src="images/simpleLogo.png">
 
 
     <nav>
@@ -33,7 +33,7 @@ if (isset($_POST['logout'])) session_unset();
     <?php 
         if($_SESSION['loggedin']) { ?> 
         <li class="loggedintopright" style="font-size:1rem; color:white;padding:0.5rem 1rem; border-radius:10px;">
-            Hello <?php echo $_SESSION['user']?>
+            <span class="loggedin-hello">Hello</span> <?php echo $_SESSION['user']?>
             
             <div class="loggedinsubmenu">
                 <form action="login.php" method="post">

@@ -6,7 +6,10 @@ header {
     max-height: 5rem;
     float: left;
     border-radius: 5px;
-    box-shadow: 1px 1px 4px black; }
+    box-shadow: 1px 1px 4px black;
+    padding: 5px 1rem;
+    background-color: white;
+    margin-top: -5px; }
   header nav .nav-ul {
     list-style: none;
     float: right; }
@@ -63,8 +66,10 @@ header {
 .page-header {
   font-family: arial;
   text-transform: uppercase;
-  width: 100%;
-  background-color: gray;
+  width: 95%;
+  max-width: 1200px;
+  background-color: #823a51;
+  color: white;
   padding: 1rem;
   border-radius: 10px; }
 
@@ -100,6 +105,13 @@ html, body {
     position: absolute;
     top: 100px;
     right: 100px; }
+  .game-container .mobile-notice p {
+    color: white;
+    font-size: 1.5rem;
+    text-align: center;
+    width: 80%;
+    margin: 1rem auto;
+    display: block; }
 
 .registration-container .registration-field {
   display: block;
@@ -178,5 +190,21 @@ footer {
     text-align: center;
     margin-bottom: 1rem;
     color: #d6c6b1; }
+
+@media only screen and (max-width: 1100px) {
+  header nav .nav-ul li a {
+    padding-left: 0.9rem;
+    padding-right: 0.9rem; } }
+@media only screen and (max-width: 960px) {
+  header nav .nav-ul li a {
+    font-size: 0.7rem; }
+
+  .loggedintopright {
+    font-size: 0.7rem !important; }
+    .loggedintopright .loggedin-hello {
+      display: none; } }
+@media only screen and (max-width: 800px) {
+  #pad, .cast, .musicplayer, .banner {
+    display: none !important; } }
 
 /*# sourceMappingURL=main.css.map */
