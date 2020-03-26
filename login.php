@@ -26,6 +26,8 @@ include 'PHP/loginSQL.php';
 	
 		<?php if (isset($message)) {echo $message;} ?>
 
+		<div class="dev-notice">Attention: This is a dev site.  Do not register or login with real passwords, as it isn't verifiably secure.</div>
+
     </div>
 </section>
 

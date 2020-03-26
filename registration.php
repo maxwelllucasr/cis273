@@ -27,6 +27,8 @@ if (!$_SESSION['loggedin']) include 'PHP/registrationSQL.php';
 			</form>
 		<?php } else echo "<p style=\"text-align:center;\">You're logged in!</p>"; ?>
 
+		<div class="dev-notice">Attention: This is a dev site.  Do not register or login with real passwords, as it isn't verifiably secure.</div>
+
     </div>
 </section>
 
