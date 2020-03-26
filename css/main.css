@@ -20,7 +20,7 @@ header {
         text-decoration: none;
         text-transform: uppercase;
         background-color: #823a51;
-        padding: 1rem 2rem;
+        padding: 1rem 1.5rem;
         border-radius: 999px;
         color: whitesmoke;
         font-family: 'Arial';
@@ -79,6 +79,9 @@ body {
 
 html, body {
   height: 100%; }
+
+.mobile-notice {
+  display: none; }
 
 .game-container {
   background-color: gray;
@@ -196,15 +199,26 @@ footer {
     padding-left: 0.9rem;
     padding-right: 0.9rem; } }
 @media only screen and (max-width: 960px) {
+  header .loggedintopright {
+    font-size: 0.7rem !important; }
+    header .loggedintopright .loggedin-hello {
+      display: none; }
+    header .loggedintopright .loggedinsubmenu {
+      top: 1.5rem; }
   header nav .nav-ul li a {
     font-size: 0.7rem; }
 
   .loggedintopright {
     font-size: 0.7rem !important; }
     .loggedintopright .loggedin-hello {
-      display: none; } }
+      display: none; }
+    .loggedintopright .loggedinsubmenu {
+      top: 1.5rem; } }
 @media only screen and (max-width: 800px) {
   #pad, .cast, .musicplayer, .banner {
-    display: none !important; } }
+    display: none !important; }
+
+  .mobile-notice {
+    display: block; } }
 
 /*# sourceMappingURL=main.css.map */

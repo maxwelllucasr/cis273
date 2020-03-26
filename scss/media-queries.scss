@@ -19,6 +19,15 @@
   @media only screen and (max-width: 960px) {
     
     header{
+        .loggedintopright{
+            font-size:0.7rem !important;
+            .loggedin-hello{
+                display:none;
+            }
+            .loggedinsubmenu{
+                top:1.5rem;
+            }
+        }
         nav{
             .nav-ul{
                     li{
@@ -34,12 +43,18 @@
         .loggedin-hello{
             display:none;
         }
+        .loggedinsubmenu{
+            top:1.5rem;
+        }
     }
   }
 
   @media only screen and (max-width: 800px) {
     #pad,.cast,.musicplayer,.banner{
         display:none !important;
+    }
+    .mobile-notice{
+        display:block;
     }
   }
 
