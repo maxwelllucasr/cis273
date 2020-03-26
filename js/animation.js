@@ -25,10 +25,10 @@ const GAME_WIDTH = 800;
 const GAME_HEIGHT = 600;
 
 //get the canvas
-let canvas = document.getElementById("gameWrapper");
+// let canvas = document.getElementById("gameWrapper");
 //Context works in a fashion similar to elements in Javas Swing.
 //Context is shared by all objects in the canvas.  It must be updated for most actions to the screen
-let ctx = canvas.getContext('2d');
+// let ctx = canvas.getContext('2d');
 
 
 
@@ -52,12 +52,12 @@ function writeMessage(canvas, message) {
   }
 
   //need this
-  canvas.addEventListener('mousemove', function(evt) {
-    var mousePos = getMousePos(canvas, evt);
-    var message = 'Mouse position: ' + mousePos.x + ',' + mousePos.y;
-    writeMessage(canvas, message);
+  // canvas.addEventListener('mousemove', function(evt) {
+  //   var mousePos = getMousePos(canvas, evt);
+  //   var message = 'Mouse position: ' + mousePos.x + ',' + mousePos.y;
+  //   writeMessage(canvas, message);
     
-  }, false);
+  // }, false);
 
 
 
@@ -359,26 +359,26 @@ function gameLoop(timestamp){
 
 //First canvas stuff
 
-//make objects using floater class
-let myObject = new Floater(GAME_WIDTH, GAME_HEIGHT);
-let yourObject = new Floater(GAME_WIDTH, GAME_HEIGHT);
+// //make objects using floater class
+// let myObject = new Floater(GAME_WIDTH, GAME_HEIGHT);
+// let yourObject = new Floater(GAME_WIDTH, GAME_HEIGHT);
 
-//green
-ctx.fillStyle = '#1f1';
+// //green
+// ctx.fillStyle = '#1f1';
 
-//using the default dimensions in the class constructor over in floater
-myObject.draw(ctx);  
+// //using the default dimensions in the class constructor over in floater
+// myObject.draw(ctx);  
 
-//gray
-ctx.fillStyle = '#555';
-//overriding constructor defaults on second block
-yourObject.height = 50;
-yourObject.position.x = 150;
-yourObject.draw(ctx);
+// //gray
+// ctx.fillStyle = '#555';
+// //overriding constructor defaults on second block
+// yourObject.height = 50;
+// yourObject.position.x = 150;
+// yourObject.draw(ctx);
 
 
-ctx.fillStyle = '#1f1';
-ctx.fillRect(10,10,20,20)
+// ctx.fillStyle = '#1f1';
+// ctx.fillRect(10,10,20,20)
 
 gameLoop();
 

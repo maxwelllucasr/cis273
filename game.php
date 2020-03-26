@@ -21,10 +21,10 @@ include 'PHP/header.php';
 
         </canvas>
 
-        <canvas id="gameWrapper" height="600" width="800">
-            <!-- Only displays if HTML5 isnt supported -->
+        <!-- <canvas id="gameWrapper" height="600" width="800">
+            Only displays if HTML5 isnt supported
             <h1>HTML5 NOT SUPPORTED</h1>
-        </canvas>
+        </canvas> -->
 
 
     </div>
