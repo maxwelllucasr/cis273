@@ -2,6 +2,9 @@
 session_start();
 // session_unset();
 include 'functions.php'; //adds functions to namespace
+if (isset($_POST['logout'])) session_unset();
+
+
 
 ?>
 
@@ -27,7 +30,18 @@ include 'functions.php'; //adds functions to namespace
         <li><a href="registration.php">Registration</a></li>
         <li><a href="forum.php">Forum</a></li>
 
-<?php if($_SESSION['loggedin']) { ?> <li style="font-size:1rem; color:white; background-color:black;padding:0.5rem 1rem; border-radius:10px;">Hello <?php echo $_SESSION['user']?></li><?php } ?>
+    <?php 
+        if($_SESSION['loggedin']) { ?> 
+        <li class="loggedintopright" style="font-size:1rem; color:white;padding:0.5rem 1rem; border-radius:10px;">
+            Hello <?php echo $_SESSION['user']?>
+            
+            <div class="loggedinsubmenu">
+                <form action="login.php" method="post">
+                    <input class="logout-button" type="submit" value="Logout" name="logout">
+                </form>
+            </div>
+        </li>
+         <?php } ?>
 
     </ul>
     </nav>

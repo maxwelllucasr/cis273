@@ -1,6 +1,8 @@
 <?php
 include 'PHP/header.php';
 include 'PHP/loginSQL.php';
+
+
 ?>
 
 <section class="login-container">
@@ -28,7 +30,6 @@ include 'PHP/loginSQL.php';
 </section>
 
 <?php
-
 
 include 'PHP/footer.php';
 ?>
