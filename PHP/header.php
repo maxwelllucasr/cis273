@@ -1,6 +1,6 @@
 <?php
 session_start();
-session_unset();
+// session_unset();
 include 'functions.php'; //adds functions to namespace
 
 ?>

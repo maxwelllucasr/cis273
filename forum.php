@@ -1,8 +1,9 @@
 <?php
 include 'PHP/header.php';
+require 'PHP/mysqlCredentials.php';
 ?>
 <?php 
-	echo $_POST["forumpost"]; 
+	if ($_SESSION['loggedin']) {
 ?>
 <section class="forum-container">
     <div class="container">
@@ -17,5 +18,7 @@ include 'PHP/header.php';
 </section>
 
 <?php
+	}
+	else echo "<p style=\"text-align:center\">You must be logged in to access the Food n' Boom'd forum.</p>";
 include 'PHP/footer.php';
 ?>
