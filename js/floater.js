@@ -42,6 +42,10 @@ export default class Floater{
         ctx.fillRect(this.position.x, this.position.y, this.width, this.height);
     }
 
+    fnbDrawImage(ctx,imageObject){
+        ctx.drawImage(imageObject,this.position.x,this.position.y);
+    }
+
 
 
 

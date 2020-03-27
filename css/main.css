@@ -93,7 +93,7 @@ html, body {
 
 .game-container {
   background-color: gray;
-  padding: 5rem 0; }
+  padding: 2rem 0; }
   .game-container #gameWrapper {
     height: 600px;
     width: 800px;
@@ -106,7 +106,9 @@ html, body {
     width: 800px;
     background-color: white;
     margin: 1rem auto;
-    display: block; }
+    display: block;
+    z-index: 5;
+    position: relative; }
   .game-container .game-easter-egg {
     background-color: #999;
     height: 2px;
@@ -115,7 +117,8 @@ html, body {
     display: block;
     position: absolute;
     top: 100px;
-    right: 100px; }
+    right: 100px;
+    z-index: 4; }
   .game-container .mobile-notice p {
     color: white;
     font-size: 1.5rem;

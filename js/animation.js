@@ -139,6 +139,18 @@ badguy[0].position.y = 100;
 badguy[0].width = 10;
 badguy[0].height = 10;
 
+let towerImage = new Image();
+let backgroundImage = new Image();
+let bombImage = new Image();
+let milkCarton = new Image();
+let projectileImg = new Image();
+
+towerImage.src = "images/tower.png";
+backgroundImage.src = "images/badMap.png";
+bombImage.src = "images/smileyBomb.png";
+milkCarton.src = "images/milkCarton.png";
+projectileImg.src = "images/snowball.png";
+
 for(let i = 0; i < numberOfBadGuys; i++){
   badguy[i].draw(ctx2);
 }
@@ -171,6 +183,7 @@ function gameLoop(timestamp){
 
     //ClearRect is a context method that clears screen
     ctx2.clearRect(0,0,800,600);
+    ctx2.drawImage(backgroundImage,0,0);
 
 
     //tower proximity check & projectile generation
@@ -285,20 +298,25 @@ function gameLoop(timestamp){
 
     //Draw redraws the object... 
     for(let i = 0; i < numberOfBadGuys; i++){
-      badguy[i].draw(ctx2);
+      // badguy[i].draw(ctx2);
+      ctx2.drawImage(bombImage,badguy[i].position.x,badguy[i].position.y,50,50);
     }
 
     ctx2.fillStyle = "#ff0000";
-
     for(let i = 0; i < numberOfTowers; i++){
-      tower[i].draw(ctx2);
+      // tower[i].draw(ctx2);
+      ctx2.drawImage(towerImage, tower[i].position.x, tower[i].position.y,50,50);
+
+
     }
 
     ctx2.fillStyle = "#0000ff";
 
-    for(let i = 0; i < numberOfPathPoints; i++){
-      pathPoint[i].draw(ctx2);
-    }
+    //
+    // for(let i = 0; i < numberOfPathPoints; i++){
+    //   pathPoint[i].draw(ctx2);
+    // }
+      ctx2.drawImage(milkCarton, pathPoint[pathPoint.length-1].position.x, pathPoint[pathPoint.length-1].position.y,50,100);
 
   //Projectile update position
   for(let i = 0; i < projectile.length; i++){
@@ -308,7 +326,8 @@ function gameLoop(timestamp){
   ctx2.fillStyle = "#999999";
   //Draw redraws the object... 
   for(let i = 0; i < projectile.length; i++){
-    projectile[i].draw(ctx2);
+    // projectile[i].draw(ctx2);
+      ctx2.drawImage(projectileImg,projectile[i].position.x,projectile[i].position.y,20,20);
   }
 }
 //END ISSTARTED

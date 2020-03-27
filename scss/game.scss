@@ -1,6 +1,6 @@
 .game-container{
 background-color:gray;
-padding:5rem 0;
+padding:2rem 0;
     #gameWrapper{
         height:600px;
         width:800px;
@@ -17,6 +17,8 @@ padding:5rem 0;
         background-color:white;
         margin:1rem auto;
         display:block;
+        z-index:5;
+        position: relative;
     }
     .game-easter-egg{
         background-color: #999;
@@ -27,6 +29,7 @@ padding:5rem 0;
         position:absolute;
         top:100px;
         right:100px;
+        z-index:4;
     }
     .mobile-notice{
         p{
