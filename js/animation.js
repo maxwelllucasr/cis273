@@ -161,10 +161,10 @@ let bombImage = new Image();
 let milkCarton = new Image();
 let projectileImg = new Image();
 
-towerImage.src = "images/tower.png";
+towerImage.src = "images/milkCarton.png";
 backgroundImage.src = "images/badMap.png";
 bombImage.src = "images/smileyBomb.png";
-milkCarton.src = "images/milkCarton.png";
+milkCarton.src = "images/fridge.png";
 projectileImg.src = "images/snowball.png";
 
 for(let i = 0; i < numberOfBadGuys; i++){
@@ -329,7 +329,7 @@ function gameLoop(timestamp){
     ctx2.fillStyle = "#ff0000";
     for(let i = 0; i < numberOfTowers; i++){
       // tower[i].draw(ctx2);
-      ctx2.drawImage(towerImage, tower[i].position.x, tower[i].position.y,50,50);
+      ctx2.drawImage(towerImage, tower[i].position.x, tower[i].position.y,50,100);
 
 
     }
@@ -340,7 +340,7 @@ function gameLoop(timestamp){
     // for(let i = 0; i < numberOfPathPoints; i++){
     //   pathPoint[i].draw(ctx2);
     // }
-      ctx2.drawImage(milkCarton, pathPoint[pathPoint.length-1].position.x, pathPoint[pathPoint.length-1].position.y,50,100);
+      ctx2.drawImage(milkCarton, pathPoint[pathPoint.length-1].position.x, pathPoint[pathPoint.length-1].position.y,70,100);
 
   //Projectile update position
   for(let i = 0; i < projectile.length; i++){
