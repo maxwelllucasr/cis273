@@ -20,6 +20,22 @@ function gameMessage(string, context, GAME_WIDTH, GAME_HEIGHT){
  
 }
 
+let audio = document.getElementById('musicplayer');
+let gameoverplayer = document.getElementById('gameoverplayer');
+
+    $('#pad').click(function(){
+        audio.play();
+        $('.pause-button').addClass('is-active');
+        $('.play-button').removeClass('is-active');
+
+    });
+    $('.pause').click(function(){
+      $(this).children().toggleClass('is-active');
+        if($('.pause-button').hasClass('is-active')) audio.play();
+        else if($('.play-button').hasClass('is-active')) audio.pause();
+
+    })
+
 // //constants
 const GAME_WIDTH = 800;
 const GAME_HEIGHT = 600;
@@ -273,6 +289,14 @@ function gameLoop(timestamp){
             
             if(badguy[j].currentHeading == numberOfPathPoints )
             {
+
+                if(!metadata.isGameOver) {
+                  audio.pause();
+                  gameoverplayer.play();
+                  $('.pause').children().toggleClass('is-active');
+
+
+                }
                 metadata.isStarted = false;
                 metadata.isGameOver = true;
                 badguy[j].currentHeading--;

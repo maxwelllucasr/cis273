@@ -23,14 +23,22 @@ include 'PHP/header.php';
     <audio controls id="musicplayer" class="musicplayer">
       <source src="media/lifeanddeath.mp3">
     </audio>
+    <audio controls id="gameoverplayer" class="gameoverplayer">
+      <source src="media/game-over.mp3">
+    </audio>
 
+    <div class="pause">
+        <img class="pause-button" src="images/pause.png">
+        <img class="play-button is-active" src="images/play.png">
+    </div>
+<!-- 
     <div class="cast" style="font-family:arial; background-color:whitesmoke; width:20%; margin:1rem auto; display:block; border-radius:20px; text-align:center; padding:1rem; font-weight:bold">
             <h1>Starring:</h1>
             <p style="color:red">Towers</p>
             <p style="color:blue">Waypoints</p>
             <p style="color:black">Bad guys</p>
             <p style="color:gray">Projectiles</p>
-        </div>
+        </div> -->
 
     <div class="mobile-notice">
         <p><?php if($_SESSION['loggedin']) echo "Hello ".$_SESSION['user'] . ","; else echo "Hello guest,";?></p>

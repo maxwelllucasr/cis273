@@ -11,6 +11,30 @@ padding:2rem 0;
         
 
     }
+    .musicplayer{
+        margin:auto;
+        display:none;
+    }
+    .gameoverplayer{
+        display:none;
+    }
+    .pause{
+        margin:auto;
+        width:100px;
+        height:100px;
+        background-color:whitesmoke;
+        display:block;
+        padding:1rem;
+        border-radius:999px;
+        .pause-button,.play-button{
+            width:100px;
+            height:100px;
+            display:none;
+        }
+        .is-active{
+            display:block;
+        }
+    }
     #pad{
         height:600px;
         width:800px;
@@ -19,6 +43,8 @@ padding:2rem 0;
         display:block;
         z-index:5;
         position: relative;
+
+        
     }
     .game-easter-egg{
         background-color: #999;

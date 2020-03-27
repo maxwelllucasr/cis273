@@ -5,9 +5,5 @@ jQuery(document).ready(function($){
     })
 
     // $('#playButton').trigger('click');
-    let audio = document.getElementById('musicplayer');
-    $('#pad').click(function(){
-        audio.play();
-
-    });
+    
 })

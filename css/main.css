@@ -59,10 +59,6 @@ header {
   margin-right: auto;
   display: block; }
 
-.musicplayer {
-  margin: auto;
-  display: block; }
-
 .page-header {
   font-family: arial;
   text-transform: uppercase;
@@ -101,6 +97,25 @@ html, body {
     background-color: white;
     display: block;
     margin: auto; }
+  .game-container .musicplayer {
+    margin: auto;
+    display: none; }
+  .game-container .gameoverplayer {
+    display: none; }
+  .game-container .pause {
+    margin: auto;
+    width: 100px;
+    height: 100px;
+    background-color: whitesmoke;
+    display: block;
+    padding: 1rem;
+    border-radius: 999px; }
+    .game-container .pause .pause-button, .game-container .pause .play-button {
+      width: 100px;
+      height: 100px;
+      display: none; }
+    .game-container .pause .is-active {
+      display: block; }
   .game-container #pad {
     height: 600px;
     width: 800px;
