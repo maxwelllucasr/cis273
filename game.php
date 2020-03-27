@@ -20,7 +20,7 @@ include 'PHP/header.php';
 
     </div>
 
-    <audio controls class="musicplayer">
+    <audio controls id="musicplayer" class="musicplayer">
       <source src="media/lifeanddeath.mp3">
     </audio>
 
