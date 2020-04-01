@@ -41,7 +41,7 @@ if (isset($_POST['registration-button'])){
                 {
                     //Specific errors
                     if((strlen($_POST['user']) < 8)||strlen($_POST['pass'])<8) {
-                        echo "Registration error: User or password under 8 characters.";
+                        echo "<div class=\"dev-notice\">Registration error: User or password under 8 characters.</div>";
                     }
                     else{
                         //successful registration
@@ -49,10 +49,10 @@ if (isset($_POST['registration-button'])){
                         $link = mysqli_connect($host, $un, $pass, $db);
                         $query = "INSERT INTO `cis273`.`user` (`id`, `user`, `pass`, `email`, `score`) VALUES (NULL, \"" . $_POST['user'] .  "\" , \"".$_POST['pass']."\" , \"".$_POST['email']."\", '0');";
 
-                        $link->query($query);
+                        $result = $link->query($query);
 
-
-                        echo "Successful registration! Click <a href=\"login.php\">here</a> to login.";
+                        if ($result === false) echo "<div class=\"dev-notice\">MYSQL ERROR</div>";
+                        else echo "Successful registration! Click <a href=\"login.php\">here</a> to login.";
 
 
 

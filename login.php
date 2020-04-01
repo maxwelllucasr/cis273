@@ -16,7 +16,7 @@ include 'PHP/loginSQL.php';
 
 				<input class="login-field" type = "text" placeholder = "Username" name = "user" id="user" required>
 
-				<input class="login-field" type = "text" placeholder = "Password" name = "pass" id="pass" required>
+				<input class="login-field" type = "password" placeholder = "Password" name = "pass" id="pass" required>
 				
 				<input class="login-submit" type = "submit" value = "Login" name="login-button">
 
@@ -26,7 +26,7 @@ include 'PHP/loginSQL.php';
 	
 		<?php if (isset($message)) {echo $message;} ?>
 
-		<div class="dev-notice">Attention: This is a dev site.  Do not register or login with real passwords, as it isn't verifiably secure.</div>
+		<div class="dev-notice" style="margin-top:5rem">Attention: This is a dev site.  Do not register or login with real passwords, as it isn't verifiably secure.</div>
 
     </div>
 </section>

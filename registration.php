@@ -17,9 +17,9 @@ if (!$_SESSION['loggedin']) include 'PHP/registrationSQL.php';
 
 				<input class="registration-field" type = "text" placeholder = "Username" name = "user" id="user" required>
 
-				<input class="registration-field" type = "text" placeholder = "Password" name = "pass" id="pass" required>
+				<input class="registration-field" type = "password" placeholder = "Password" name = "pass" id="pass" required>
 
-				<input class="registration-field" type = "text" placeholder = "Retype Password" name = "pass2" id="pass2" required>
+				<input class="registration-field" type = "password" placeholder = "Retype Password" name = "pass2" id="pass2" required>
 
 				<input class="registration-field" type = "email" name = "email" placeholder = "Email">
 

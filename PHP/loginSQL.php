@@ -57,14 +57,14 @@ if (isset($_POST['login-button'])){
                         }
                     }
                 } else {
-                    $message = "Login error: No rows";
+                    $message = "<div class=\"dev-notice\">Login error: No user found.</div>";
                 }
 
 
             }
 
             else{
-                if (!(strlen($_POST['user']) > 8)) $message = $message .  "Login error: Username too short";
+                if (!(strlen($_POST['user']) > 8)) $message = $message .  "<div class=\"dev-notice\">Login error: Username too short</div>";
                     
 
                 // $message = $message  "";
