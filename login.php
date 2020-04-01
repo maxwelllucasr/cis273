@@ -10,7 +10,7 @@ include 'PHP/loginSQL.php';
 
     	<h1 class="page-header">Login</h1>
 
-		<?php if (!$_SESSION['loggedin']){ ?>
+		<?php if(!isset($_SESSION['loggedin'])) { ?>
 
 			<form class="login-form" action="login.php" method = "post">
 

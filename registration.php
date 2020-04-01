@@ -1,6 +1,6 @@
 <?php
 include 'PHP/header.php';
-if (!$_SESSION['loggedin']) include 'PHP/registrationSQL.php';
+if (!isset($_SESSION['loggedin'])) include 'PHP/registrationSQL.php';
 
 ?>
 
@@ -10,7 +10,7 @@ if (!$_SESSION['loggedin']) include 'PHP/registrationSQL.php';
     	<h1 class="page-header">Register</h1>
 
 
-		<?php if (!$_SESSION['loggedin']){ ?>
+		<?php if (!isset($_SESSION['loggedin'])){ ?>
 
 			<div class="registration-notice" style="font-size:0.8rem;">For security reasons, you aren't allowed to include asterisks, less than or greater than symbols, or semicolons in your username and password.</div>
 			<form class="registration-form" action="registration.php" method = "post" autocomplete = "off">

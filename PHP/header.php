@@ -6,6 +6,10 @@ if (isset($_POST['logout'])) session_unset();
 
 
 
+ini_set('display_startup_errors', 1);
+ini_set('display_errors', 1);
+error_reporting(-1);
+
 ?>
 
 <!DOCTYPE html>
@@ -31,7 +35,7 @@ if (isset($_POST['logout'])) session_unset();
         <li><a href="forum.php">Forum</a></li>
 
     <?php 
-        if($_SESSION['loggedin']) { ?> 
+        if(isset($_SESSION['loggedin'])) if ($_SESSION['loggedin']){ ?> 
         <li class="loggedintopright" style="font-size:1rem; color:white;padding:0.5rem 1rem; border-radius:10px;">
             <span class="loggedin-hello">Hello</span> <?php echo $_SESSION['user']?>
             

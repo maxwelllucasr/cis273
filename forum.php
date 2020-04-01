@@ -3,7 +3,7 @@ include 'PHP/header.php';
 require 'PHP/mysqlCredentials.php';
 ?>
 <?php 
-	if ($_SESSION['loggedin']) {
+	if (isset($_SESSION['loggedin'])) {
 		$link = mysqli_connect($host, $un, $pass, $db);
 		$query = "SELECT * FROM forum";
 		$result = $link->query($query);
@@ -46,6 +46,6 @@ require 'PHP/mysqlCredentials.php';
 
 <?php
 	}
-	else echo "<p style=\"text-align:center\">You must be logged in to access the Food n' Boom'd forum.</p>";
+	else if (!isset($_SESSION['loggedin'])) echo "<p style=\"text-align:center\">You must be logged in to access the Food n' Boom'd forum.</p>";
 include 'PHP/footer.php';
 ?>
