@@ -28,11 +28,11 @@ error_reporting(-1);
 
     <nav>
     <ul class="nav-ul">
-		<li><a href="index.php">Home</a></li>
-        <li><a href="game.php">Game</a></li>
-        <li><a href="login.php">Login</a></li>
-        <li><a href="registration.php">Registration</a></li>
-        <li><a href="forum.php">Forum</a></li>
+		<li><a href="index">Home</a></li>
+        <li><a href="game">Game</a></li>
+        <li><a href="login">Login</a></li>
+        <li><a href="registration">Registration</a></li>
+        <li><a href="forum">Forum</a></li>
 
     <?php 
         if(isset($_SESSION['loggedin'])) if ($_SESSION['loggedin']){ ?> 

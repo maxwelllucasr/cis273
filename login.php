@@ -22,7 +22,7 @@ include 'PHP/loginSQL.php';
 
 			</form>
  
-		<?php } else echo "<p style=\"text-align:center;\">You're logged in!</p>";?>
+		<?php } else echo "<p class=\"success-notice\">You're logged in!</p>";?>
 	
 		<?php if (isset($message)) {echo $message;} ?>
 

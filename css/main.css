@@ -107,6 +107,14 @@ html, body {
   margin: 1rem;
   font-style: italic; }
 
+.success-notice {
+  background-color: #009900;
+  color: white;
+  border-radius: 10px;
+  padding: 1rem;
+  margin: 1rem;
+  font-style: italic; }
+
 .game-container {
   background-color: gray;
   padding: 2rem 0; }

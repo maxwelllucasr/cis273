@@ -14,6 +14,15 @@ include 'PHP/header.php';
     <h2 class="main-page-header">News</h2>
 
         <div class="news-clipping">
+            <h2>Boss unveiled for Food n' Boom'd</h2>
+            <pre>APR 1st 2020</pre>
+            <p>Our boss has been unveiled for our game <i>Food n' Boom'd</i>.  Click <a href="easteregg2">here</a> to get a sneak peak at what it is.</p>
+
+            <a href="images/badMap.png"><img src="images/badMap.png"></a>
+            
+        </div>
+
+        <div class="news-clipping">
             <h2>Images added to HTML5 Canvas, site features are up</h2>
             <pre>MAR 2020</pre>
             <p>Our first map!</p>

@@ -52,7 +52,7 @@ if (isset($_POST['registration-button'])){
                         $result = $link->query($query);
 
                         if ($result === false) echo "<div class=\"dev-notice\">MYSQL ERROR</div>";
-                        else echo "Successful registration! Click <a href=\"login.php\">here</a> to login.";
+                        else echo "<div class=\"success-notice\">Successful registration! Click <a href=\"login\">here</a> to login.</div>";
 
 
 

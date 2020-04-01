@@ -25,7 +25,7 @@ if (!isset($_SESSION['loggedin'])) include 'PHP/registrationSQL.php';
 
 				<input class="registration-submit" type = "submit" value = "Register" name="registration-button">
 			</form>
-		<?php } else echo "<p style=\"text-align:center;\">You're logged in!</p>"; ?>
+		<?php } else echo "<p class=\"success-notice\">You're logged in!</p>"; ?>
 
 		<div class="dev-notice">Attention: This is a dev site.  Do not register or login with real passwords, as it isn't verifiably secure.</div>
 
