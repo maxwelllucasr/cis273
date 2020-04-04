@@ -33,7 +33,7 @@ if (isset($_POST['score'])){
     }
     //Logging
     $scoreLog = fopen("../log/scoreLog.log","a"); //append
-    if ($_SESSION['loggedin']) $message = $_SESSION['user'] . " score: " . $_POST['score'] . "\n" . $query;
+    if ($_SESSION['loggedin']) $message = $_SESSION['user'] . " score: " . $_POST['score'] . "\n" ;
     else $message = "Guest score: " . $_POST['score'] . "\n" ;
     fwrite($scoreLog, $message);
     fclose($scoreLog);
