@@ -18,7 +18,7 @@ include 'PHP/header.php';
             <pre>APR 1st 2020</pre>
             <p>Our boss has been unveiled for our game <i>Food n' Boom'd</i>.  Click <a href="easteregg2">here</a> to get a sneak peak at what it is.</p>
 
-            <a href="images/badMap.png"><img src="images/badMap.png"></a>
+            <!-- <a href="images/badMap.png"><img src="images/badMap.png"></a> -->
             
         </div>
 
