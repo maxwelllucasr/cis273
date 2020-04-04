@@ -1,2 +1,5 @@
 PHP/mysqlCredentials.php
 
+# Ignore logs
+log
+log/*

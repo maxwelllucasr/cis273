@@ -4,7 +4,7 @@ session_start();
 include 'functions.php'; //adds functions to namespace
 if (isset($_POST['logout'])) session_unset();
 
-
+// include 'highscoreController.php';
 
 ini_set('display_startup_errors', 1);
 ini_set('display_errors', 1);

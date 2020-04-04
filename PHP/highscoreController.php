@@ -1,0 +1,44 @@
+<?php    
+//Luke Maxwell
+//Backend script called at gameover to send highscore to database
+
+
+if (isset($_POST['score'])){
+    session_start();
+    require 'mysqlCredentials.php';
+
+
+
+    //DB
+
+    //get current score
+    if($_SESSION['loggedin']){
+        //Connect, query
+        $link = mysqli_connect($host, $un, $pass, $db);
+        $query = "SELECT * FROM `user` WHERE `user` = \"" . $_SESSION['user'] . "\";";
+        $result = $link->query($query);
+
+        //only proceed if exactly one result
+        if ($result->num_rows == 1) {
+            $row = $result->fetch_assoc();
+            $userHighScore = $row['score'];
+
+            if ($userHighScore < $_POST['score']){
+                //update database high score if current post > one in db
+                $query = "UPDATE `user` SET `score` = ".$_POST['score']." WHERE `user` = \"".$_SESSION['user']."\";";
+                $link->query($query); //no need for result, just sending here
+            }
+        }
+    
+    }
+    //Logging
+    $scoreLog = fopen("../log/scoreLog.log","a"); //append
+    if ($_SESSION['loggedin']) $message = $_SESSION['user'] . " score: " . $_POST['score'] . "\n" . $query;
+    else $message = "Guest score: " . $_POST['score'] . "\n" ;
+    fwrite($scoreLog, $message);
+    fclose($scoreLog);
+    
+
+  
+
+}

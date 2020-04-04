@@ -296,7 +296,26 @@ function gameLoop(timestamp){
                   $('.pause').children().toggleClass('is-active');
 
 
+                  //Ajax send high score to DB
+                  $.ajax({
+                    type: "POST",
+                    url: "PHP/highscoreController.php", 
+                    data : {
+                      score : metadata.score,
+                    }
+                  //   success: function (data) {
+                  //     document.write(data);
+  
+                  // }
+                  
+                  // post.done(
+                  //   console.log("Gameover, post sent")
+                  // )
+                  })
                 }
+
+
+
                 metadata.isStarted = false;
                 metadata.isGameOver = true;
                 badguy[j].currentHeading--;

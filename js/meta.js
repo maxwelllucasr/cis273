@@ -25,5 +25,7 @@ export default class Meta {
         this.isPlacingPhase = true;
 
         this.currentTower = 0;
+
+        this.score = 0; //currentscore, increment on badguy death
     }
 }
