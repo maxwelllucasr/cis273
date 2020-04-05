@@ -22,6 +22,9 @@ if (isset($_POST['score'])){
         $link = mysqli_connect($host, $un, $pass, $db);
         $query = "SELECT * FROM `user` WHERE `user` = \"" . $_SESSION['user'] . "\";";
         $result = $link->query($query);
+        if ($link->connect_error) {
+            die("Connection failed: " . $link->connect_error);
+        } 
 
         //only proceed if exactly one result
         if ($result->num_rows == 1) {
@@ -32,6 +35,9 @@ if (isset($_POST['score'])){
                 //update database high score if current post > one in db
                 $query = "UPDATE `user` SET `score` = ".$_POST['score']." WHERE `user` = \"".$_SESSION['user']."\";";
                 $link->query($query); //no need for result, just sending here
+                if ($link->connect_error) {
+                    die("Connection failed: " . $link->connect_error);
+                } 
             }
         }
     

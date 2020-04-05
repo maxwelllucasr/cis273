@@ -51,6 +51,9 @@ if (isset($_POST['login-button'])){
                 $query = "SELECT * FROM user WHERE user =\"" . $userInput . "\"";
 
                 $result = $link->query($query);
+                if ($link->connect_error) {
+                    die("Connection failed: " . $link->connect_error);
+                } 
 
                 if ($result->num_rows > 0) {
                     // output data of each row

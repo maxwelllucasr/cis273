@@ -12,7 +12,11 @@ require 'PHP/mysqlCredentials.php';
 
     $query = "SELECT * FROM `user` ORDER BY score DESC LIMIT 10";
     $link = mysqli_connect($host, $un, $pass, $db);
+    if ($link->connect_error) {
+        die("Connection failed: " . $link->connect_error);
+    } 
     $result = $link->query($query);
+    
 ?>
 
 <section class="scoreboard-container">
