@@ -44,12 +44,12 @@ if (isset($_POST['login-button'])){
             )
             {
                 $link = mysqli_connect($host, $un, $pass, $db);
-                
+
 
                 $userInput = $_POST['user'];
                 $passInput = $_POST['pass'];
 
-                $query = "SELECT * FROM user WHERE user =\"" . $userInput . "\"";
+                $query = 'SELECT * FROM user WHERE user = ?';
 
                 $result = $link->query($query);
                 if ($link->connect_error) {
@@ -69,7 +69,7 @@ if (isset($_POST['login-button'])){
                 if ($result->num_rows > 0) {
                     $result->bind_result($id, $password);
                     $result->fetch();
-                    $result->fnbdebug();
+                    fndebug($result);
 
                     if (password_verify($_POST['password'], $password)) {
                         $session_regenerate_id();
