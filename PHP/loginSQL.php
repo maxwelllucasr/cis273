@@ -60,7 +60,7 @@ if (isset($_POST['login-button'])){
                     die ('Please fill all fields');
                 }
 
-                if ($result = $link->prepare('SELECT id, password FROM accounts WHERE username = ?')) {
+                if ($result = $link->prepare('SELECT * FROM user WHERE user = ?')) {
                     $result->bind_param('s', $_POST['username']);
                     $result->execute();
                     $result->store_result();
@@ -69,7 +69,7 @@ if (isset($_POST['login-button'])){
                 if ($result->num_rows > 0) {
                     $result->bind_result($id, $password);
                     $result->fetch();
-                    fndebug($result);
+                    
 
                     if (password_verify($_POST['password'], $password)) {
                         $session_regenerate_id();
