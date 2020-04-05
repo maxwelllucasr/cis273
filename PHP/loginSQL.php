@@ -44,6 +44,7 @@ if (isset($_POST['login-button'])){
             )
             {
                 $link = mysqli_connect($host, $un, $pass, $db);
+                
 
                 $userInput = $_POST['user'];
                 $passInput = $_POST['pass'];
@@ -55,26 +56,34 @@ if (isset($_POST['login-button'])){
                     die("Connection failed: " . $link->connect_error);
                 } 
 
-                if ($result->num_rows > 0) {
-                    // output data of each row
-                    while($row = $result->fetch_assoc()) {
-                        // echo "id: " . $row["id"]. " - Name: " . $row["user"]. " " . $row["pass"]. "<br>";
-                        if($passInput == $row['pass']){
-                            
-                            // $message = "Logged in!";
-
-                            $_SESSION['loggedin'] = true;
-                            $_SESSION['user'] = $userInput;
-                        }
-                    }
-                } else {
-                    $message = "<div class=\"dev-notice\">Login error: No user found.</div>";
+                if( !isset($_POST['user'], $_POST['pass']) ) {
+                    die ('Please fill all fields');
                 }
 
+                if ($result = $link->prepare('SELECT id, password FROM accounts WHERE username = ?')) {
+                    $result->bind_param('s', $_POST['username']);
+                    $result->execute();
+                    $result->store_result();
+                }
 
-            }
+                if ($result->num_rows > 0) {
+                    $result->bind_result($id, $password);
+                    $result->fetch();
+                    $result->fnbdebug();
 
-            else{
+                    if (password_verify($_POST['password'], $password)) {
+                        $session_regenerate_id();
+                        $_SESSION['loggedin'] = TRUE;
+                        $_SESSION['name'] = $_POST['username'];
+                        $_SESSION['id'] = $id;
+                        echo 'Hello ' . $_SESSION['name'];
+                    } else {
+                        echo 'Password incorrect.';
+                    }
+                    $result->close();
+                }
+
+            } else {
                 if (!(strlen($_POST['user']) > 8)) $message = $message .  "<div class=\"dev-notice\">Login error: Username too short</div>";
                     
 

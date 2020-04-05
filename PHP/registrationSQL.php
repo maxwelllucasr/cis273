@@ -54,6 +54,8 @@ if (isset($_POST['registration-button'])){
                     else{
                         //successful registration
 
+                        require 'registrationEmailHandler.php';
+
                         $link = mysqli_connect($host, $un, $pass, $db);
                         $query = "INSERT INTO `cis273`.`user` (`id`, `user`, `pass`, `email`, `score`) VALUES (NULL, \"" . $_POST['user'] .  "\" , \"".$_POST['pass']."\" , \"".$_POST['email']."\", '0');";
 
@@ -72,8 +74,7 @@ if (isset($_POST['registration-button'])){
 
 
                     }
-                }
-                else{
+                } else {
                     echo "Registration error."; //This fires if passwords dont match or invalid character is used
                 }          
             
