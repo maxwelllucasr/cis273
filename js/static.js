@@ -1,3 +1,11 @@
+/*
+*******************************
+Food n' Boom'd
+Static class JS
+Version 1
+*******************************
+*/
+
 export default class Static{
 
 

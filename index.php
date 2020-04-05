@@ -1,4 +1,12 @@
 <?php
+/*
+*******************************
+Food n' Boom'd
+Index page
+Version 1
+*******************************
+*/
+
 include 'PHP/header.php';
 ?>
 

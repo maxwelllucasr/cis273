@@ -1,4 +1,12 @@
 <?php
+/*
+*******************************
+Food n' Boom'd
+Registration page
+Version 1
+*******************************
+*/
+
 include 'PHP/header.php';
 if (!isset($_SESSION['loggedin'])) include 'PHP/registrationSQL.php';
 

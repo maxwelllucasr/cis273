@@ -1,3 +1,11 @@
+/*
+*******************************
+Food n' Boom'd
+Meta Class JS
+Version 1
+*******************************
+*/
+
 //meta game data
 
 export default class Meta {

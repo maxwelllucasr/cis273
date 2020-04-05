@@ -1,6 +1,11 @@
 <?php    
-//Luke Maxwell
-//Backend script called at gameover to send highscore to database
+/*
+*******************************
+Food n' Boom'd
+Highscore Handler
+Version 1
+*******************************
+*/
 
 
 if (isset($_POST['score'])){

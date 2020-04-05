@@ -1,4 +1,12 @@
 <?php
+/*
+*******************************
+Food n' Boom'd
+Login page
+Version 1
+*******************************
+*/
+
 include 'PHP/header.php';
 include 'PHP/loginSQL.php';
 

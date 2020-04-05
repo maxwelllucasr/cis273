@@ -1,4 +1,12 @@
 <?php
+/*
+*******************************
+Food n' Boom'd
+Login SQL handler
+Version 1
+*******************************
+*/
+
 
 //This file is included by login.php.  All variables in this namespace are shared out to that file.
 

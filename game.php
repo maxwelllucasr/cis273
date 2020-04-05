@@ -1,4 +1,12 @@
 <?php
+/*
+*******************************
+Food n' Boom'd
+Game page
+Version 1
+*******************************
+*/
+
 include 'PHP/header.php';
 ?>
 

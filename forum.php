@@ -1,4 +1,12 @@
 <?php
+/*
+*******************************
+Food n' Boom'd
+Forum page
+Version 1
+*******************************
+*/
+
 include 'PHP/header.php';
 require 'PHP/mysqlCredentials.php';
 ?>

@@ -1,4 +1,12 @@
 <?php
+/*
+*******************************
+Food n' Boom'd
+Header section
+Version 1
+*******************************
+*/
+
 session_start();
 // session_unset();
 include 'functions.php'; //adds functions to namespace

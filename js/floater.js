@@ -1,3 +1,11 @@
+/*
+*******************************
+Food n' Boom'd
+Floater Class JS
+Version 1
+*******************************
+*/
+
 // import {HCF} from '/cis273/js/frac.js';
 import {createSlope} from './functions.js';
 

@@ -1,4 +1,12 @@
 
+/*
+*******************************
+Food n' Boom'd
+Generic Functions JS
+Version 1
+*******************************
+*/
+
 export function createSlope(x1,x2,y1,y2){
 
     if ((x2-x1) == 0 && (y2-y1) > 0)

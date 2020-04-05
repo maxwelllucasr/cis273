@@ -1,3 +1,13 @@
+/*
+*******************************
+Food n' Boom'd
+Misc JS
+Version 1
+*******************************
+*/
+
+//This file is for non game JS
+
 jQuery(document).ready(function($){
 
     $('.loggedintopright').hover(function(){

@@ -1,3 +1,24 @@
+/*
+*******************************
+Food n' Boom'd
+Main SCSS
+Version 1
+*******************************
+*/
+/*
+*******************************
+Food n' Boom'd
+Variables SCSS
+Version 1
+*******************************
+*/
+/*
+*******************************
+Food n' Boom'd
+Header SCSS
+Version 1
+*******************************
+*/
 header {
   min-height: 5rem;
   background-color: #d6c6b1;
@@ -105,6 +126,13 @@ header {
   width: 90%;
   margin: 2rem auto; }
 
+/*
+*******************************
+Food n' Boom'd
+Main Page SCSS
+Version 1
+*******************************
+*/
 .main-page-container .main-page-header {
   margin-top: 3rem;
   margin-left: 1rem;
@@ -125,6 +153,13 @@ header {
     padding: 5px;
     border: 1px solid gray; }
 
+/*
+*******************************
+Food n' Boom'd
+General SCSS
+Version 1
+*******************************
+*/
 .container {
   max-width: 1200px;
   margin-left: auto;
@@ -172,6 +207,13 @@ html, body {
   clear: both;
   content: ""; }
 
+/*
+*******************************
+Food n' Boom'd
+Game SCSS
+Version 1
+*******************************
+*/
 .game-container {
   background-color: gray;
   padding: 2rem 0; }
@@ -227,6 +269,13 @@ html, body {
     margin: 1rem auto;
     display: block; }
 
+/*
+*******************************
+Food n' Boom'd
+Registration SCSS
+Version 1
+*******************************
+*/
 .registration-container .registration-field {
   display: block;
   margin: 0.5rem 0;
@@ -247,6 +296,13 @@ html, body {
   border-radius: 2px;
   margin-top: 1rem; }
 
+/*
+*******************************
+Food n' Boom'd
+Login SCSS
+Version 1
+*******************************
+*/
 .login-container .login-form {
   background-color: #823a51;
   width: 20%;
@@ -265,6 +321,13 @@ html, body {
   border-radius: 2px;
   margin-top: 1rem; }
 
+/*
+*******************************
+Food n' Boom'd
+Forum SCSS
+Version 1
+*******************************
+*/
 .forum-post-block {
   width: 40%;
   min-height: 5rem; }
@@ -294,6 +357,13 @@ html, body {
       transition-duration: .5s;
       background-color: black; }
 
+/*
+*******************************
+Food n' Boom'd
+Scoreboard SCSS
+Version 1
+*******************************
+*/
 .scoreboard-container {
   width: 90%;
   margin: 1rem auto;
@@ -322,6 +392,13 @@ html, body {
       background-color: whitesmoke;
       padding: 1rem; }
 
+/*
+*******************************
+Food n' Boom'd
+Footer SCSS
+Version 1
+*******************************
+*/
 footer {
   min-height: 3rem;
   background-color: #823a51;
@@ -333,6 +410,13 @@ footer {
     margin-bottom: 1rem;
     color: #d6c6b1; }
 
+/*
+*******************************
+Food n' Boom'd
+Media Query SCSS
+Version 1
+*******************************
+*/
 @media only screen and (max-width: 1100px) {
   header nav .nav-ul li a {
     padding-left: 0.9rem;

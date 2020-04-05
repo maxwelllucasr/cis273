@@ -1,3 +1,11 @@
+/*
+*******************************
+Food n' Boom'd
+Animation JS
+Version 1
+*******************************
+*/
+
 import Floater from './floater.js';
 import Static from './static.js';
 import Meta from './meta.js';
