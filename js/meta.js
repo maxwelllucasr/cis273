@@ -27,5 +27,11 @@ export default class Meta {
         this.currentTower = 0;
 
         this.score = 0; //currentscore, increment on badguy death
+
+        this.lastBadGuySpawnTimestamp = 0;
+
+        this.currentBadguy = 0;
+
+        this.badguySpawnTime = 1000;
     }
 }

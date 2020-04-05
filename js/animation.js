@@ -91,12 +91,12 @@ let ctx2 = canvas2.getContext('2d');
 canvas2.addEventListener('mousemove', function(evt){
 
   var mousePos = getMousePos(canvas2, evt);
-    var message = 'Mouse position: ' + mousePos.x + ',' + mousePos.y;
+    // var message = 'Mouse position: ' + mousePos.x + ',' + mousePos.y;
 
 }, false);
 
 
-let numberOfBadGuys = 1;
+let numberOfBadGuys = 7;
 let numberOfTowers = 5;
 let numberOfPathPoints = 8;
 let towerProximity = 150;
@@ -111,9 +111,9 @@ let pathPoint = new Array();
 
 //this is how to make multiple bad guys...
 
-for (let i = 0; i < numberOfBadGuys; i++){
-  badguy.push(new Floater(GAME_WIDTH,GAME_HEIGHT,"badguy"));
-}
+// for (let i = 0; i < numberOfBadGuys; i++){
+//   badguy.push(new Floater(GAME_WIDTH,GAME_HEIGHT,"badguy"));
+// }
 
 for (let i = 0; i < numberOfTowers; i++){
   tower.push(new Static("tower"));
@@ -150,11 +150,6 @@ pathPoint[6].position.y = 500;
 pathPoint[7].position.x = 100;
 pathPoint[7].position.y = 400;
 
-badguy[0].position.x = 100;
-badguy[0].position.y = 100;
-badguy[0].width = 10;
-badguy[0].height = 10;
-
 let towerImage = new Image();
 let backgroundImage = new Image();
 let bombImage = new Image();
@@ -167,7 +162,7 @@ bombImage.src = "images/smileyBomb.png";
 milkCarton.src = "images/fridge.png";
 projectileImg.src = "images/snowball.png";
 
-for(let i = 0; i < numberOfBadGuys; i++){
+for(let i = 0; i < metadata.currentBadguy; i++){
   badguy[i].draw(ctx2);
 }
 
@@ -178,7 +173,7 @@ function gameLoop(timestamp){
   //isnt run every frame
   if (!metadata.isFirstRound) {
     //all floaters
-    for(var i = 0; i < numberOfBadGuys; i++) badguy[i].updateSlope = false;
+    for(var i = 0; i < metadata.currentBadguy; i++) badguy[i].updateSlope = false;
     for(var i = 0; i < projectile.length; i++) projectile[i].updateSlope = false;
   }
   
@@ -193,7 +188,18 @@ function gameLoop(timestamp){
       metadata.firstTimestamp = metadata.lastTime;
       console.log("Start time: " + metadata.firstTimestamp);
 
+      //Spawn first badguy
+      if(numberOfBadGuys>0){
+          badguy.push(new Floater(GAME_WIDTH,GAME_HEIGHT,"badguy"));
+          metadata.lastBadGuySpawnTimestamp = timestamp;
 
+          badguy[0].position.x = 100;
+          badguy[0].position.y = 100;
+          badguy[0].width = 10;
+          badguy[0].height = 10;
+          metadata.currentBadguy++;
+
+      }
       metadata.firstFrame = true;
     }
 
@@ -202,9 +208,26 @@ function gameLoop(timestamp){
     ctx2.drawImage(backgroundImage,0,0);
 
 
+    //Badguy generation
+    if (timestamp > metadata.lastBadGuySpawnTimestamp + metadata.badguySpawnTime ){
+      //If we still have bad guys to spawn
+      if (metadata.currentBadguy < numberOfBadGuys){
+        //Spawn bad guy
+          badguy.push(new Floater(GAME_WIDTH,GAME_HEIGHT,"badguy"));
+          metadata.lastBadGuySpawnTimestamp = timestamp;
+          metadata.currentBadguy++;
+
+          badguy[metadata.currentBadguy-1].position.x = 100;
+          badguy[metadata.currentBadguy-1].position.y = 100;
+          badguy[metadata.currentBadguy-1].width = 10;
+          badguy[metadata.currentBadguy-1].height = 10;
+      }
+    }
+
+
     //tower proximity check & projectile generation
     for (let i = 0; i < numberOfTowers; i++){
-      for (let j = 0; j < numberOfBadGuys; j++){
+      for (let j = 0; j < metadata.currentBadguy; j++){
 
       if (distance(tower[i].position.x, badguy[j].position.x, tower[i].position.y, badguy[j].position.y) < towerProximity) 
       {
@@ -253,7 +276,7 @@ function gameLoop(timestamp){
       }
     }
     for (let i = 0; i < projectile.length; i++){
-      for (let j = 0; j < numberOfBadGuys; j++){
+      for (let j = 0; j < metadata.currentBadguy; j++){
 
 
           if(distance(projectile[i].position.x, badguy[j].position.x, projectile[i].position.y, badguy[j].position.y) < badguy[j].hitbox) {
@@ -274,16 +297,20 @@ function gameLoop(timestamp){
     //bad guy waypoint proximity check
 
     // for (let i = 0; i < numberOfPathPoints; i++){
-        for (let j = 0; j < numberOfBadGuys; j++){
+        for (let j = 0; j < metadata.currentBadguy; j++){
 
         if (distance(pathPoint[badguy[j].currentHeading].position.x, badguy[j].position.x, pathPoint[badguy[j].currentHeading].position.y, badguy[j].position.y) < pathPointProximity){
               
-          if(badguy.length - 1 != badguy[j].currentHeading){
+
+          //No idea what this does, dont remember adding it, it breaks the game
+          // if(badguy.length - 1 != badguy[j].currentHeading){ 
             
 
             //update only if current heading is NOT one under number of path points
             if(badguy[j].currentHeading != numberOfPathPoints ) {
                 badguy[j].currentHeading = badguy[j].currentHeading + 1; 
+                // console.log(badguy[0].currentHeading)
+
             }
 
             
@@ -315,13 +342,13 @@ function gameLoop(timestamp){
                 }
 
 
-
+                console.log("gameover");
                 metadata.isStarted = false;
                 metadata.isGameOver = true;
                 badguy[j].currentHeading--;
             }
 
-          }
+          // }
           }
         }
       // }
@@ -333,14 +360,14 @@ function gameLoop(timestamp){
 
 
     //Update changes xy coordinates
-    for(let i = 0; i < numberOfBadGuys; i++){
+    for(let i = 0; i < metadata.currentBadguy; i++){
       badguy[i].updatePosition(deltaTime, pathPoint);
     }
 
     ctx2.fillStyle = "#000000";
 
     //Draw redraws the object... 
-    for(let i = 0; i < numberOfBadGuys; i++){
+    for(let i = 0; i < metadata.currentBadguy; i++){
       // badguy[i].draw(ctx2);
       ctx2.drawImage(bombImage,badguy[i].position.x,badguy[i].position.y,50,50);
     }
@@ -373,7 +400,7 @@ function gameLoop(timestamp){
       ctx2.drawImage(projectileImg,projectile[i].position.x,projectile[i].position.y,20,20);
   }
 }
-//END ISSTARTED
+//END IS STARTED
 
   if ((!metadata.isStarted)&&(metadata.isGameOver)){
     gameMessage("Game Over",ctx2,GAME_WIDTH,GAME_HEIGHT);

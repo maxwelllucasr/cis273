@@ -17,7 +17,7 @@ export default class Floater{
             this.width = 100;
             this.height = 100;
             this.slope = null;
-            this.speed = 10; 
+            this.speed = 2; 
             this.hitbox = 50;
             this.hp = 20;
             this.currentlyHit = false;
