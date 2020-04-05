@@ -23,7 +23,7 @@ error_reporting(E_ERROR);
 if (isset($_SERVER['HTTPS']) && $_SERVER['HTTPS'] === 'on') $https = true;
 else $https = false;
 
-require 'registrationEmailHandler.php';
+// require 'registrationEmailHandler.php';
 
 ?>
 
