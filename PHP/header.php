@@ -10,12 +10,20 @@ Version 1
 session_start();
 // session_unset();
 include 'functions.php'; //adds functions to namespace
+
 if (isset($_POST['logout'])) session_unset();
 
 //Stop error reporting
 ini_set('display_startup_errors', 0);
 ini_set('display_errors', 1);
 error_reporting(E_ERROR);
+
+// if($_SESSION['loggedin']) die;
+
+if (isset($_SERVER['HTTPS']) && $_SERVER['HTTPS'] === 'on') $https = true;
+else $https = false;
+
+require 'registrationEmailHandler.php';
 
 ?>
 
