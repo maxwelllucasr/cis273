@@ -299,7 +299,8 @@ html, body {
   margin: 1rem auto;
   background-color: #333;
   padding: 2rem;
-  display: flex; }
+  display: flex;
+  border-radius: 10px; }
   .scoreboard-container .scoreboard-content {
     width: 40%;
     float: left;
