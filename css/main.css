@@ -10,13 +10,14 @@ header {
     padding: 5px 1rem;
     background-color: white;
     margin-top: -5px; }
-  header nav .nav-ul {
+  header nav .nav-container {
     list-style: none;
-    float: right; }
-    header nav .nav-ul li {
-      display: inline-block;
-      margin: 0.25rem; }
-      header nav .nav-ul li a {
+    float: right;
+    margin-top: 1rem; }
+    header nav .nav-container .nav-item {
+      margin: 0.25rem;
+      float: right; }
+      header nav .nav-container .nav-item a {
         text-decoration: none;
         text-transform: uppercase;
         background-color: #823a51;
@@ -33,7 +34,7 @@ header {
     header .loggedintopright .loggedinsubmenu {
       display: none;
       position: absolute;
-      top: 2.1rem;
+      top: 2.8rem;
       padding: 0.5rem 0;
       background-color: black;
       opacity: 0.9;
@@ -52,6 +53,57 @@ header {
           background-color: gray; }
     header .loggedintopright .loggedinisactive {
       display: block; }
+
+.hamburger-menu {
+  height: 3rem;
+  margin-left: 2rem; }
+
+.popout-menu {
+  position: fixed;
+  display: block;
+  right: -600px;
+  transition-duration: 1s;
+  height: 100%;
+  max-width: 600px;
+  width: 100%;
+  z-index: 99;
+  background-color: #ddd;
+  visibility: hidden; }
+  .popout-menu ul {
+    margin-left: 1rem; }
+    .popout-menu ul hr {
+      width: 50%;
+      margin: 0; }
+    .popout-menu ul li {
+      list-style-type: none;
+      margin: 1rem 0; }
+      .popout-menu ul li a {
+        text-transform: uppercase;
+        color: black;
+        text-decoration: none;
+        font-size: 1.5rem;
+        padding: 1rem 3rem 1rem 0; }
+
+.popout-menu-is-open {
+  right: 0;
+  visibility: visible;
+  transition-duration: 1s; }
+
+.popout-background {
+  height: 100%;
+  width: 100%;
+  position: fixed;
+  background-color: rgba(0, 0, 0, 0.5);
+  z-index: 95;
+  display: none; }
+
+.popout-background-is-active {
+  display: block; }
+
+.hamburger-menu-popout-container {
+  height: 5rem;
+  width: 90%;
+  margin: 2rem auto; }
 
 .main-page-container .main-page-header {
   margin-top: 3rem;
@@ -114,6 +166,10 @@ html, body {
   padding: 1rem;
   margin: 1rem;
   font-style: italic; }
+
+.tail {
+  clear: both;
+  content: ""; }
 
 .game-container {
   background-color: gray;
@@ -236,6 +292,33 @@ html, body {
     .forum-form .forum-form-submit:hover {
       transition-duration: .5s;
       background-color: black; }
+
+.scoreboard-container {
+  width: 90%;
+  margin: 1rem auto;
+  background-color: #333;
+  padding: 2rem;
+  display: flex; }
+  .scoreboard-container .scoreboard-content {
+    width: 40%;
+    float: left;
+    margin: 0 5%;
+    padding: 1rem; }
+    .scoreboard-container .scoreboard-content .scoreboard-content-inner {
+      background-color: whitesmoke;
+      padding: 1rem;
+      border-radius: 5px;
+      margin-bottom: 1rem; }
+  .scoreboard-container table {
+    background-color: #823a51;
+    width: 50%;
+    float: right; }
+    .scoreboard-container table th {
+      background-color: #d6c6b1;
+      padding: 1rem 3rem; }
+    .scoreboard-container table td {
+      background-color: whitesmoke;
+      padding: 1rem; }
 
 footer {
   min-height: 3rem;

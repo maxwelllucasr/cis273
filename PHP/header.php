@@ -4,15 +4,30 @@ session_start();
 include 'functions.php'; //adds functions to namespace
 if (isset($_POST['logout'])) session_unset();
 
-// include 'highscoreController.php';
-
-ini_set('display_startup_errors', 1);
-ini_set('display_errors', 1);
-error_reporting(-1);
+//Stop error reporting
+ini_set('display_startup_errors', 0);
+ini_set('display_errors', 0);
+error_reporting(E_ERROR);
 
 ?>
 
 <!DOCTYPE html>
+
+<div class="popout-menu">
+    <div class="hamburger-menu-popout-container"><img class="hamburger-menu hamburger hamburger-menu-popout" src="svg\bars.svg"></div>
+
+    <ul>
+        <li><a href="index">Home</a></li><hr>
+        <li><a href="game">Game</a></li><hr>
+        <li><a href="login">Login</a></li><hr>
+        <li><a href="registration">Registration</a></li><hr>
+        <li><a href="forum">Forum</a></li>
+    </ul>
+
+
+
+</div>
+<div class="popout-background"></div>
 
 <head>
     <!-- jquery  -->
@@ -27,16 +42,14 @@ error_reporting(-1);
 
 
     <nav>
-    <ul class="nav-ul">
-		<li><a href="index">Home</a></li>
-        <li><a href="game">Game</a></li>
-        <li><a href="login">Login</a></li>
-        <li><a href="registration">Registration</a></li>
-        <li><a href="forum">Forum</a></li>
-
+    <div class="nav-container">
+        <div class="nav-item">
+                <img class="hamburger-menu hamburger" src="svg\bars.svg">
+        </div>
+		
     <?php 
         if(isset($_SESSION['loggedin'])) if ($_SESSION['loggedin']){ ?> 
-        <li class="loggedintopright" style="font-size:1rem; color:white;padding:0.5rem 1rem; border-radius:10px;">
+        <div class="loggedintopright nav-item" style="font-size:1rem; color:white;padding: 1rem; border-radius:10px;">
             <span class="loggedin-hello">Hello</span> <?php echo $_SESSION['user']?>
             
             <div class="loggedinsubmenu">
@@ -44,14 +57,19 @@ error_reporting(-1);
                     <input class="logout-button" type="submit" value="Logout" name="logout">
                 </form>
             </div>
-        </li>
+        </div>
          <?php } ?>
+         <!-- <li><img src="svg\bars.svg"></li> -->
+        
 
-    </ul>
+        </div>
+    
     </nav>
  
 
     </div>
 </header>
 <body>
+
+    
 <!-- end header  -->

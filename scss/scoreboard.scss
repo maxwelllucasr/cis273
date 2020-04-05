@@ -1,0 +1,37 @@
+.scoreboard-container{
+    width:90%;
+    margin:1rem auto;
+    background-color:#333;
+    padding:2rem;
+    display: flex;
+    .scoreboard-content{
+        width:40%;
+        float:left;
+        // background-color:whitesmoke;
+        margin: 0 5%;
+        // height:100%;
+        padding:1rem;
+
+        .scoreboard-content-inner{
+            background-color: whitesmoke;
+            padding:1rem;
+            border-radius:5px;
+            margin-bottom:1rem;
+        }
+    }
+    table{
+        background-color:$color-1;
+        width:50%;
+        float:right;
+        th{
+            background-color:$color-2;
+            // border:2px solid white;
+            padding:1rem 3rem;
+        }
+        td{
+            // border:2px solid lightblue;
+            background-color:whitesmoke;
+            padding:1rem;
+        }
+    }
+}
