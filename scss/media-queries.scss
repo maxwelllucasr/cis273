@@ -25,32 +25,33 @@
                 display:none;
             }
             .loggedinsubmenu{
-                top:1.5rem;
+                top:2.5rem;
             }
         }
         nav{
             .nav-ul{
                     li{
                     a{
-                        font-size:0.7rem;
+                        // font-size:0.7rem;
                     }
                 }
             }
         }
     }
-    .loggedintopright{
-        font-size:0.7rem !important;
-        .loggedin-hello{
-            display:none;
-        }
-        .loggedinsubmenu{
-            top:1.5rem;
-        }
-    }
+
+    // .loggedintopright{
+    //     font-size:0.7rem !important;
+    //     .loggedin-hello{
+    //         display:none;
+    //     }
+    //     .loggedinsubmenu{
+    //         top:1.5rem;
+    //     }
+    // }
   }
 
   @media only screen and (max-width: 800px) {
-    #pad,.cast,.musicplayer,.banner{
+    #pad,.cast,.musicplayer{
         display:none !important;
     }
     .mobile-notice{
@@ -63,5 +64,11 @@
    }
 
     @media only screen and (max-width: 460px) {
+        header{
+            padding:2rem 0.35rem;
+            .hamburger-menu{
+                padding-left:0.5rem;
+            }
+        }
 
    }

@@ -56,7 +56,7 @@ header {
 
 .hamburger-menu {
   height: 3rem;
-  margin-left: 2rem; }
+  padding-left: 2rem; }
 
 .popout-menu {
   position: fixed;
@@ -143,7 +143,8 @@ header {
 
 body {
   color: black;
-  font-family: arial; }
+  font-family: arial;
+  margin: 0; }
 
 html, body {
   height: 100%; }
@@ -341,21 +342,17 @@ footer {
     header .loggedintopright .loggedin-hello {
       display: none; }
     header .loggedintopright .loggedinsubmenu {
-      top: 1.5rem; }
-  header nav .nav-ul li a {
-    font-size: 0.7rem; }
-
-  .loggedintopright {
-    font-size: 0.7rem !important; }
-    .loggedintopright .loggedin-hello {
-      display: none; }
-    .loggedintopright .loggedinsubmenu {
-      top: 1.5rem; } }
+      top: 2.5rem; } }
 @media only screen and (max-width: 800px) {
-  #pad, .cast, .musicplayer, .banner {
+  #pad, .cast, .musicplayer {
     display: none !important; }
 
   .mobile-notice {
     display: block; } }
+@media only screen and (max-width: 460px) {
+  header {
+    padding: 2rem 0.35rem; }
+    header .hamburger-menu {
+      padding-left: 0.5rem; } }
 
 /*# sourceMappingURL=main.css.map */

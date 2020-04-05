@@ -21,7 +21,9 @@ error_reporting(E_ERROR);
         <li><a href="game">Game</a></li><hr>
         <li><a href="login">Login</a></li><hr>
         <li><a href="registration">Registration</a></li><hr>
-        <li><a href="forum">Forum</a></li>
+        <li><a href="forum">Forum</a></li><hr>
+        <li><a href="scoreboard">Scoreboard</a></li>
+
     </ul>
 
 
@@ -38,7 +40,7 @@ error_reporting(E_ERROR);
 </head>
 <header>
     <div class="container">
-    <img class="banner" src="images/simpleLogo.png">
+    <a href="index"><img class="banner" src="images/simpleLogo.png"></a>
 
 
     <nav>
