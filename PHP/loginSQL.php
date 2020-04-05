@@ -49,9 +49,9 @@ if (isset($_POST['login-button'])){
                 $userInput = $_POST['user'];
                 $passInput = $_POST['pass'];
 
-                $query = 'SELECT * FROM user WHERE user = ?';
+                // $query = 'SELECT * FROM user WHERE user = ?';
 
-                $result = $link->query($query);
+                // $result = $link->query($query);
                 if ($link->connect_error) {
                     die("Connection failed: " . $link->connect_error);
                 } 
