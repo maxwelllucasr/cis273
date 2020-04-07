@@ -95,7 +95,7 @@
 
 <a class="ee-dot-1" title="You can't click me, neener neener"></a>
 <a class="ee-dot-2" href="https://en.wikipedia.org/wiki/Trolling"></a>
-<a class="ee-dot-3" href="http://gaben.tv/"></a>
+<a class="ee-dot-3" href="https://youtu.be/Xh3zkzJpxdc"></a>
 <div class="ee-dot-4" ></div>
 <div class="ee-dot-5" title="Are you sure you want this?"></div>
 
