@@ -64,28 +64,28 @@ if (isset($_POST['login-button'])){
                     $result->bind_param('s', $_POST['username']);
                     $result->execute();
                     $result->store_result();
-                }
+                
 
-                if ($result->num_rows > 0) {
-                    $result->bind_result($id, $password);
-                    $result->fetch();
-                    
+                    if ($result->num_rows > 0) {
+                        $result->bind_result($id, $password);
+                        $result->fetch();
+                        
 
-                    if (password_verify($_POST['password'], $password)) {
-                        $session_regenerate_id();
-                        $_SESSION['loggedin'] = TRUE;
-                        $_SESSION['name'] = $_POST['username'];
-                        $_SESSION['id'] = $id;
-                        echo 'Hello ' . $_SESSION['name'];
-                    } else {
-                        echo 'Password incorrect.';
+                        if (password_verify($_POST['password'], $password)) {
+                            $session_regenerate_id();
+                            $_SESSION['loggedin'] = TRUE;
+                            $_SESSION['name'] = $_POST['username'];
+                            $_SESSION['id'] = $id;
+                            echo 'Hello ' . $_SESSION['name'];
+                        } else {
+                            echo 'Password incorrect.';
+                        }
+                        $result->close();
                     }
-                    $result->close();
-                }
 
-            } else {
-                if (!(strlen($_POST['user']) > 8)) $message = $message .  "<div class=\"dev-notice\">Login error: Username too short</div>";
-                    
+                } else {
+                    if (!(strlen($_POST['user']) > 8)) $message = $message .  "<div class=\"dev-notice\">Login error: Username too short</div>";
+                }  
 
                 // $message = $message  "";
                 $flag = true;
