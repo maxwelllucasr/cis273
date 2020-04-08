@@ -45,7 +45,6 @@ if (isset($_POST['login-button'])){
             {
                 $link = mysqli_connect($host, $un, $pass, $db);
 
-
                 $userInput = $_POST['user'];
                 $passInput = $_POST['pass'];
 
@@ -60,23 +59,25 @@ if (isset($_POST['login-button'])){
                     die ('Please fill all fields');
                 }
 
-                if ($result = $link->prepare('SELECT * FROM user WHERE user = ?')) {
-                    $result->bind_param('s', $_POST['username']);
+
+                    $result = $link->prepare("SELECT user, id, pass FROM user WHERE user = ?");
+                    $result->bind_param('s', $_POST['user']);
                     $result->execute();
                     $result->store_result();
                 
 
                     if ($result->num_rows > 0) {
-                        $result->bind_result($id, $password);
+                        $result->bind_result($user, $id, $password);
                         $result->fetch();
-                        
 
-                        if (password_verify($_POST['password'], $password)) {
-                            $session_regenerate_id();
+                        //change back to this once we've hashed the passwords
+                        // if (password_verify($_POST['pass'], $password)) {
+                        if ($_POST['pass'] == $password){
+                            // $session_regenerate_id();
                             $_SESSION['loggedin'] = TRUE;
-                            $_SESSION['name'] = $_POST['username'];
+                            $_SESSION['user'] = $_POST['user'];
                             $_SESSION['id'] = $id;
-                            echo 'Hello ' . $_SESSION['name'];
+                            echo 'Hello ' . $_SESSION['user'];
                         } else {
                             echo 'Password incorrect.';
                         }
@@ -84,8 +85,8 @@ if (isset($_POST['login-button'])){
                     }
 
                 } else {
-                    if (!(strlen($_POST['user']) > 8)) $message = $message .  "<div class=\"dev-notice\">Login error: Username too short</div>";
-                }  
+                    if (!(strlen($_POST['user']) > 8)) $message = $message .  "<div class=\"dev-notice\">Login error</div>";
+                
 
                 // $message = $message  "";
                 $flag = true;
