@@ -35,18 +35,18 @@ header{
                 float: right;
 
                 
-                a{
+                // a{
 
-                    text-decoration:none;
-                    text-transform:uppercase;
-                    background-color:$color-1;
-                    padding: 1rem 1.5rem;
-                    border-radius: 999px;
-                    color:whitesmoke;
-                    font-family: 'Arial';
-                    font-weight:bold;
-                    box-shadow:2px 2px 4px black;
-                }
+                //     text-decoration:none;
+                //     text-transform:uppercase;
+                //     background-color:$color-1;
+                //     padding: 1rem 1.5rem;
+                //     border-radius: 999px;
+                //     color:whitesmoke;
+                //     font-family: 'Arial';
+                //     font-weight:bold;
+                //     box-shadow:2px 2px 4px black;
+                // }
             }
         }
     }
@@ -63,8 +63,8 @@ header{
             opacity:0.9;
             margin-left:-1rem;
             border-radius:3px;
-           
-            .logout-button{
+            
+            .logout-button,a{
                 background-color: black;
                 color:white;
                 font-size:1.2rem;
@@ -73,9 +73,20 @@ header{
                 border-radius:3px;
                 padding:0 1rem;
                 box-shadow:none;
+                text-align: center;
+                margin:auto;
+                display:block;
+
+
                 &:hover{
                     background-color:gray;
                 }
+            }
+            a{
+                font-weight:500;
+                padding: 0.5rem;
+                font-size:1rem;
+                text-decoration: none;
             }
         }
         .loggedinisactive{

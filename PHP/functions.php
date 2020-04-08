@@ -16,4 +16,10 @@ function fnbdebug($message){
     }
 }
 
+function escape_tags($inputString){
+    $inputString = str_replace("<","&lt;",$inputString);
+    return str_replace(">","&gt;",$inputString);
+}
+
+
 ?>

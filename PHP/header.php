@@ -73,7 +73,9 @@ else $https = false;
             <div class="loggedinsubmenu">
                 <form action="login.php" method="post">
                     <input class="logout-button" type="submit" value="Logout" name="logout">
+                    <a href="change-password">Change Password</a>
                 </form>
+
             </div>
         </div>
          <?php } ?>

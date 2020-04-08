@@ -1,0 +1,50 @@
+<?php 
+    include 'PHP/header.php';
+
+    if(isset($_POST['changepass'])){
+
+        if (isset($_POST['newpass']) && isset($_POST['newpass2'])){
+
+            if ($_POST['newpass'] == $_POST['newpass2']){
+                include 'mysqlCredentials.php';
+                $link = mysqli_connect($host, $un, $pass, $db);
+                if ($link->connect_error) {
+                    die("Connection failed: " . $link->connect_error);
+                } 
+
+                $pass = escape_tags($_POST['newpass']); //fnb function
+
+                $result = $link->prepare("UPDATE `cis273`.`user` SET `pass` = ? WHERE `user` = ?");
+                $result->bind_param('ss',$pass,$_SESSION['user']);
+                $result->execute();
+                $result->store_result();
+
+                // if ($result->num_rows == 1){
+                // }
+
+            }
+            else echo "Passwords do not match";
+        }
+    }
+
+
+
+?>
+
+    <section class="change-pass-section">
+        <?php if($_SESSION['loggedin']){ ?>
+            <h1 style="text-align:center">Change password</h1>
+
+            <form action="change-password.php" method="POST">
+                <input type="field" name="newpass" placeholder="Password">
+                <input type="field" name="newpass2" placeholder="Re-enter">
+                <input type="submit" value="Submit" name="changepass">
+            </form>
+
+        <?php } else echo "<p style=\"text-align:center\">You're not logged in!</p>";?>
+
+    </section>
+
+<?php
+    include 'PHP/footer.php';
+?>
