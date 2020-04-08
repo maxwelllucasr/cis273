@@ -18,8 +18,8 @@ require 'PHP/mysqlCredentials.php';
 
 		if(isset($_POST['forumpost'])) {
 			
-			
-			$query = "INSERT INTO `forum` (`id`, `author`, `date`, `post`)  VALUES (NULL, \"" . $_SESSION['user'] .  "\", CURDATE(), \"".$_POST['forumpost']."\");";
+			$postText = escape_tags($_POST['forumpost']);
+			$query = "INSERT INTO `forum` (`id`, `author`, `date`, `post`)  VALUES (NULL, \"" . $_SESSION['user'] .  "\", CURDATE(), \"".$postText."\");";
 			$link->query($query);
 		}
 ?>
