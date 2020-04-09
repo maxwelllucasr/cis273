@@ -72,7 +72,7 @@ if (isset($_POST['registration-button'])){
                         $user = $_POST['user'];
                         $email = $_POST['email'];
 
-                        $result->bind_param('sss' $user, $hash, $email);
+                        $result->bind_param('sss', $user, $hash, $email);
 
                         $result->execute();
                         $result->store_result();
