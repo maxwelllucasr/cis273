@@ -57,7 +57,7 @@ if (isset($_POST['registration-button'])){
                         require 'registrationEmailHandler.php';
 
                         //Random 16 digit salt
-                        $salt = random_bytes (16);
+                        $salt = random_bytes ( 16 );
 
                         $link = mysqli_connect($host, $un, $pass, $db);
 
