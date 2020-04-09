@@ -48,7 +48,7 @@ if (isset($_POST['registration-button'])){
                 
                 {
                     //Specific errors
-                    if((strlen($_POST['user']) < 8)||strlen($_POST['pass'])<8) {
+                    if((strlen($_POST['user']) < 8)||strlen($_POST['pass1'])<8) {
                         echo "<div class=\"dev-notice\">Registration error: User or password under 8 characters.</div>";
                     }
                     else{
@@ -56,24 +56,24 @@ if (isset($_POST['registration-button'])){
 
                         require 'registrationEmailHandler.php';
 
-                        $salt = random_bytes ( int $16 ) : string
-
-                        $hash = hash('sha256', $pass);
+                        $salt = random_bytes (16);
 
                         $link = mysqli_connect($host, $un, $pass, $db);
 
                         $salted= $salt.$_POST['pass'];
 
-                        $hash = hash('sha256', $pass);
+                        $hash = hash('sha256', $salted);
 
-                        $result = $link->prepare("INSERT INTO `cis273`.`user` (`id`, `user`, `pass`, `email`, `score`) VALUES (NULL, \"" . $_POST['user'] .  "\" , \"".$_POST['pass']."\" , \"".$_POST['email']."\", '0');");
+                        $result = $link->prepare("INSERT INTO `cis273`.`user` (`id`, `user`, `pass`, `email`, `score`) VALUES (NULL, ?, ?, ?, '0';");
 
-                        $result->bind_param('isssi', $id, $user, $hash, $email, $score);
+                        $user = $_POST['user'];
+                        $email = $_POST['email'];
+
+                        $result->bind_param('sss' $user, $hash, $email);
 
                         $result->execute();
                         $result->store_result();
 
-                        $result = $link->query($query);
                         if ($link->connect_error) {
                             die("Connection failed: " . $link->connect_error);
                         } 
