@@ -56,12 +56,15 @@ if (isset($_POST['registration-button'])){
 
                         require 'registrationEmailHandler.php';
 
+                        //Random 16 digit salt
                         $salt = random_bytes (16);
 
                         $link = mysqli_connect($host, $un, $pass, $db);
 
+                        //salt the pass
                         $salted= $salt.$_POST['pass'];
 
+                        //hash the salted pass
                         $hash = hash('sha256', $salted);
 
                         $result = $link->prepare("INSERT INTO `cis273`.`user` (`id`, `user`, `pass`, `email`, `score`) VALUES (NULL, ?, ?, ?, '0';");
