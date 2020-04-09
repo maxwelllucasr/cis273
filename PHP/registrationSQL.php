@@ -56,8 +56,22 @@ if (isset($_POST['registration-button'])){
 
                         require 'registrationEmailHandler.php';
 
+                        $salt = random_bytes ( int $16 ) : string
+
+                        $hash = hash('sha256', $pass);
+
                         $link = mysqli_connect($host, $un, $pass, $db);
-                        $query = "INSERT INTO `cis273`.`user` (`id`, `user`, `pass`, `email`, `score`) VALUES (NULL, \"" . $_POST['user'] .  "\" , \"".$_POST['pass']."\" , \"".$_POST['email']."\", '0');";
+
+                        $salted= $salt.$_POST['pass'];
+
+                        $hash = hash('sha256', $pass);
+
+                        $result = $link->prepare("INSERT INTO `cis273`.`user` (`id`, `user`, `pass`, `email`, `score`) VALUES (NULL, \"" . $_POST['user'] .  "\" , \"".$_POST['pass']."\" , \"".$_POST['email']."\", '0');");
+
+                        $result->bind_param('isssi', $id, $user, $hash, $email, $score);
+
+                        $result->execute();
+                        $result->store_result();
 
                         $result = $link->query($query);
                         if ($link->connect_error) {
