@@ -48,10 +48,11 @@ if (isset($_POST['registration-button'])){
                 
                 {
                     //Specific errors
-                    if((strlen($_POST['user']) < 8)||strlen($_POST['pass1'])<8) {
+                    if((strlen($_POST['user']) < 8)||strlen($_POST['pass'])<8) {
                         echo "<div class=\"dev-notice\">Registration error: User or password under 8 characters.</div>";
-                    }
-                    else{
+
+                    } else {
+
                         //successful registration
 
                         require 'registrationEmailHandler.php';
