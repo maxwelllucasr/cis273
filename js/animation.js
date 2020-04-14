@@ -388,10 +388,13 @@ function gameLoop(timestamp){
 
     //Update changes xy coordinates
     for(let i = 0; i < metadata.currentBadguy; i++){
-      badguy[i].updatePosition(deltaTime, pathPoint);
+      if(!badguy[i].isDead){
+        badguy[i].updatePosition(deltaTime, pathPoint);
+        ctx2.drawImage(bombImage,badguy[i].position.x,badguy[i].position.y,50,50);
+      }
     }
 
-    ctx2.fillStyle = "#000000";
+    // ctx2.fillStyle = "#000000";
 
     //Draw redraws the object... 
     for(let i = 0; i < metadata.currentBadguy; i++){
@@ -407,7 +410,7 @@ function gameLoop(timestamp){
 
     }
 
-    ctx2.fillStyle = "#0000ff";
+    // ctx2.fillStyle = "#0000ff";
 
     //
     // for(let i = 0; i < numberOfPathPoints; i++){
