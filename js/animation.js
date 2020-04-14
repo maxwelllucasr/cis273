@@ -397,10 +397,10 @@ function gameLoop(timestamp){
     // ctx2.fillStyle = "#000000";
 
     //Draw redraws the object... 
-    for(let i = 0; i < metadata.currentBadguy; i++){
-      // badguy[i].draw(ctx2);
-      ctx2.drawImage(bombImage,badguy[i].position.x,badguy[i].position.y,50,50);
-    }
+    // for(let i = 0; i < metadata.currentBadguy; i++){
+    //   // badguy[i].draw(ctx2);
+    //   ctx2.drawImage(bombImage,badguy[i].position.x,badguy[i].position.y,50,50);
+    // }
 
     ctx2.fillStyle = "#ff0000";
     for(let i = 0; i < numberOfTowers; i++){
