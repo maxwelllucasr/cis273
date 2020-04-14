@@ -104,7 +104,7 @@ canvas2.addEventListener('mousemove', function(evt){
 }, false);
 
 
-let numberOfBadGuys = 7;
+let numberOfBadGuys = 1;
 let numberOfTowers = 5;
 let numberOfPathPoints = 8;
 let towerProximity = 150;
@@ -242,7 +242,7 @@ function gameLoop(timestamp){
       
         if(tower[i].towerTime < (timestamp - tower[i].lastShotTime) && tower[i].activeProjectile) {
             tower[i].activeProjectile = false;
-            console.log("working");
+            // console.log("working");
         }
         //Projectiles are meant to be "fire and forget".  A slope is determined for the projectile ONCE
         //and the projectile isn't heard of again.  Projectiles either need to be despawned 
@@ -288,18 +288,28 @@ function gameLoop(timestamp){
 
 
           if(distance(projectile[i].position.x, badguy[j].position.x, projectile[i].position.y, badguy[j].position.y) < badguy[j].hitbox) {
-          
-          
-            if(!badguy[j].currentlyHit){
-            badguy[j].hp = badguy[j].hp - 1;
-            badguy[j].currentlyHit = true;
-            console.log(badguy[j].hp);
-          }
-        }
-        else if(badguy[j].currentlyHit){
-          badguy[j].currentlyHit = false;
-        }
+            // console.log(badguy[j].hp);
 
+          if (badguy[j].hp > 0){
+            /*
+            -Luke
+            currentlyHit makes no sense now, we're asking if its currently hit and if not,
+            set currently hit to true and decrement HP.  Immediately afterwards, we ask
+            if currently hit is true, and set to false if true.  Very redundant, is there a use
+            for this boolean?           
+            */
+              if(!badguy[j].currentlyHit){
+                badguy[j].hp--;
+                badguy[j].currentlyHit = true;
+                console.log(badguy[j].hp);
+              }
+            }
+              
+            if(badguy[j].currentlyHit){
+              badguy[j].currentlyHit = false;
+            }
+          }
+          
       }
     } 
     //bad guy waypoint proximity check
