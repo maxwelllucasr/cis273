@@ -307,7 +307,7 @@ function gameLoop(timestamp){
 
             else if (badguy[j].hp == 0){
               //Kill badguy here
-              console.log("Badguy " + j + " is dead")
+              // console.log("Badguy " + j + " is dead")
               badguy[j].death()
 
 
@@ -420,9 +420,9 @@ function gameLoop(timestamp){
       ctx2.drawImage(milkCarton, pathPoint[pathPoint.length-1].position.x, pathPoint[pathPoint.length-1].position.y,70,100);
 
   //Projectile update position
-  //for(let i = 0; i < projectile.length; i++){
-  //  projectile[i].updatePosition(deltaTime, pathPoint);
- // }
+  for(let i = 0; i < projectile.length; i++){
+   projectile[i].updatePosition(deltaTime, pathPoint);
+ }
 
   ctx2.fillStyle = "#999999";
   //Draw redraws the object... 
@@ -445,11 +445,14 @@ function gameLoop(timestamp){
 
   //If all badguys are spawned
   if (numberOfBadGuys == metadata.currentBadguy){
+    let flag = false
     //Loop through all bad guys
     for(let i = 0; i < numberOfBadGuys; i++){
-      if (badguy[i].isDead) metadata.winCondition = true;
+      if (!badguy[i].isDead) flag = true;
     }
-
+    if (!flag) metadata.winCondition = true;
+    // let isGood = (currentValue) => currentValue == true;
+    // if (badguy.isDead.every(isGood)) console.log("you won")
   }
 
   if(metadata.isFirstRound) {
