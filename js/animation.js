@@ -327,7 +327,7 @@ function gameLoop(timestamp){
         for (let j = 0; j < metadata.currentBadguy; j++){
 
         if (distance(pathPoint[badguy[j].currentHeading].position.x, badguy[j].position.x, pathPoint[badguy[j].currentHeading].position.y, badguy[j].position.y) < pathPointProximity){
-              
+          if(badguy[j].isDead==false){  
 
           //No idea what this does, dont remember adding it, it breaks the game
           // if(badguy.length - 1 != badguy[j].currentHeading){ 
@@ -378,6 +378,7 @@ function gameLoop(timestamp){
           // }
           }
         }
+        }
       // }
 
 
@@ -419,9 +420,9 @@ function gameLoop(timestamp){
       ctx2.drawImage(milkCarton, pathPoint[pathPoint.length-1].position.x, pathPoint[pathPoint.length-1].position.y,70,100);
 
   //Projectile update position
-  for(let i = 0; i < projectile.length; i++){
-    projectile[i].updatePosition(deltaTime, pathPoint);
-  }
+  //for(let i = 0; i < projectile.length; i++){
+  //  projectile[i].updatePosition(deltaTime, pathPoint);
+ // }
 
   ctx2.fillStyle = "#999999";
   //Draw redraws the object... 
