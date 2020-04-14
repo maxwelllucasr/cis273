@@ -47,6 +47,22 @@
             bottom:5%;
             background-color:black;
         }
+		.ee-dot-6{
+            position:absolute;
+            height:2px;
+            width:2px;
+            right:35%;
+            bottom:25%;
+            background-color:black;
+        }
+		.ee-dot-7{
+            position:absolute;
+            height:2px;
+            width:1px;
+            right:66%;
+            bottom:66%;
+            background-color:black;
+        }
         /* h2 span:before{
             position: absolute;
             height: 3px;
@@ -98,8 +114,8 @@
 <a class="ee-dot-3" href="https://youtu.be/Xh3zkzJpxdc"></a>
 <div class="ee-dot-4" ></div>
 <div class="ee-dot-5" title="Are you sure you want this?"></div>
-
-
+<a class="ee-dot-6" href="https://youtu.be/HxkmXnRQblE"></a>
+<a class="ee-dot-7" href="https://youtu.be/XbMx5LhbxUw?t=121"></a>
 
 
 

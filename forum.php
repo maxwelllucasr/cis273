@@ -42,11 +42,12 @@ require 'PHP/mysqlCredentials.php';
 				}
 			}
 		?>
-		<form class="forum-form" action="forum.php" method="post">
+		<form name="theForum" class="forum-form" action="forum.php" onsubmit="return validateForm()" method="post">
 			
 			<p>
-				<textarea placeholder="Add to the conversation..." class="forum-form-textarea" name="forumpost"></textarea>
+				<textarea placeholder="Add to the conversation..." class="forum-form-textarea" name="forumpost" maxlength="400"></textarea>
 			</p>
+			<h6>JavaScript code for characters left(out of 400) should go here...<h6>
 			<input class="forum-form-submit" type="submit" value="Submit"/>
 		</form>
     </div>
