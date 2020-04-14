@@ -34,6 +34,7 @@ export default class Floater{
         this.towerDaddy = null; //Tower # of origin for projectiles
         this.direction = null; //only used for projectiles, badguys are hardcoded for now
         this.updateSlope = true;
+        this.isDead = false;
     
         
 
@@ -146,4 +147,19 @@ export default class Floater{
         this.position.x += newXpos;
         this.position.y += newYpos;
     }
+
+
+
+
+
+
+    death(){  
+        // console.log("in death")
+        this.isDead = true;
+
+
+        
+    }
 }
+
+    

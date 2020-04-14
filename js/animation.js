@@ -104,7 +104,7 @@ canvas2.addEventListener('mousemove', function(evt){
 }, false);
 
 
-let numberOfBadGuys = 1;
+let numberOfBadGuys = 5;
 let numberOfTowers = 5;
 let numberOfPathPoints = 8;
 let towerProximity = 150;
@@ -303,6 +303,15 @@ function gameLoop(timestamp){
                 badguy[j].currentlyHit = true;
                 console.log(badguy[j].hp);
               }
+            }
+
+            else if (badguy[j].hp == 0){
+              //Kill badguy here
+              console.log("Badguy " + j + " is dead")
+              badguy[j].death()
+
+
+
             }
               
             if(badguy[j].currentlyHit){
