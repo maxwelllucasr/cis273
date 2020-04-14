@@ -438,7 +438,18 @@ function gameLoop(timestamp){
   else if (!metadata.isStarted) {
     gameMessage("Start",ctx2,GAME_WIDTH,GAME_HEIGHT);
   }
+  else if (metadata.winCondition){
+    gameMessage("You Won",ctx2,GAME_WIDTH,GAME_HEIGHT);
+  }
 
+  //If all badguys are spawned
+  if (numberOfBadGuys == metadata.currentBadguy){
+    //Loop through all bad guys
+    for(let i = 0; i < numberOfBadGuys; i++){
+      if (badguy[i].isDead) metadata.winCondition = true;
+    }
+
+  }
 
   if(metadata.isFirstRound) {
     canvas2.onclick = function(){
