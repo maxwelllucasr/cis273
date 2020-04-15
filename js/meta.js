@@ -40,7 +40,7 @@ export default class Meta {
 
         this.currentBadguy = 0;
 
-        this.badguySpawnTime = 3000;
+        this.badguySpawnTime = 1000;
 
         this.winCondition = false;
 

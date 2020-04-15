@@ -104,7 +104,7 @@ canvas2.addEventListener('mousemove', function(evt){
 }, false);
 
 
-let numberOfBadGuys = 5;
+let numberOfBadGuys = 2;
 let numberOfTowers = 5;
 let numberOfPathPoints = 8;
 let towerProximity = 150;
@@ -438,17 +438,40 @@ function gameLoop(timestamp){
     gameMessage("Game Over",ctx2,GAME_WIDTH,GAME_HEIGHT);
   }
   else if (!metadata.isStarted) {
-    gameMessage("Start",ctx2,GAME_WIDTH,GAME_HEIGHT);
+    gameMessage("Level "+metadata.currentLevel,ctx2,GAME_WIDTH,GAME_HEIGHT);
   }
   else if (metadata.winCondition){
     gameMessage("Mission Complete",ctx2,GAME_WIDTH,GAME_HEIGHT);
 
     canvas2.onclick = function(){
       //reset everything, start the game over again with incremented level.
+      console.log(metadata)
+      let tempScore = metadata.score
+      let tempLevel = metadata.currentLevel
+      metadata = new Meta()
+      console.log(metadata)
 
+      tower = null
+      tower = new Array()
+      numberOfTowers++
 
+      for (let i = 0; i < numberOfTowers; i++){
+        tower.push(new Static("tower"));
+      }
 
+      projectile = null
+      projectile = new Array()
 
+      badguy = null
+      badguy = new Array()
+
+      metadata.currentLevel = tempLevel + 1;
+      metadata.score = tempScore
+
+      //BUFFS
+      numberOfBadGuys = numberOfBadGuys * 2
+      if (metadata.badguySpawnTime > 300) metadata.badguySpawnTime = metadata.badguySpawnTime - 50
+      
 
     }
  }
@@ -495,6 +518,7 @@ function gameLoop(timestamp){
     
     metadata.isFirstRound = false;
   }
+  gameMessage(Math.abs(metadata.currentTower - numberOfTowers),ctx2,70,50)
 
   //This is calling gameloop and passing the timestamp to it, basically.  Integral to the gameloop.
   requestAnimationFrame(gameLoop); 
