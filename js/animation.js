@@ -518,7 +518,7 @@ function gameLoop(timestamp){
     
     metadata.isFirstRound = false;
   }
-  gameMessage(Math.abs(metadata.currentTower - numberOfTowers),ctx2,70,50)
+  if(metadata.isStarted) gameMessage(Math.abs(metadata.currentTower - numberOfTowers),ctx2,70,50)
 
   //This is calling gameloop and passing the timestamp to it, basically.  Integral to the gameloop.
   requestAnimationFrame(gameLoop); 
