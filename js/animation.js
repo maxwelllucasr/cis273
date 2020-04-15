@@ -302,14 +302,14 @@ function gameLoop(timestamp){
               if(!badguy[j].currentlyHit){
                 badguy[j].hp--;
                 badguy[j].currentlyHit = true;
-                console.log(badguy[j].hp);
+                // console.log(badguy[j].hp);
               }
             }
 
             else if (badguy[j].hp == 0){
               //Kill badguy here
               // console.log("Badguy " + j + " is dead")
-              badguy[j].death()
+              badguy[j].death(metadata)
 
 
 
@@ -436,6 +436,7 @@ function gameLoop(timestamp){
 
   if ((!metadata.isStarted)&&(metadata.isGameOver)){
     gameMessage("Game Over",ctx2,GAME_WIDTH,GAME_HEIGHT);
+    console.log("Score: "+metadata.score)
   }
   else if (!metadata.isStarted) {
     gameMessage("Level "+metadata.currentLevel,ctx2,GAME_WIDTH,GAME_HEIGHT);
@@ -521,7 +522,7 @@ function gameLoop(timestamp){
   if(metadata.isStarted) gameMessage(Math.abs(metadata.currentTower - numberOfTowers),ctx2,70,50)
 
   //This is calling gameloop and passing the timestamp to it, basically.  Integral to the gameloop.
-  requestAnimationFrame(gameLoop); 
+  if (!metadata.isGameOver) requestAnimationFrame(gameLoop); 
 }
 
 

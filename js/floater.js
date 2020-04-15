@@ -153,9 +153,10 @@ export default class Floater{
 
 
 
-    death(){  
+    death(metadata){  
         // console.log("in death")
         this.isDead = true;
+        metadata.score++;
 
 
         
