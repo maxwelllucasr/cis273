@@ -470,9 +470,13 @@ function gameLoop(timestamp){
       metadata.score = tempScore
 
       //BUFFS
-      numberOfBadGuys = numberOfBadGuys * 2
-      if (metadata.badguySpawnTime > 300) metadata.badguySpawnTime = metadata.badguySpawnTime - 50
-      
+      if (numberOfBadGuys < 20) numberOfBadGuys = numberOfBadGuys * 2
+      else if (numberOfBadGuys < 50) numberOfBadGuys = numberOfBadGuys * 1.3
+      else if (numberOfBadGuys < 100) numberOfBadGuys = numberOfBadGuys * 1.1
+
+
+      if (metadata.badguySpawnTime > 200) metadata.badguySpawnTime = metadata.badguySpawnTime - 200
+      else if (metadata.badguySpawnTime > 10) metadata.badguySpawnTime = metadata.badguySpawnTime - 10;
 
     }
  }
@@ -519,7 +523,11 @@ function gameLoop(timestamp){
     
     metadata.isFirstRound = false;
   }
-  if(metadata.isStarted) gameMessage(Math.abs(metadata.currentTower - numberOfTowers),ctx2,70,50)
+  if(metadata.isStarted) {
+    gameMessage(Math.abs(metadata.currentTower - numberOfTowers),ctx2,70,50)
+
+
+  }
 
   //This is calling gameloop and passing the timestamp to it, basically.  Integral to the gameloop.
   if (!metadata.isGameOver) requestAnimationFrame(gameLoop); 
