@@ -449,11 +449,8 @@ function gameLoop(timestamp){
     let flag = false
     //Loop through all bad guys
     for(let i = 0; i < numberOfBadGuys; i++){
-
       if (!badguy[i].isDead) flag = true;
-
       // if (badguy[j].isDead) metadata.winCondition = true;
-
     }
     if (!flag) metadata.winCondition = true;
     // let isGood = (currentValue) => currentValue == true;
