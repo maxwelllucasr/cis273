@@ -441,7 +441,16 @@ function gameLoop(timestamp){
     gameMessage("Start",ctx2,GAME_WIDTH,GAME_HEIGHT);
   }
   else if (metadata.winCondition){
-    gameMessage("You Won",ctx2,GAME_WIDTH,GAME_HEIGHT);
+    gameMessage("Mission Complete",ctx2,GAME_WIDTH,GAME_HEIGHT);
+
+    canvas2.onclick = function(){
+      //reset everything, start the game over again with incremented level.
+
+
+
+
+
+    }
  }
 
   //If all badguys are spawned

@@ -27,7 +27,7 @@ export default class Floater{
             this.slope = null;
             this.speed = 2; 
             this.hitbox = 50;
-            this.hp = 150;
+            this.hp = 1;
             this.currentlyHit = false;
         }
         this.currentHeading = 1;  //points to xy coordinates in pathPoint
