@@ -45,14 +45,14 @@ require 'PHP/mysqlCredentials.php';
 		<form name="theForum" class="forum-form" action="forum.php" onsubmit="return validateForm()" method="post">
 			
 			<p>
-				<textarea placeholder="Add to the conversation..." class="forum-form-textarea" name="forumpost" maxlength="400"></textarea>
+				<textarea id="forumTextArea" placeholder="Add to the conversation..." class="forum-form-textarea" name="forumpost" maxlength="400"></textarea>
 			</p>
-			<h6>JavaScript code for characters left(out of 400) should go here...<h6>
+			<h6>Characters left: *Placeholder*<h6> 
 			<input class="forum-form-submit" type="submit" value="Submit"/>
 		</form>
     </div>
 </section>
-
+<script type="module" src="js/charLimit.js"></script>
 <?php
 	}
 	else if (!isset($_SESSION['loggedin'])) echo "<p style=\"text-align:center\">You must be logged in to access the Food n' Boom'd forum.</p>";
