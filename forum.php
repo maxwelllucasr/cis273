@@ -9,6 +9,7 @@ Version 1
 
 include 'PHP/header.php';
 require 'PHP/mysqlCredentials.php';
+$_SESSION['loggedin'] = true;
 ?>
 <?php 
 	if (isset($_SESSION['loggedin'])) {
@@ -47,7 +48,7 @@ require 'PHP/mysqlCredentials.php';
 			<p>
 				<textarea id="forumTextArea" placeholder="Add to the conversation..." class="forum-form-textarea" name="forumpost" maxlength="400"></textarea>
 			</p>
-			<h6>Characters left: *Placeholder*<h6> 
+			<h6>Characters left: <span class="char-limit">400</span><h6> 
 			<input class="forum-form-submit" type="submit" value="Submit"/>
 		</form>
     </div>

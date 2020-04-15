@@ -20,6 +20,7 @@ jQuery(document).ready(function($){
 		var length = textarea.value.length;
         var charactersLeft = 400 - length;
 		console.log(charactersLeft);
+		$('.char-limit').html(charactersLeft)
 
 	}, false);
 });
