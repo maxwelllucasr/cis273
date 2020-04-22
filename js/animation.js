@@ -398,7 +398,7 @@ function gameLoop(timestamp){
         // console.log("currentbadguy"+metadata.currentBadguy)
         // console.log("number of bad guys"+numberOfBadGuys)
 
-        if (numberOfBadGuys== metadata.currentBadguy && metadata.currentLevel == 6 && i+1 == metadata.currentBadguy){
+        if (numberOfBadGuys== metadata.currentBadguy && metadata.currentLevel == 5 && i+1 == metadata.currentBadguy){
           console.log("Thanos")
           ctx2.drawImage(thanosImg,badguy[i].position.x,badguy[i].position.y,50,50);
 
@@ -454,8 +454,15 @@ function gameLoop(timestamp){
   else if (!metadata.isStarted) {
     gameMessage("Level "+metadata.currentLevel,ctx2,GAME_WIDTH,GAME_HEIGHT);
   }
+  // else if (metadata.winCondition && metadata.currentLevel == 5){
+  //   gameMessage("MISSION ACCOMPLISHED",ctx2,GAME_WIDTH,GAME_HEIGHT);
+  // }
   else if (metadata.winCondition){
-    gameMessage("Mission Complete",ctx2,GAME_WIDTH,GAME_HEIGHT);
+
+    if (metadata.currentLevel == 5)
+        gameMessage("MISSION ACCOMPLISHED",ctx2,GAME_WIDTH,GAME_HEIGHT);
+    else
+       gameMessage("Mission Complete",ctx2,GAME_WIDTH,GAME_HEIGHT);
 
     canvas2.onclick = function(){
       //reset everything, start the game over again with incremented level.
@@ -483,9 +490,10 @@ function gameLoop(timestamp){
       metadata.score = tempScore
 
       //BUFFS
-      if (numberOfBadGuys < 20) numberOfBadGuys = numberOfBadGuys * 2
-      else if (numberOfBadGuys < 50) numberOfBadGuys = numberOfBadGuys * 1.3
-      else if (numberOfBadGuys < 100) numberOfBadGuys = numberOfBadGuys * 1.1
+      
+      numberOfBadGuys = numberOfBadGuys * 2
+      // else if (numberOfBadGuys < 50) numberOfBadGuys = numberOfBadGuys * 1.3
+      // else if (numberOfBadGuys < 100) numberOfBadGuys = numberOfBadGuys * 1.1
 
 
       if (metadata.badguySpawnTime > 200) metadata.badguySpawnTime = metadata.badguySpawnTime - 200
