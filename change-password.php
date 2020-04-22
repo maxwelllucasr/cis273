@@ -21,8 +21,12 @@ Version 1
                 } 
                 $pass = escape_tags($_POST['newpass']); //fnb function
 
-                $result = $link->prepare("UPDATE user SET pass = ? WHERE user = ?");
-                $result->bind_param('ss',$pass,$_SESSION['user']);
+                $salt = random_bytes(16);
+                $salted = $salt.$pass;
+                $hash = hash('sha256', $salted);
+
+                $result = $link->prepare("UPDATE user SET pass = ?, salt = ? WHERE user = ?");
+                $result->bind_param('sss',$hash, $salt, $_SESSION['user']);
                 $result->execute();
                 $result->store_result();
 
