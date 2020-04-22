@@ -420,7 +420,7 @@ function gameLoop(timestamp){
     ctx2.fillStyle = "#ff0000";
     for(let i = 0; i < numberOfTowers; i++){
       // tower[i].draw(ctx2);
-      ctx2.drawImage(towerImage, tower[i].position.x, tower[i].position.y,50,100);
+      ctx2.drawImage(towerImage, tower[i].position.x, tower[i].position.y,70,100);
 
 
     }
