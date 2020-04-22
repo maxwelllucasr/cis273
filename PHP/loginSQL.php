@@ -59,20 +59,20 @@ if (isset($_POST['login-button'])){
                     die ('Please fill all fields');
                 }
 
-
-                    $result = $link->prepare("SELECT user, id, pass FROM user WHERE user = ?");
+                    $result = $link->prepare("SELECT user, id, pass, salt FROM user WHERE user = ?");
                     $result->bind_param('s', $_POST['user']);
                     $result->execute();
                     $result->store_result();
-                
 
                     if ($result->num_rows > 0) {
-                        $result->bind_result($user, $id, $password);
+                        $result->bind_result($user, $id, $password, $salt);
                         $result->fetch();
 
-                        //change back to this once we've hashed the passwords
-                        // if (password_verify($_POST['pass'], $password)) {
-                        if ($_POST['pass'] == $password){
+                        $salted = $salt.$POST['pass'];
+
+                        $hash = hash('sha256', $salted)
+
+                        if (password_verify($password, $hash)) {
                             // $session_regenerate_id();
                             $_SESSION['loggedin'] = TRUE;
                             $_SESSION['user'] = $_POST['user'];
