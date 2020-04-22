@@ -153,7 +153,7 @@
                         $('.msg-target').append(".");
 
                         setTimeout(function(){
-                            $('.msg-target').append("<br><img class=\"onepiecepic\" src=\"images/onepiece.jfif\"><br><div style=\"margin-left:5rem;font-size:3rem\">The <span style=\"color:purple;\">Thanos One Piece!</span></div>");
+                            $('.msg-target').append("<br><img class=\"onepiecepic\" src=\"images/onepiece.jpg\"><br><div style=\"margin-left:5rem;font-size:3rem\">The <span style=\"color:purple;\">Thanos One Piece!</span></div>");
                         },2000)
 
                         },1000)
