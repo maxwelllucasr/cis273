@@ -68,12 +68,12 @@ if (isset($_POST['registration-button'])){
                         //hash the salted pass
                         $hash = hash('sha256', $salted);
                         mysqli_report(MYSQLI_REPORT_ALL);
-                        $result = $link->prepare("INSERT INTO `user` ( `user`, `pass`, `email`, `score`) VALUES (?, ?, ?, '0')");
+                        $result = $link->prepare("INSERT INTO `user` ( `user`, `pass`, `email`, `score`, `salt`) VALUES (?, ?, ?, '0', ?)");
 
                         $user = $_POST['user'];
                         $email = $_POST['email'];
 
-                        $result->bind_param('sss', $user, $hash, $email);
+                        $result->bind_param('ssss', $user, $hash, $email, $salt);
 
                         $result->execute();
                         $result->store_result();
