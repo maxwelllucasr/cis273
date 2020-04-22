@@ -163,12 +163,14 @@ let backgroundImage = new Image();
 let bombImage = new Image();
 let milkCarton = new Image();
 let projectileImg = new Image();
+let thanosImg = new Image();
 
 towerImage.src = "images/milkCarton.png";
 backgroundImage.src = "images/badMap.png";
 bombImage.src = "images/smileyBomb.png";
 milkCarton.src = "images/fridge.png";
 projectileImg.src = "images/snowball.png";
+thanosImg.src = "images/onepiece.jpg";
 
 for(let i = 0; i < metadata.currentBadguy; i++){
   badguy[i].draw(ctx2);
@@ -392,7 +394,18 @@ function gameLoop(timestamp){
     for(let i = 0; i < metadata.currentBadguy; i++){
       if(!badguy[i].isDead){
         badguy[i].updatePosition(deltaTime, pathPoint);
+
+        // console.log("currentbadguy"+metadata.currentBadguy)
+        // console.log("number of bad guys"+numberOfBadGuys)
+
+        if (numberOfBadGuys== metadata.currentBadguy && metadata.currentLevel == 6 && i+1 == metadata.currentBadguy){
+          console.log("Thanos")
+          ctx2.drawImage(thanosImg,badguy[i].position.x,badguy[i].position.y,50,50);
+
+        }
+        else{
         ctx2.drawImage(bombImage,badguy[i].position.x,badguy[i].position.y,50,50);
+        }
       }
     }
 
