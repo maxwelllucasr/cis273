@@ -68,11 +68,13 @@ if (isset($_POST['login-button'])){
                         $result->bind_result($user, $id, $password, $salt);
                         $result->fetch();
 
-                        $salted = $salt.$POST['pass'];
+                        $salted = $salt.$_POST['pass'];
 
-                        $hash = hash('sha256', $salted)
+                        $hash = hash('sha256', $salted);
+                        // fnbdebug($hash . " login hash");
+                        // fnbdebug($password . " password");
 
-                        if (password_verify($password, $hash)) {
+                        if ($password == $hash) {
                             // $session_regenerate_id();
                             $_SESSION['loggedin'] = TRUE;
                             $_SESSION['user'] = $_POST['user'];
