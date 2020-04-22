@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Apr 22, 2020 at 02:07 AM
+-- Generation Time: Apr 22, 2020 at 02:40 AM
 -- Server version: 10.4.10-MariaDB
 -- PHP Version: 7.3.12
 
@@ -47,7 +47,7 @@ CREATE TABLE `user` (
   `pass` varchar(30) NOT NULL,
   `email` varchar(30) NOT NULL,
   `score` mediumint(8) UNSIGNED NOT NULL,
-  `salt` int(16) DEFAULT NULL
+  `salt` varchar(16) DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 --
@@ -62,7 +62,10 @@ INSERT INTO `user` (`id`, `user`, `pass`, `email`, `score`, `salt`) VALUES
 (5, 'darklord666', 'password', 'darklord@dark.com', 5, NULL),
 (6, 'Darklord667', 'password2', 'password2', 5, NULL),
 (7, 'username1', 'password1', 'r@r.com', 0, NULL),
-(10, 'userover8', 'e694eafa1ce6a5038781a151ed3287', 'register@user.com', 0, NULL);
+(10, 'userover8', 'e694eafa1ce6a5038781a151ed3287', 'register@user.com', 0, NULL),
+(11, 'testinguser', 'e76b223cb15a846f73b3563d212518', 'testing@fake.com', 0, '??^???????'),
+(12, 'newtesting', '215ffc5976a598f1955937369b9951', 'testing@test.com', 0, '???\"?A??&~?5??'),
+(13, 'username', '28578e4ff8bd3c959039b0677b224d', 'emailemail@email.com', 0, 'g???t?Hv??-[?');
 
 --
 -- Indexes for dumped tables
@@ -97,7 +100,7 @@ ALTER TABLE `forum`
 -- AUTO_INCREMENT for table `user`
 --
 ALTER TABLE `user`
-  MODIFY `id` smallint(5) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=11;
+  MODIFY `id` smallint(5) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=14;
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
