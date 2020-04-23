@@ -15,7 +15,7 @@ $message = "Welcome " .$_POST['user'] . "to Food n' Boom'd!  We hope you enjoy o
 $email = $_POST['email'];
 
 if(!strpos($domain,'localhost')){
-    fnbdebug("Sending mail to: " . $email);
+    fnbdebug("Sending mail to: " . $email); 
     mail($email,$subject,$message);
 }
 ?>
