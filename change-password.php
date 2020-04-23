@@ -30,7 +30,7 @@ Version 1
                 $result->execute();
                 $result->store_result();
 
-                echo "Password changed!";
+                echo "Password changed!"; 
 
                 // if ($result->num_rows == 1){
                 // }
