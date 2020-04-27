@@ -18,6 +18,12 @@ include 'PHP/header.php';
 	
 	<!-- <p>This site was created for the <i>Systems Concepts and Design</i> Course Project.</p> -->
 
+    <div class="user-satisfaction-wrapper">
+        <h2>User satisfaction</h2>
+        <p>User satisfaction means everything to us, why not fill out our user satisfaction form <a href="media/UserSatisfactionFeedbackForm.xlsx" download>here</a>?</p>
+    </div>
+
+
     <!-- Hardcoded for now, news database integration someday? -->
     <h2 class="main-page-header">News</h2>
 

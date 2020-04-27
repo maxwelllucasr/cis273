@@ -205,6 +205,11 @@ html, body {
   clear: both;
   content: ""; }
 
+.user-satisfaction-wrapper {
+  margin: 4rem 3% 15rem 3%; }
+  .user-satisfaction-wrapper h2, .user-satisfaction-wrapper p {
+    text-align: center; }
+
 /*
 *******************************
 Food n' Boom'd

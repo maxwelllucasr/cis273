@@ -30,7 +30,7 @@ else $https = false;
 <!DOCTYPE html>
 
 <div class="popout-menu">
-    <div class="hamburger-menu-popout-container"><img class="hamburger-menu hamburger hamburger-menu-popout" src="svg\bars.svg"></div>
+    <div class="hamburger-menu-popout-container"><img class="hamburger-menu hamburger hamburger-menu-popout" src="images/hamburger.png"></div>
 
     <ul>
         <li><a href="index">Home</a></li><hr>
@@ -62,18 +62,19 @@ else $https = false;
     <nav>
     <div class="nav-container">
         <div class="nav-item">
-                <img class="hamburger-menu hamburger" src="svg\bars.svg">
+                <img class="hamburger-menu hamburger" src="images/hamburger.png">
         </div>
 		
     <?php 
         if(isset($_SESSION['loggedin'])) if ($_SESSION['loggedin']){ ?> 
         <div class="loggedintopright nav-item" style="font-size:1rem; color:white;padding: 1rem; border-radius:10px;">
             <span class="loggedin-hello">Hello</span> <?php echo $_SESSION['user']?>
-            
+
             <div class="loggedinsubmenu">
                 <form action="login.php" method="post">
                     <input class="logout-button" type="submit" value="Logout" name="logout">
                     <a href="change-password">Change Password</a>
+                    <a download href="media/UserSatisfactionFeedbackForm.xlsx">User Satisfaction Form</a>
                 </form>
 
             </div>
