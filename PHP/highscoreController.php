@@ -6,11 +6,13 @@ Highscore Handler
 Version 1
 *******************************
 */
+require "functions.php";
 
-
+fnbdebug("Before isset");
 if (isset($_POST['score'])){
     session_start();
     require 'mysqlCredentials.php';
+    fnbdebug("After isset");
 
 
 
@@ -25,7 +27,6 @@ if (isset($_POST['score'])){
         $result->bind_param('s',$_SESSION['user']);
         $result->execute();
         $result->store_result();
-        $result = $link->query($query);
 
         if ($link->connect_error) {
             die("Connection failed: " . $link->connect_error);
@@ -38,6 +39,7 @@ if (isset($_POST['score'])){
             // $userHighScore = $row['score'];
 
             if ($score < $_POST['score']){
+
                 //update database high score if current post > one in db
                 $result = $link->prepare("UPDATE `user` SET `score` = ? WHERE `user` = ?;");
                 $result->bind_param('is',$_POST['score'],$user);

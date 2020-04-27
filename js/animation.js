@@ -308,11 +308,10 @@ function gameLoop(timestamp){
               }
             }
 
-            else if (badguy[j].hp == 0){
+            else if (badguy[j].hp <= 0){
               //Kill badguy here
               // console.log("Badguy " + j + " is dead")
               badguy[j].death(metadata)
-
 
 
             }
@@ -352,7 +351,7 @@ function gameLoop(timestamp){
                   gameoverplayer.play();
                   $('.pause').children().toggleClass('is-active');
 
-
+                  console.log("at ajax")
                   //Ajax send high score to DB
                   $.ajax({
                     type: "POST",
