@@ -11,6 +11,19 @@ include 'PHP/header.php';
 require 'PHP/mysqlCredentials.php';
 $_SESSION['loggedin'] = true;
 ?>
+<head>
+	<script>
+		function validateForm(form){
+			messageToPost = form.firstName.value
+			if (messageToPost==""){
+				alert ("There is NOTHING in the text area!")
+				return false
+			else{
+				return true
+			}
+		}
+	</script>
+</head>
 <?php 
 	if (isset($_SESSION['loggedin'])) {
 		$link = mysqli_connect($host, $un, $pass, $db);
@@ -43,7 +56,7 @@ $_SESSION['loggedin'] = true;
 				}
 			}
 		?>
-		<form name="theForum" class="forum-form" action="forum.php" onsubmit="return validateForm()" method="post">
+		<form name="theForum" class="forum-form" action="forum.php" onsubmit="return validateForm(this)" method="post" >
 			
 			<p>
 				<textarea id="forumTextArea" placeholder="Add to the conversation..." class="forum-form-textarea" name="forumpost" maxlength="400"></textarea>
