@@ -60,7 +60,7 @@ Version 1
     <section class="change-pass-section">
         <?php if($_SESSION['loggedin']){ ?>
             <h1 style="text-align:center">Change password</h1>
-			<div class="registration-notice" style="font-size:0.8rem; text-align:center;">Password Requirements: None of these characters (;, *, >, <), and username and password length must exceed 8 characters.</div>
+			<div class="registration-notice" style="font-size:0.8rem; text-align:center;">Password Requirements: None of these characters (;, *, >, <) can be used, and username and password length must exceed 8 characters.</div>
 
             <form action="change-password.php" method="POST">
                 <input type="password" name="newpass" placeholder="Password">

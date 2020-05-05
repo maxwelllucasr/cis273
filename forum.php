@@ -9,7 +9,6 @@ Version 1
 
 include 'PHP/header.php';
 require 'PHP/mysqlCredentials.php';
-$_SESSION['loggedin'] = true;
 ?>
 <head>
 	<script>

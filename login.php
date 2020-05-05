@@ -22,9 +22,9 @@ include 'PHP/loginSQL.php';
 
 			<form class="login-form" action="login.php" method = "post">
 
-				<input class="login-field" type = "text" placeholder = "Username" name = "user" id="user" required>
+				<input class="login-field" type = "text" placeholder = "Username" name = "user" id="user" required="Username is required">
 
-				<input class="login-field" type = "password" placeholder = "Password" name = "pass" id="pass" required>
+				<input class="login-field" type = "password" placeholder = "Password" name = "pass" id="pass" required="Password is required">
 				
 				<input class="login-submit" type = "submit" value = "Login" name="login-button">
 

@@ -20,16 +20,16 @@ if (!isset($_SESSION['loggedin'])) include 'PHP/registrationSQL.php';
 
 		<?php if (!isset($_SESSION['loggedin'])){ ?>
 
-			<div class="registration-notice" style="font-size:0.8rem;">Password Requirements: None of these characters (.., ;, *, >, <), and username and password length must exceed 8 characters.</div>
+			<div class="registration-notice" style="font-size:0.8rem;">Password Requirements: None of these characters (.., ;, *, >, <) can be used, and username and password length must exceed 8 characters.</div>
 			<form class="registration-form" action="registration.php" method = "post" autocomplete = "off">
 
-				<input class="registration-field" type = "text" placeholder = "Username" name = "user" id="user" required>
+				<input class="registration-field" type = "text" placeholder = "Username" name = "user" id="user" required="Username is required">
 
-				<input class="registration-field" type = "password" placeholder = "Password" name = "pass" id="pass" required>
+				<input class="registration-field" type = "password" placeholder = "Password" name = "pass" id="pass" required="Password is required">
 
-				<input class="registration-field" type = "password" placeholder = "Retype Password" name = "pass2" id="pass2" required>
+				<input class="registration-field" type = "password" placeholder = "Retype Password" name = "pass2" id="pass2" required="Please retype password">
 
-				<input class="registration-field" type = "email" name = "email" placeholder = "Email">
+				<input class="registration-field" type = "email" name = "email" placeholder = "Email" required="Email is required">
 
 				<input class="registration-submit" type = "submit" value = "Register" name="registration-button">
 			</form>
