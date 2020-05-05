@@ -46,7 +46,7 @@ include 'PHP/header.php';
         </div>
 
         <div class="news-clipping">
-            <h2>HTML5 chosen for Food n' Boom'd</h2>
+            <h2>HTML5 & JS chosen for Food n' Boom'd</h2>
             <pre>FEB 2020</pre>
             <p>Oh yes we did!</p>
         
