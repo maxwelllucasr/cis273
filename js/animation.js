@@ -168,7 +168,7 @@ let thanosImg = new Image();
 towerImage.src = "images/milkCarton.png";
 backgroundImage.src = "images/badMap.png";
 bombImage.src = "images/smileyBomb.png";
-milkCarton.src = "images/fridge.png";
+milkCarton.src = "images/fridgeRESIZED.png";
 projectileImg.src = "images/snowball.png";
 thanosImg.src = "images/onepiece.jpg";
 
