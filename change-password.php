@@ -14,27 +14,40 @@ Version 1
         if (isset($_POST['newpass']) && isset($_POST['newpass2'])){
 
             if ($_POST['newpass'] == $_POST['newpass2']){
-                include 'PHP/mysqlCredentials.php';
-                $link = mysqli_connect($host, $un, $pass, $db);
-                if ($link->connect_error) {
-                    die("Connection failed: " . $link->connect_error);
-                } 
-                $pass = escape_tags($_POST['newpass']); //fnb function
 
-                $salt = random_bytes(16);
-                $salted = $salt.$pass;
-                $hash = hash('sha256', $salted);
+                if (
+                    (strpos($_POST['newpass'], "*")) ||
+                    (strpos($_POST['newpass'], "<")) ||
+                    (strpos($_POST['newpass'], ">")) ||
+                    (strpos($_POST['newpass'], ";")) ||
+                    (strlen($_POST['newpass'])<8)
+                ){
+                    echo "<br><span style=\"text-align:center;display:block;margin:auto;width:50%;\" class=\"dev-notice\">Bad password!</span><br>";
+                    
+                }
+                else{
 
-                $result = $link->prepare("UPDATE user SET pass = ?, salt = ? WHERE user = ?");
-                $result->bind_param('sss',$hash, $salt, $_SESSION['user']);
-                $result->execute();
-                $result->store_result();
+                    include 'PHP/mysqlCredentials.php';
+                    $link = mysqli_connect($host, $un, $pass, $db);
+                    if ($link->connect_error) {
+                        die("Connection failed: " . $link->connect_error);
+                    } 
+                    $pass = escape_tags($_POST['newpass']); //fnb function
+
+                    $salt = random_bytes(16);
+                    $salted = $salt.$pass;
+                    $hash = hash('sha256', $salted);
+
+                    $result = $link->prepare("UPDATE user SET pass = ?, salt = ? WHERE user = ?");
+                    $result->bind_param('sss',$hash, $salt, $_SESSION['user']);
+                    $result->execute();
+                    $result->store_result();
 
                 echo "Password changed!"; 
 
                 // if ($result->num_rows == 1){
                 // }
-
+                }
             }
             else echo "Passwords do not match";
         }
@@ -47,6 +60,7 @@ Version 1
     <section class="change-pass-section">
         <?php if($_SESSION['loggedin']){ ?>
             <h1 style="text-align:center">Change password</h1>
+			<div class="registration-notice" style="font-size:0.8rem; text-align:center;">Password Requirements: None of these characters (;, *, >, <), and username and password length must exceed 8 characters.</div>
 
             <form action="change-password.php" method="POST">
                 <input type="password" name="newpass" placeholder="Password">

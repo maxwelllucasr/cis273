@@ -20,7 +20,7 @@ if (!isset($_SESSION['loggedin'])) include 'PHP/registrationSQL.php';
 
 		<?php if (!isset($_SESSION['loggedin'])){ ?>
 
-			<div class="registration-notice" style="font-size:0.8rem;">For security reasons, you aren't allowed to include asterisks, less than or greater than symbols, or semicolons in your username and password.</div>
+			<div class="registration-notice" style="font-size:0.8rem;">Password Requirements: None of these characters (.., ;, *, >, <), and username and password length must exceed 8 characters.</div>
 			<form class="registration-form" action="registration.php" method = "post" autocomplete = "off">
 
 				<input class="registration-field" type = "text" placeholder = "Username" name = "user" id="user" required>

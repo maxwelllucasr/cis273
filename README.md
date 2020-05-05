@@ -19,5 +19,6 @@ It should have the following variables: $db (database), $un (mysql username), $p
 and $host (mysql host server).  This file is untracked and gitignored, so it must be done manually if
 the user has pulled from our github.
 
-Some features, like our email registration, only work on our dev site.  You can log emails to test
-functionality locally if you'd like.
+Some features, like our email registration, only work on our dev site.  You can view emails in 
+/log/debug.log on local development.
+
